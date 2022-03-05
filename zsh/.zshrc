@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 alias cls='clear && ls'
 alias phaserconf='export PYTHONPATH="$PYTHONPATH:$HOME/documents/chill/ADI_Radar_DSP:$HOME/documents/chill/pyadi-iio"'
 alias draw='libreoffice --draw'
+alias csuvpn='sudo openconnect --juniper https://secure.colostate.edu'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

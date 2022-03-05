@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/marchall/dotfiles/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+Dependencies	README.md	/^## Dependencies$/;"	s	chapter:Marshall's config files
+Marshall's config files	README.md	/^# Marshall's config files$/;"	c
+To use:	README.md	/^## To use:$/;"	s	chapter:Marshall's config files
+['<S-Tab>']	nvim/init.lua	/^    ['<S-Tab>'] = function(fallback)$/;"	f
+['<Tab>']	nvim/init.lua	/^    ['<Tab>'] = function(fallback)$/;"	f
+['[M']	nvim/init.lua	/^        ['[M'] = '@function.outer',$/;"	f
+['[m']	nvim/init.lua	/^        ['[m'] = '@function.outer',$/;"	f
+[']M']	nvim/init.lua	/^        [']M'] = '@function.outer',$/;"	f
+[']m']	nvim/init.lua	/^        [']m'] = '@function.outer',$/;"	f
+['af']	nvim/init.lua	/^        ['af'] = '@function.outer',$/;"	f
+['if']	nvim/init.lua	/^        ['if'] = '@function.inner',$/;"	f
+expand	nvim/init.lua	/^    expand = function(args)$/;"	f
+on_attach	nvim/init.lua	/^local on_attach = function(_, bufnr)$/;"	f
