@@ -20,6 +20,7 @@ alias cls='clear && ls'
 alias phaserconf='export PYTHONPATH="$PYTHONPATH:$HOME/documents/chill/ADI_Radar_DSP:$HOME/documents/chill/pyadi-iio"'
 alias draw='libreoffice --draw'
 alias csuvpn='sudo openconnect --juniper https://secure.colostate.edu'
+alias sc="scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s -e 'echo \"Saved to: \$f\"'"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
