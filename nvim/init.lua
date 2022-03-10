@@ -38,6 +38,10 @@ require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 end)
 
+--Set tabstop to 4
+vim.bo.tabstop = 4
+vim.bo.shiftwidth = 4
+
 --Set highlight on search
 vim.o.hlsearch = false
 
