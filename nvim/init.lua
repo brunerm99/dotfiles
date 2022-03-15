@@ -17,7 +17,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -37,10 +37,6 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 end)
-
---Set tabstop to 4
-vim.bo.tabstop = 4
-vim.bo.shiftwidth = 4
 
 --Set highlight on search
 vim.o.hlsearch = false
