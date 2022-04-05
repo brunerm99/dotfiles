@@ -83,7 +83,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-# bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -193,7 +193,7 @@ gaps bottom 0
 bindsym $mod+F12 exec --no-startup-id i3lock -kB 10
 
 # scrot
-bindsym $mod+F11 exec scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s
+bindsym $mod+F11 exec scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s -e 'echo "%Y-%m-%d %H:%M:%S : Saved screenshot to: $f" >> /var/log/scrot.log'
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
