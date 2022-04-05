@@ -189,8 +189,11 @@ for_window [class="^.*"] border pixel 2
 gaps inner 25
 gaps bottom 0
 
-# i3lock-color on $mod+l
-bindsym $mod+F12 exec --no-startup-id i3lock -kB 10
+# betterlockscreen
+bindsym $mod+o exec --no-startup-id betterlockscreen -l
+
+# sleep
+bindsym $mod+p exec systemctl suspend
 
 # scrot
 bindsym $mod+F11 exec scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s -e 'echo "%Y-%m-%d %H:%M:%S : Saved screenshot to: $f" >> /var/log/scrot.log'
