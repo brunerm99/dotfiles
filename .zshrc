@@ -2,6 +2,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:~/.emacs.d/bin
 
 # Theme
 ZSH_THEME="agnoster"
@@ -18,10 +19,14 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias cls='clear && ls'
 alias phaserconf='export PYTHONPATH="$PYTHONPATH:$HOME/documents/chill/ADI_Radar_DSP:$HOME/documents/chill/pyadi-iio"'
-alias draw='libreoffice --draw'
-alias writer='libreoffice --writer'
 alias csuvpn='sudo openconnect --juniper https://secure.colostate.edu'
 alias sc="scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s -e 'echo \"Saved to: \$f\"'"
+alias cpsh="cp ~/media/scrot/$(ls -tr ~/media/scrot/ | tail -1) ."
+
+# Libreoffice stuff
+alias draw='libreoffice --draw'
+alias writer='libreoffice --writer'
+alias impress='libreoffice --impress'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
