@@ -1,0 +1,23 @@
+#+title: Marshall's config files
+#+options: toc:nil
+
+* Essential programs
+** Text editor
+- vim
+  - basic and quick stuff
+- [[https://github.com/hlissner/doom-emacs][doom emacs]]
+  - org-roam
+  - ob-ipython
+** Terminal
+*** Shell
+- zsh
+- [[https://ohmyz.sh/][oh-my-zsh]]
+*** Emulator
+- KDE konsole
+** Desktop
+*** Window manager
+- [[https://github.com/Airblader/i3][i3-gaps]]
+*** Top bar
+- [[https://polybar.github.io/][polybar]]
+*** Lock screen
+- [[https://github.com/betterlockscreen/betterlockscreen][betterlockscreen]]
