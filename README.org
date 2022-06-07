@@ -12,6 +12,7 @@
 *** Shell
 - zsh
 - [[https://ohmyz.sh/][oh-my-zsh]]
+- [[https://github.com/romkatv/powerlevel10k][powerlevel10k]]
 *** Emulator
 - KDE konsole
 ** Desktop
