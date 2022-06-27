@@ -14,7 +14,7 @@
 - [[https://ohmyz.sh/][oh-my-zsh]]
 - [[https://github.com/romkatv/powerlevel10k][powerlevel10k]]
 *** Emulator
-- KDE konsole
+- [[https://github.com/alacritty/alacritty][Alacritty]]
 ** Desktop
 *** Window manager
 - [[https://github.com/Airblader/i3][i3-gaps]]
