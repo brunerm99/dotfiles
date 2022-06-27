@@ -1,15 +1,12 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# ZSH config
+
+# Powerlevel10k prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# ZSH Config
-
-# Path to your oh-my-zsh installation.
+# oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
-# export PATH=$PATH:~/.emacs.d/bin
 
 # Theme
 ZSH_THEME="agnoster"
@@ -23,22 +20,52 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Aliases
+### Aliases ###
 alias cls='clear && ls'
-alias ls='exa'
+
+# ls
+alias ls='exa --group-directories-first'
+alias lt='exa -lT --git --group-directories-first --level=2'
+alias la='exa -al --git --group-directories-first'
+alias l.='exa -al --git --group-directories-first | grep "^\."'
+alias lg='exa -al --git --group-directories-first'
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# Git
+alias gs='git status'
+alias gl='git log --graph --decorate --oneline'
+alias gall='git add -A'
+alias ga='git add'
+alias gp='git push'
+alias gc='git commit -m'
+
+# Work / school
 alias phaserconf='export PYTHONPATH="$PYTHONPATH:$HOME/documents/chill/ADI_Radar_DSP:$HOME/documents/chill/pyadi-iio"'
 alias csuvpn='sudo openconnect --juniper https://secure.colostate.edu'
+
+# Screenshotting 
 alias sc="scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s -e 'echo \"Saved to: \$f\"'"
 alias cpsh="cp ~/media/scrot/$(ls -tr ~/media/scrot/ | tail -1) ."
 
-# Libreoffice stuff
+# Libreoffice 
 alias draw='libreoffice --draw'
 alias writer='libreoffice --writer'
 alias impress='libreoffice --impress'
 
-# Flutter stuff
+# Flutter 
 export ANDROID_HOME=/home/marchall/Android/sdk
 export CHROME_EXECUTABLE=/sbin/google-chrome-stable
+
+# Exports
+export PATH=$PATH:$HOME/.local/bin
+export XDG_CONFIG_HOME=$HOME/.config
+export WALLPAPER_HOME=$HOME/media/wallpapers
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -55,6 +82,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Prompt
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
