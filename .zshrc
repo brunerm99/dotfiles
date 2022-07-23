@@ -21,7 +21,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 ### Aliases ###
-alias cls='clear && ls'
+alias cls='clear && ls' # the most important alias
 
 # ls
 alias ls='exa --group-directories-first'
@@ -29,6 +29,8 @@ alias lt='exa -lT --git --group-directories-first --level=2'
 alias la='exa -al --git --group-directories-first'
 alias l.='exa -al --git --group-directories-first | grep "^\."'
 alias lg='exa -al --git --group-directories-first'
+alias df='df -h'
+alias du='du -h'
 
 # Navigation
 alias ..='cd ..'
