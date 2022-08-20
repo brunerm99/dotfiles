@@ -52,7 +52,7 @@ bindsym $mod+Shift+q kill
 
 # Start rofi - app launcher, emoji selector, etc.
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+m exec --no-startup-id rofi -show emoji -modi emoji 
+# bindsym $mod+m exec --no-startup-id rofi -show emoji -modi emoji 
 
 # change focus
 bindsym $mod+h focus left
@@ -142,7 +142,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 set $sysmenu "  [<b>r</b>]estart - [<b>l</b>]ogout - [<b>s</b>]uspend - re[<b>b</b>]oot - po[<b>w</b>]eroff  "
-bindsym $mod+Shift+m      mode $sysmenu
+# bindsym $mod+Shift+m      mode $sysmenu
 
 mode $sysmenu {
     bindsym r         restart
@@ -197,6 +197,10 @@ for_window [class="^.*"] border pixel 2
 gaps outer -5
 gaps inner 10
 smart_gaps on
+
+# move workspace to other screen
+bindsym $mod+Shift+n move workspace to output left
+bindsym $mod+Shift+m move workspace to output right
 
 # betterlockscreen
 bindsym $mod+o exec --no-startup-id betterlockscreen -l
