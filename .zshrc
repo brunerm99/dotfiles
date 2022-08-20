@@ -25,6 +25,8 @@ source $ZSH/oh-my-zsh.sh
 # ls
 alias ls='exa --group-directories-first'
 alias lt='exa -lT --git --group-directories-first --level=2'
+alias lt3='exa -lT --git --group-directories-first --level=3'
+alias lt4='exa -lT --git --group-directories-first --level=4'
 alias la='exa -al --git --group-directories-first'
 alias l.='exa -al --git --group-directories-first | grep "^\."'
 alias lg='exa -al --git --group-directories-first'
