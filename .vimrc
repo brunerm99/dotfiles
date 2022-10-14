@@ -5,5 +5,5 @@ syntax on
 set number
 
 " Use tab size = 4 
-set autoindent expandtab tabstop=2 shiftwidth=2
+set autoindent expandtab tabstop=4 shiftwidth=4
 " retab!
