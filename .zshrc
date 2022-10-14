@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# oh-my-zsh installation
+# oh-my-zsh 
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
@@ -22,8 +22,9 @@ source $ZSH/oh-my-zsh.sh
 
 ### Aliases ###
 
-# ls
-alias ls='exa --group-directories-first'
+# ls and clear
+alias ls='exa -l --git --group-directories-first'
+alias ll='exa --group-directories-first'
 alias lt='exa -lT --git --group-directories-first --level=2'
 alias lt3='exa -lT --git --group-directories-first --level=3'
 alias lt4='exa -lT --git --group-directories-first --level=4'
@@ -34,6 +35,7 @@ alias cls='clear && ls' # the most important alias
 alias cla='clear && la'
 alias df='df -h'
 alias du='du -h'
+alias clc='clear'
 
 # Navigation
 alias ..='cd ..'
@@ -41,6 +43,7 @@ alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+alias back='cd -'
 
 # Git
 alias gs='git status'
@@ -49,14 +52,10 @@ alias gall='git add -A'
 alias ga='git add'
 alias gp='git push'
 alias gc='git commit -m'
+alias gbv='git branch -v'
 
 # Work / school
-alias phaserconf='export PYTHONPATH="$PYTHONPATH:$HOME/documents/chill/ADI_Radar_DSP:$HOME/documents/chill/pyadi-iio"'
 alias csuvpn='sudo openconnect --juniper https://secure.colostate.edu'
-
-# Screenshotting 
-alias sc="scrot -f $HOME/media/scrot/%Y-%m-%d_%H-%M-%S.png -s -e 'echo \"Saved to: \$f\"'"
-alias cpsh="cp ~/media/scrot/$(ls -tr ~/media/scrot/ | tail -1) ."
 
 # Libreoffice 
 alias draw='libreoffice --draw'
