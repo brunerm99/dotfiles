@@ -54,6 +54,9 @@ alias gp='git push'
 alias gc='git commit -m'
 alias gbv='git branch -v'
 
+# Bashly for creating nice bash CLIs
+alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
+
 # Work / school
 alias csuvpn='sudo openconnect --juniper https://secure.colostate.edu'
 
