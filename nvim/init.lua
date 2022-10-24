@@ -26,11 +26,11 @@ require('packer').startup(function(use)
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  -- use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
+  -- use 'nvim-nreesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  -- use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
@@ -105,15 +105,15 @@ vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
 vim.g.indent_blankline_show_trailing_blankline_indent = false
 
 -- Gitsigns
-require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
-}
+-- require('gitsigns').setup {
+--   signs = {
+--     add = { text = '+' },
+--     change = { text = '~' },
+--     delete = { text = '_' },
+--     topdelete = { text = '‾' },
+--     changedelete = { text = '~' },
+--   },
+-- }
 
 -- Telescope
 require('telescope').setup {
@@ -143,56 +143,56 @@ vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin'
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true, -- false will disable the whole extension
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
-    },
-  },
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
-  },
-}
+-- require('nvim-treesitter.configs').setup {
+--   highlight = {
+--     enable = true, -- false will disable the whole extension
+--   },
+--   incremental_selection = {
+--     enable = true,
+--     keymaps = {
+--       init_selection = 'gnn',
+--       node_incremental = 'grn',
+--       scope_incremental = 'grc',
+--       node_decremental = 'grm',
+--     },
+--   },
+--   indent = {
+--     enable = true,
+--   },
+--   textobjects = {
+--     select = {
+--       enable = true,
+--       lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+--       keymaps = {
+--         -- You can use the capture groups defined in textobjects.scm
+--         ['af'] = '@function.outer',
+--         ['if'] = '@function.inner',
+--         ['ac'] = '@class.outer',
+--         ['ic'] = '@class.inner',
+--       },
+--     },
+--     move = {
+--       enable = true,
+--       set_jumps = true, -- whether to set jumps in the jumplist
+--       goto_next_start = {
+--         [']m'] = '@function.outer',
+--         [']]'] = '@class.outer',
+--       },
+--       goto_next_end = {
+--         [']M'] = '@function.outer',
+--         [']['] = '@class.outer',
+--       },
+--       goto_previous_start = {
+--         ['[m'] = '@function.outer',
+--         ['[['] = '@class.outer',
+--       },
+--       goto_previous_end = {
+--         ['[M'] = '@function.outer',
+--         ['[]'] = '@class.outer',
+--       },
+--     },
+--   },
+-- }
 
 -- Diagnostic keymaps
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })

@@ -35,6 +35,7 @@ alias cls='clear && ls' # the most important alias
 alias cla='clear && la'
 alias df='df -h'
 alias du='du -h'
+alias lsusage='du -h . -d 1'
 alias clc='clear'
 
 # Navigation
@@ -53,6 +54,9 @@ alias ga='git add'
 alias gp='git push'
 alias gc='git commit -m'
 alias gbv='git branch -v'
+
+# NeoVim
+alias vim='nvim'
 
 # Bashly for creating nice bash CLIs
 alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
