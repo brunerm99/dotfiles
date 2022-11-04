@@ -63,15 +63,40 @@ require('lualine').setup {
   extensions = {}
 }
 
+-- git signs
+require('gitsigns').setup()
+
+-- syntax highlighting 
+require('nvim-treesitter').setup {
+    ensure_installed = {
+        "python", "bash", "c", "lua"
+    },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    }
+}
+
 -- packages
 return require('packer').startup(function(use)
+    -- package manager
     use 'wbthomason/packer.nvim'
 
+    -- commenting
     use 'tpope/vim-commentary'
+
+    -- bottom bar
     use {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
+    -- theme
     use 'tanvirtin/monokai.nvim'
+
+    -- git signs
+    use 'lewis6991/gitsigns.nvim'
+
+    -- syntax highlighting
+    use 'nvim-treesitter/nvim-treesitter'
 end)
