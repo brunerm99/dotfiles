@@ -38,6 +38,10 @@ alias cla='clear && la'
 alias df='df -h'
 alias du='du -h'
 alias lsusage='du -h . -d 1'
+alias spaceblame='sudo du -h . | 
+    sort -hr | 
+    head -n 10 | 
+    column -t -N "Space,Directory" -o " | "'
 alias clc='clear'
 
 # Navigation
