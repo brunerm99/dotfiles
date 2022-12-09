@@ -8,6 +8,8 @@ fi
 # oh-my-zsh 
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR="nvim"
+
 # Theme
 ZSH_THEME="agnoster"
 
@@ -54,6 +56,8 @@ alias ga='git add'
 alias gp='git push'
 alias gc='git commit -m'
 alias gbv='git branch -v'
+alias gsp='git stash pop'
+alias gst='git stash'
 
 # NeoVim
 alias vim='nvim'
