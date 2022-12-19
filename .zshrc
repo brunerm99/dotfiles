@@ -66,6 +66,9 @@ alias gst='git stash'
 # NeoVim
 alias vim='nvim'
 
+# Other
+alias ispeed='echo "Running internet speed test..." && speedtest-cli --simple --bytes' # internet speed
+
 # Bashly for creating nice bash CLIs
 alias bashly='docker run --rm -it --user $(id -u):$(id -g) --volume "$PWD:/app" dannyben/bashly'
 
