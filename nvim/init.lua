@@ -1,6 +1,8 @@
+local g = vim.g
 local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
+local opt = vim.opt
 
 o.swapfile = true
 o.dir = '/tmp'
@@ -17,6 +19,8 @@ wo.wrap = true
 bo.expandtab = true
 bo.tabstop = 4
 bo.shiftwidth = 4
+
+opt.clipboard = 'unnamedplus'
 
 -- theme
 require('monokai').setup()
