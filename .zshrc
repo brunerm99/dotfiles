@@ -59,7 +59,7 @@ alias gall='git add -A'
 alias ga='git add'
 alias gp='git push'
 alias gc='git commit -m'
-alias gbv='git branch -v'
+alias gbv='git branch -v --color=always | grep -v "gone"'
 alias gsp='git stash pop'
 alias gst='git stash'
 
@@ -88,6 +88,7 @@ export CHROME_EXECUTABLE=/sbin/google-chrome-stable
 export PATH=$PATH:$HOME/.local/bin
 export XDG_CONFIG_HOME=$HOME/.config
 export WALLPAPER_HOME=$HOME/media/wallpapers
+export CRONLOG=$HOME/.local/share/cron/logs
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
