@@ -38,7 +38,7 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-# Disable keypad clicks when typing
-exec syndaemon -i 0.5 -K -R -d
-
 exec i3
+
+# Start notification daemon
+exec dunst 

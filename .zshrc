@@ -62,6 +62,7 @@ alias gc='git commit -m'
 alias gbv='git branch -v --color=always | grep -v "gone"'
 alias gsp='git stash pop'
 alias gst='git stash'
+alias gss='git stash show'
 
 # NeoVim
 alias vim='nvim'
