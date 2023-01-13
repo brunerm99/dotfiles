@@ -22,6 +22,22 @@ bo.shiftwidth = 4
 
 opt.clipboard = 'unnamedplus'
 
+-- remapping
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map('i', '"', '""<left>')
+map('i', "'", "''<left>")
+map('i', '(', '()<left>')
+map('i', '[', '[]<left>')
+map('i', '{', '{}<left>')
+
+
 -- theme
 require('monokai').setup()
 
