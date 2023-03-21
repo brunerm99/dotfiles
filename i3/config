@@ -186,3 +186,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # background using nitrogen
 exec_always --no-startup-id nitrogen --restore
+
+# temporary while developing
+bindsym $mod+t exec --no-startup-id /home/marchall/.local/bin/todo 
