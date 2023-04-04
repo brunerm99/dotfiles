@@ -1,0 +1,38 @@
+#!/bin/bash
+
+battery=/sys/class/power_supply/BAT0/
+pct=$(cat "$battery/capacity")
+charging=$(cat "$battery/status")
+
+if [ "$pct" -gt "90" ]; then
+    icon=""
+elif [ "$pct" -gt "70" ]; then
+    icon=""
+elif [ "$pct" -gt "50" ]; then
+    icon=""
+elif [ "$pct" -gt "20" ]; then
+    icon=""
+else
+    icon=""
+fi
+
+if [ "$charging" = "Discharging" ]; then
+    charging_icon=""
+else
+    charging_icon=""
+fi
+
+case $1 in
+    percent)
+        echo "$pct%"
+        ;;
+    battery)
+        echo "$icon"
+        ;;
+    charging)
+        echo "$charging_icon"
+        ;;
+    *)
+        echo "$charging_icon $icon"
+        ;;
+esac

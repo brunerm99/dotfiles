@@ -1,0 +1,120 @@
+* {
+  all: unset;
+  font-family: 'JetBrains Mono';
+}
+
+// Variable Color's
+$background: #1A1B26;
+$foreground: #A9B1D6;
+
+$black: #24283B;
+$gray: #565F89;
+$red: #F7768E;
+$green: #73DACA;
+$yellow: #E0AF68;
+$blue: #7AA2F7;
+$magenta: #BB9AF7;
+$cyan: #7DCFFF;
+$white: $foreground;
+
+.sidebar {
+    // background-color: $black;
+    opacity: 1;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+.top{
+    background-color: $black;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+.bottom {
+    background-color: $black;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+
+.reveal-power {
+    font-size: 18;
+    color: $black;
+    background-color: $green;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    // margin-top: 5px;
+    // margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.reveal-power-charging {
+    font-size: 26;
+    margin-bottom: 5px;
+}
+
+.time {
+    border-color: $green;
+    border-radius: 10px;
+    font-size: 24;
+    color: $blue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: $gray;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.battery {
+    color: $blue;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 24px;
+    background-color: $gray;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.wifi {
+    color: $blue;
+    background-color: $gray;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 24px;
+}
+
+.workspace, .workspace-active {
+    font-size: 22;
+}
+
+.workspace-active {
+    background-color: $red;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

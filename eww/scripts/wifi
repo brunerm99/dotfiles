@@ -1,0 +1,23 @@
+#!/bin/bash
+
+network_name=$(nmcli device show wlp61s0 | grep "GENERAL.CONNECTION" | awk '{ print $2 }') 
+ip=$(nmcli device show wlp61s0 | grep "IP4.ADDRESS" | awk '{ print $2 }') 
+
+if [ "$network_name" != "" ]; then
+    icon=""
+fi
+
+case $1 in
+    name)
+        echo "$network_name"
+        ;;
+    ip)
+        echo "IP: $ip"
+        ;;
+    icon)
+        echo "$icon"
+        ;;
+    *)
+        echo -e "$network_name\nIP: $ip"
+        ;;
+esac

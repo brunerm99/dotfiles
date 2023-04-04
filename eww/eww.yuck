@@ -1,0 +1,116 @@
+(defwidget workspaces []
+    (literal :content workspaces))
+    (defpoll workspaces :interval "0.5s" "python scripts/group_parse.py yuck")
+
+(defwidget wifi []
+    (box    :orientation "v" 
+            :class "wifi"
+            :valign "end"
+    (label  :class "wifi-label"
+            :tooltip "${wifi_info}"
+            :text wifi_icon)))
+    (defpoll wifi_info :interval "1s" "scripts/wifi")
+    (defpoll wifi_icon :interval "1s" "scripts/wifi icon")
+
+(defwidget power []
+    (eventbox
+            :onhover "eww update power_reveal=true"
+            :onhoverlost "eww update power_reveal=false"
+    (box    :orientation "v" 
+            :class "power"
+            :valign "end"
+            :vexpand "false"
+            :spaceevenly "false"
+    (revealer
+            :transition "slideup"
+            :reveal power_reveal
+            :duration "550ms"
+        (box    :orientation "v"
+                :spaceevenly false
+                :class "reveal-power"
+                :vexpand "false"
+        (button :class "reveal-power-charging"
+                :tooltip "charging indicator"
+                :onclick 'dunstify -A "Bar" "charging clicked"'
+                charging)
+        (button :class "reveal-power-percent"
+                :tooltip "charging indicator"
+                :onclick 'dunstify -A "Bar" "charging clicked"'
+                battery_percent)
+            ))
+    (label  :class "battery"
+            :text battery
+            :vexpand false)
+    )))
+    (defpoll battery :interval "1s" "scripts/battery battery")
+    (defpoll charging :interval "1s" "scripts/battery charging")
+    (defpoll battery_percent :interval "1s" "scripts/battery percent")
+    (defvar power_reveal false)
+
+(defwidget time []
+    (box :orientation "v"
+            :class "time"
+            :valign "end"
+            ; :halign "center"
+	(button	:onclick "notify-send 'Hour clicked'"	
+			:class "time-hour" hour)
+	(button	:onclick 'dunstify -a "Calendar" "$(cal --three)" -r 99'	
+			:class "time-min"  minute)))
+(defpoll hour :interval "1s" "date '+%H'")
+(defpoll minute :interval "1s" "date '+%M'")
+
+(defwidget top []
+    (box :orientation "v"
+            :space-evenly "false"
+            :valign "start"
+            :class "top"
+        (workspaces)))
+
+(defwidget bottom []
+    (box :orientation "v"
+        :space-evenly "false"
+        :valign "end"
+        :class "bottom"
+    (wifi)
+    (power)
+    (time)
+    ))
+
+(defwidget greeter [?text name]
+    (box :orientation "v"
+            :halign "center"
+            :valign "end"
+            :x "100px"
+            :y "20px"
+            :anchor "left"
+        text
+        (button :onclick "notify-send 'Greeter' 'Hello, ${name}'"
+            "Greet")))
+
+
+(defwidget bar []
+    (box :class "sidebar"
+        :orientation "v"
+        :vexpand "false"
+        :hexpand "false"
+    (top)
+    (bottom)))
+
+(defwindow sidebar
+    :geometry (geometry 
+                    :x "10px"
+                    :y "0px"
+                    :anchor "center left"
+                    :height "100%"
+                    :width "50px"
+                )
+    :monitor 0
+    :reserve (struts 
+                :distance "35px"
+                :side "left")
+    :wm-ignore false
+    :hexpand false
+    :vexpand false
+    (bar))
+    ; (greeter :text "Say hello"
+    ;             :name "Marshall"))

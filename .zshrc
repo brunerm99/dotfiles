@@ -8,7 +8,7 @@ fi
 # oh-my-zsh 
 export ZSH="$HOME/.oh-my-zsh"
 
-export EDITOR="nvim"
+export EDITOR="vim"
 
 # Theme
 ZSH_THEME="agnoster"
@@ -65,7 +65,7 @@ alias gst='git stash'
 alias gss='git stash show'
 
 # NeoVim
-alias vim='nvim'
+# alias vim='nvim'
 
 # Other
 alias ispeed='echo "Running internet speed test..." && speedtest-cli --simple --bytes' # internet speed
@@ -93,14 +93,14 @@ export CRONLOG=$HOME/.local/share/cron/logs
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/marchall/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/marchall/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/marchall/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/marchall/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/marchall/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/marchall/.anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/marchall/miniconda3/bin:$PATH"
+        export PATH="/home/marchall/.anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
