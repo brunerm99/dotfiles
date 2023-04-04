@@ -1,0 +1,51 @@
+#!/bin/bash
+
+get_volume () {
+    volume=$(amixer sget Master | 
+        awk -F"[][]" '{ print $2 }' | 
+        tail -1 | 
+        sed 's/[^0-9]//g')
+    muted=$(amixer sget Master | 
+        awk -F"[][]" '{ print $4 }' | 
+        tail -1)
+}
+
+case $1 in 
+    icon)
+        get_volume
+        if [ "$muted" = "off" ]; then
+            echo ""
+        elif [ "$volume" -ge 50 ]; then
+            echo ""
+        elif [ "$volume" -ge 0 ]; then
+            echo ""
+        elif [ "$volume" -eq 0 ]; then
+            echo ""
+        fi
+        ;;
+    status)
+        get_volume
+        echo "$muted"
+        ;;
+    volume)
+        get_volume
+        echo "$volume"
+        ;;
+    toggle)
+        amixer set Master toggle
+        if [ "$2" = "notify" ]; then
+            get_volume
+            dunstify "Volume $muted" -r 100
+        fi
+        ;;
+    increment)
+        amixer set Master 10%+
+        get_volume
+        dunstify "Volume: $volume%" -r 100
+        ;;
+    decrement)
+        amixer set Master 10%-
+        get_volume
+        dunstify "Volume: $volume%" -r 100
+        ;;
+esac 

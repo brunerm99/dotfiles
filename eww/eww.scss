@@ -118,3 +118,18 @@ $white: $foreground;
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.volume-label {
+    color: $blue;
+    background-color: $gray;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 24px;
+}

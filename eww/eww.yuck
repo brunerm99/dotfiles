@@ -1,6 +1,16 @@
 (defwidget workspaces []
     (literal :content workspaces))
-    (defpoll workspaces :interval "0.5s" "python scripts/group_parse.py yuck")
+    (defpoll workspaces :interval "0.5s" "/usr/bin/python scripts/group_parse.py yuck")
+
+(defwidget volume []
+    (box    :orientation "v"
+            :class "volume"
+            :valign "end"
+        (button :class "volume-label"
+                :onclick "scripts/volume toggle"
+                volume_icon))    
+    )
+    (defpoll volume_icon :interval "500ms" "scripts/volume icon")
 
 (defwidget wifi []
     (box    :orientation "v" 
@@ -71,6 +81,7 @@
         :space-evenly "false"
         :valign "end"
         :class "bottom"
+    (volume)
     (wifi)
     (power)
     (time)
