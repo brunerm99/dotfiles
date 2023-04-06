@@ -8,7 +8,7 @@ red="#F7768E"
 case $1 in 
     connect)
         bluetoothctl devices Paired | 
-            grep "$(bluetoothctl devices | cut -f3- -d' ' | rofi -show -dmenu -p 'Select device')" | 
+            grep "$(bluetoothctl devices Paired | cut -f3- -d' ' | rofi -show -dmenu -p 'Select device')" | 
             cut -f2 -d' ' | 
             xargs bluetoothctl connect
         ;;

@@ -59,7 +59,7 @@ keys = [
     Key(
         [mod],
         "u",
-        lazy.spawn("rofi-pwr"),
+        lazy.spawn("/home/marchall/.local/bin/rofi-pwr"),
         desc="Rofi power menu",
     ),
     Key(

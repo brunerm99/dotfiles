@@ -17,7 +17,7 @@ elif [ "$pct" -ge "70" ]; then
 elif [ "$pct" -ge "40" ]; then
     icon=""
     color="$yellow"
-elif [ "$pct" -ge "20" ]; then
+elif [ "$pct" -ge "15" ]; then
     icon=""
     color="$red"
 else
