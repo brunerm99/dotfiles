@@ -3,13 +3,23 @@
     (defpoll workspaces :interval "0.5s" "/usr/bin/python scripts/group_parse.py yuck")
 
 (defwidget volume []
+    (eventbox   
+            :onhover "eww update volume_reveal=true"
+            :onhoverlost "eww update volume_reveal=false"
     (box    :orientation "v"
             :class "volume"
             :valign "end"
+        ; (scale  :orientation "v"
+        ;         :min 5
+        ;         :max 100
+        ;         :value 50
+        ;         :onchange 'dunstify "Volume: {}"'
+        ;     )
         (button :class "volume-label"
                 :onclick "scripts/volume toggle"
-                volume_icon))    
+                volume_icon)))
     )
+    (defvar volume_reveal false)
     (defpoll volume_icon :interval "500ms" "scripts/volume icon")
 
 (defwidget wifi []
@@ -40,11 +50,9 @@
                 :class "reveal-power"
                 :vexpand "false"
         (button :class "reveal-power-charging"
-                :tooltip "charging indicator"
                 :onclick 'dunstify -A "Bar" "charging clicked"'
                 charging)
         (button :class "reveal-power-percent"
-                :tooltip "charging indicator"
                 :onclick 'dunstify -A "Bar" "charging clicked"'
                 battery_percent)
             ))
@@ -61,11 +69,13 @@
     (box :orientation "v"
             :class "time"
             :valign "end"
+            :tooltip date_formatted
             ; :halign "center"
 	(button	:onclick "notify-send 'Hour clicked'"	
 			:class "time-hour" hour)
 	(button	:onclick 'dunstify -a "Calendar" "$(cal --three)" -r 99'	
 			:class "time-min"  minute)))
+(defpoll date_formatted :interval "1m" "date '+%Y-%m-%d'")
 (defpoll hour :interval "1s" "date '+%H'")
 (defpoll minute :interval "1s" "date '+%M'")
 
@@ -107,6 +117,18 @@
     (top)
     (bottom)))
 
+(defwidget volume_widget []
+    (box :orientation "v"
+            :class "volume-slider-widget"
+            :halign "center"
+            :valign "end"
+            :x "100px"
+            :y "20px"
+            :anchor "left"
+        "hello"
+        (button :onclick "notify-send 'Greeter' 'Hello, name'"
+            "Greet")))
+
 (defwindow sidebar
     :geometry (geometry 
                     :x "10px"
@@ -125,3 +147,20 @@
     (bar))
     ; (greeter :text "Say hello"
     ;             :name "Marshall"))
+
+; Maybe do a side bar slider??
+(defwindow volume_slider
+    :geometry (geometry
+                    :x "80px"
+                    :y "200px"
+                    :anchor "center left"
+                    :height "20px"
+                    :width "100px")
+    :monitor 0
+    :reserve (struts
+                :distance "100px"
+                :side "left")
+    :wm-ignore false
+    :hexpand true
+    :vexpand false
+    (volume_widget))
