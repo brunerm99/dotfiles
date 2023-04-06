@@ -24,7 +24,6 @@ elif sys.argv[1] == "yuck":
     GROUP_OUTPUT = """
     (box    :orientation "v"
             :valign "start"
-            :spaceevenly true
             :spacing 15
             :halign "center"
         {inner_groups}
@@ -33,7 +32,6 @@ elif sys.argv[1] == "yuck":
 
     INNER_GROUP = """
     (box    :orientation "v"
-            :spaceevenly true
             :class "{classname}"
             :valign "start"
         (label :text "{name}"))

@@ -4,13 +4,13 @@ battery=/sys/class/power_supply/BAT0/
 pct=$(cat "$battery/capacity")
 charging=$(cat "$battery/status")
 
-if [ "$pct" -gt "90" ]; then
+if [ "$pct" -ge "90" ]; then
     icon=""
-elif [ "$pct" -gt "70" ]; then
+elif [ "$pct" -ge "70" ]; then
     icon=""
-elif [ "$pct" -gt "50" ]; then
+elif [ "$pct" -ge "40" ]; then
     icon=""
-elif [ "$pct" -gt "20" ]; then
+elif [ "$pct" -ge "20" ]; then
     icon=""
 else
     icon=""

@@ -8,20 +8,21 @@ get_volume () {
     muted=$(amixer sget Master | 
         awk -F"[][]" '{ print $4 }' | 
         tail -1)
+    if [ "$muted" = "off" ]; then
+        icon=""
+    elif [ "$volume" -ge 50 ]; then
+        icon=""
+    elif [ "$volume" -ge 0 ]; then
+        icon=""
+    elif [ "$volume" -eq 0 ]; then
+        icon=""
+    fi
 }
 
 case $1 in 
     icon)
         get_volume
-        if [ "$muted" = "off" ]; then
-            echo ""
-        elif [ "$volume" -ge 50 ]; then
-            echo ""
-        elif [ "$volume" -ge 0 ]; then
-            echo ""
-        elif [ "$volume" -eq 0 ]; then
-            echo ""
-        fi
+        echo "$icon"
         ;;
     status)
         get_volume
@@ -35,17 +36,17 @@ case $1 in
         amixer set Master toggle
         if [ "$2" = "notify" ]; then
             get_volume
-            dunstify "Volume $muted" -r 100
+            dunstify "Volume $icon" -r 100
         fi
         ;;
     increment)
         amixer set Master 10%+
         get_volume
-        dunstify "Volume: $volume%" -r 100
+        dunstify "Volume: $icon $volume%" -r 100
         ;;
     decrement)
         amixer set Master 10%-
         get_volume
-        dunstify "Volume: $volume%" -r 100
+        dunstify "Volume: $icon $volume%" -r 100
         ;;
 esac 
