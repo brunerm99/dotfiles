@@ -32,6 +32,19 @@
     (defpoll wifi_info :interval "1s" "scripts/wifi")
     (defpoll wifi_icon :interval "1s" "scripts/wifi icon")
 
+(defwidget bluetooth []
+    (box    :orientation "v" 
+            :class "bluetooth"
+            :valign "end"
+    (button :class "bluetooth-label"
+            :style "color: ${bluetooth_color}"
+            :tooltip "${bluetooth_info}"
+            :onclick "bluetooth connect"
+            :onrightclick "bluetooth disconnect"
+            "")))
+    (defpoll bluetooth_info :interval "1s" "scripts/bluetooth connected")
+    (defpoll bluetooth_color :interval "1s" "scripts/bluetooth color")
+
 (defwidget power []
     (eventbox
             :onhover "eww update power_reveal=true"
@@ -57,10 +70,13 @@
                 battery_percent)
             ))
     (label  :class "battery"
+            :style "color: ${battery_color}"
             :text battery
             :vexpand false)
     )))
     (defpoll battery :interval "1s" "scripts/battery battery")
+    ; (defvar battery_color "#E0AF68")
+    (defpoll battery_color :interval "1s" "scripts/battery color")
     (defpoll charging :interval "1s" "scripts/battery charging")
     (defpoll battery_percent :interval "1s" "scripts/battery percent")
     (defvar power_reveal false)
@@ -79,6 +95,16 @@
 (defpoll hour :interval "1s" "date '+%H'")
 (defpoll minute :interval "1s" "date '+%M'")
 
+(defwidget network []
+    (box    :orientation "v"
+            :spaceevenly true
+            :spacing 20
+            :valign "end"
+            :class "network"
+        (bluetooth)
+        (wifi)
+    ))
+
 (defwidget top []
     (box :orientation "v"
             :space-evenly "false"
@@ -92,7 +118,7 @@
         :valign "end"
         :class "bottom"
     (volume)
-    (wifi)
+    (network)
     (power)
     (time)
     ))

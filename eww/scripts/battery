@@ -4,16 +4,25 @@ battery=/sys/class/power_supply/BAT0/
 pct=$(cat "$battery/capacity")
 charging=$(cat "$battery/status")
 
+green="#73daca"
+yellow="#E0AF68"
+red="#F7768E"
+
 if [ "$pct" -ge "90" ]; then
     icon=""
+    color="$green"
 elif [ "$pct" -ge "70" ]; then
     icon=""
+    color="$green"
 elif [ "$pct" -ge "40" ]; then
     icon=""
+    color="$yellow"
 elif [ "$pct" -ge "20" ]; then
     icon=""
+    color="$red"
 else
     icon=""
+    color="$red"
 fi
 
 if [ "$charging" = "Discharging" ]; then
@@ -31,6 +40,9 @@ case $1 in
         ;;
     charging)
         echo "$charging_icon"
+        ;;
+    color)
+        echo "$color"
         ;;
     *)
         echo "$charging_icon $icon"

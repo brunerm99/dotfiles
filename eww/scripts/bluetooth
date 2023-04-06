@@ -1,0 +1,32 @@
+#!/bin/bash
+# Rofi interface for bluetooth
+
+green="#73daca"
+yellow="#E0AF68"
+red="#F7768E"
+
+case $1 in 
+    connect)
+        bluetoothctl devices Paired | 
+            grep "$(bluetoothctl devices | cut -f3- -d' ' | rofi -show -dmenu -p 'Select device')" | 
+            cut -f2 -d' ' | 
+            xargs bluetoothctl connect
+        ;;
+    disconnect)
+        dunstify "Bluetooth disconnecting"
+        bluetoothctl disconnect
+        ;;
+    connected)
+        echo "$(bluetoothctl devices Connected | cut -f3- -d' ')"
+        ;;
+    color)
+        if [ "$(bluetoothctl devices Connected | cut -f3- -d' ')" = "" ]; then
+            echo "$red"
+        else
+            echo "$green"
+        fi
+        ;;
+    *)
+        echo "Wrong argument"
+        ;;
+esac

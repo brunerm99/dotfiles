@@ -79,7 +79,6 @@ $white: $foreground;
 }
 
 .battery {
-    color: $blue;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-right: 10px;
@@ -93,7 +92,7 @@ $white: $foreground;
     border-radius: 10px;
 }
 
-.wifi {
+.network {
     color: $blue;
     background-color: $gray;
     margin-left: 15px;
@@ -106,6 +105,7 @@ $white: $foreground;
     padding-right: 10px;
     padding-left: 10px;
     font-size: 24px;
+
 }
 
 .workspace, .workspace-active {
