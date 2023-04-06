@@ -59,8 +59,16 @@ keys = [
     Key(
         [mod],
         "u",
-        lazy.spawn("/home/marchall/.local/share/bin/rofi-pwr"),
+        lazy.spawn("rofi-pwr"),
         desc="Rofi power menu",
+    ),
+    Key(
+        [mod],
+        "v",
+        lazy.spawn(
+            "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+        ),
+        desc="Greenclip paste",
     ),
     Key([mod], "i", lazy.spawn("flameshot gui")),
     Key(
