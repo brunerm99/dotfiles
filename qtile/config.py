@@ -99,8 +99,8 @@ for i in groups:
     )
 
 layouts = [
-    layout.Max(),
     layout.MonadTall(),
+    layout.Max(),
 ]
 
 widget_defaults = dict(
