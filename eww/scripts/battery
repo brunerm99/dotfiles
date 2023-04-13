@@ -29,6 +29,7 @@ if [ "$charging" = "Discharging" ]; then
     charging_icon=""
 else
     charging_icon=""
+    color="$green"
 fi
 
 case $1 in
