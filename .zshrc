@@ -81,10 +81,6 @@ alias draw='libreoffice --draw'
 alias writer='libreoffice --writer'
 alias impress='libreoffice --impress'
 
-# Flutter 
-export ANDROID_HOME=/home/marchall/Android/sdk
-export CHROME_EXECUTABLE=/sbin/google-chrome-stable
-
 # Exports
 export PATH=$PATH:$HOME/.local/bin
 export XDG_CONFIG_HOME=$HOME/.config
