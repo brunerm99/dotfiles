@@ -39,8 +39,8 @@
     (button :class "bluetooth-label"
             :style "color: ${bluetooth_color}"
             :tooltip "${bluetooth_info}"
-            :onclick "bluetooth connect"
-            :onrightclick "bluetooth disconnect"
+            :onclick "scripts/bluetooth connect"
+            :onrightclick "scripts/bluetooth disconnect"
             "")))
     (defpoll bluetooth_info :interval "1s" "scripts/bluetooth connected")
     (defpoll bluetooth_color :interval "1s" "scripts/bluetooth color")
