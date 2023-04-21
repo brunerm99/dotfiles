@@ -78,6 +78,9 @@ keys = [
     ),
     Key([mod], "p", lazy.spawn("/home/marchall/.config/eww/scripts/volume increment")),
     Key([mod], "o", lazy.spawn("/home/marchall/.config/eww/scripts/volume decrement")),
+    Key(
+        [mod], "y", lazy.spawn("/home/marchall/documents/small-scripts/brightness set")
+    ),
 ]
 
 groups = [Group(i) for i in "1234567890"]
