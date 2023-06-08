@@ -195,6 +195,7 @@ def cla [] {
 
 alias g = git
 alias ga = git add
+alias gl = git log --graph --decorate --oneline 
 alias gs = git status
 alias gc = git commit -m
 alias gst = git stash
