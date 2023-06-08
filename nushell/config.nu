@@ -204,6 +204,7 @@ alias gp = git push
 alias gpull = git pull
 alias gcb = git checkout -b
 alias gcm = git checkout main
+alias gca = git commit --amend
 
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {
