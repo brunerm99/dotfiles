@@ -31,16 +31,6 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map('i', '"', '""<left>')
-map('i', "'", "''<left>")
-map('i', '(', '()<left>')
-map('i', '[', '[]<left>')
-map('i', '{', '{}<left>')
-
-
--- theme
-require('monokai').setup()
-
 -- bottom info line
 require('lualine').setup {
   options = {
