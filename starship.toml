@@ -19,10 +19,22 @@ symbol = " "
 symbol = " "
 
 [directory]
+truncation_length = 3
+truncation_symbol = ''
 read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
+only_with_files = true
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+
+[username]
+disabled = false
+show_always = true
+format = '[$user]($style) - '
+
+[cmd_duration]
+disabled = true
 
 [elixir]
 symbol = " "
@@ -34,7 +46,7 @@ symbol = " "
 symbol = " "
 
 [git_branch]
-symbol = " "
+symbol = " "
 
 [golang]
 symbol = " "
@@ -119,8 +131,12 @@ Ubuntu = " "
 Unknown = " "
 Windows = "󰍲 "
 
+[os]
+disabled = true
+
 [package]
 symbol = "󰏗 "
+disabled = true
 
 [pijul_channel]
 symbol = "🪺 "

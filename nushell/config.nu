@@ -181,30 +181,6 @@ let light_theme = {
 #     carapace $spans.0 nushell $spans | from json
 # }
 
-# Clear screen and ls
-def cls [] {
-    clear
-    ls
-}
-
-# Clear screen and ls -la
-def cla [] {
-    clear
-    ls -la
-}
-
-alias g = git
-alias ga = git add
-alias gl = git log --graph --decorate --oneline 
-alias gs = git status
-alias gc = git commit -m
-alias gst = git stash
-alias gsp = git stash pop
-alias gp = git push
-alias gpull = git pull
-alias gcb = git checkout -b
-alias gcm = git checkout main
-alias gca = git commit --amend
 
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {
@@ -566,3 +542,48 @@ let-env config = {
     }
   ]
 }
+
+source ~/.cache/starship/init.nu
+
+# Aliases 
+
+# ls / clear
+# Clear screen and ls
+def cls [] {
+    clear
+    ls
+}
+
+# Clear screen and ls -la
+def cla [] {
+    clear
+    ls -la
+}
+
+alias df = duf
+alias du = du -h
+alias clc = clear
+
+# Git
+alias g = git
+alias ga = git add
+alias gl = git log --graph --decorate --oneline 
+alias gs = git status
+alias gc = git commit -m
+alias gst = git stash
+alias gsp = git stash pop
+alias gp = git push
+alias gpull = git pull
+alias gcb = git checkout -b
+alias gcm = git checkout main
+alias gca = git commit --amend
+alias gd = git diff
+
+# nvim
+alias vim = nvim
+
+# Other
+alias ispeed = speedtest-cli --simple --bytes
+
+# Environment variables
+let-env EDITOR = nvim
