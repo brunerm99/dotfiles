@@ -579,6 +579,7 @@ alias gcm = git checkout main
 alias gca = git commit --amend
 alias gd = git diff
 alias gbv = git branch -v
+alias gch = git checkout (g branch -l | parse -r '(?x)([[:alnum:]_-]+)' | get capture0 | input list)
 
 # nvim
 alias vim = nvim
