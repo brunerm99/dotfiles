@@ -578,6 +578,7 @@ alias gcb = git checkout -b
 alias gcm = git checkout main
 alias gca = git commit --amend
 alias gd = git diff
+alias gbv = git branch -v
 
 # nvim
 alias vim = nvim

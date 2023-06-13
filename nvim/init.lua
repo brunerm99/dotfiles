@@ -20,7 +20,6 @@ bo.expandtab = true
 bo.tabstop = 4
 bo.shiftwidth = 4
 
-opt.clipboard = 'unnamedplus'
 
 -- remapping
 function map(mode, lhs, rhs, opts)

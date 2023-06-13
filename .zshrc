@@ -64,9 +64,10 @@ alias gsp='git stash pop'
 alias gst='git stash'
 alias gss='git stash show'
 alias gmwm='git push -o merge_request.create -o merge_request.target=$(git_main_branch) -o merge_request.merge_when_pipeline_succeeds -o merge_request.label="Merge $(git_current_branch) to $(git_main_branch)"'
+alias gca='git commit --amend'
 
 # NeoVim
-# alias vim='nvim'
+alias vim='nvim'
 
 # Other
 alias ispeed='echo "Running internet speed test..." && speedtest-cli --simple --bytes' # internet speed
