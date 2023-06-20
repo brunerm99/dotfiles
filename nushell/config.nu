@@ -586,6 +586,7 @@ alias vim = nvim
 
 # Other
 alias ispeed = speedtest-cli --simple --bytes
+alias resolve = /opt/resolve/bin/resolve
 
 # Environment variables
 let-env EDITOR = nvim
