@@ -564,6 +564,11 @@ alias df = duf
 alias du = du -h
 alias clc = clear
 
+# Parse git status
+def gss [] {
+    git status -s | parse -r '(?x)[\s\n]?(?P<status>[[:alnum:]\?]+)\s(?P<name>[[:alpha:]/\._]+)[\s]?'
+}
+
 # Git
 alias g = git
 alias ga = git add
@@ -590,3 +595,4 @@ alias resolve = /opt/resolve/bin/resolve
 
 # Environment variables
 let-env EDITOR = nvim
+let-env XDG_CONFIG_HOME = $"($env.HOME)/.config"
