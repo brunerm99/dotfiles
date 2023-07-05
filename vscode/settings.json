@@ -1,0 +1,39 @@
+{
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.formatOnSave": true
+    },
+    "vim.useSystemClipboard": true,
+    "editor.lineNumbers": "relative",
+    "jupyter.askForKernelRestart": false,
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "notebook.lineNumbers": "on",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.stickyScroll.enabled": true,
+    "terminal.integrated.inheritEnv": false,
+    "notebook.output.textLineLimit": 80,
+    "explorer.confirmDragAndDrop": false,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "notebook.formatOnCellExecution": true,
+    "gitlens.mode.active": "zen",
+    "notebook.consolidatedRunButton": true,
+    "notebook.formatOnSave.enabled": false,
+    "workbench.colorTheme": "One Dark Pro Flat",
+    "window.commandCenter": true,
+    "zenMode.fullScreen": true,
+    "window.menuBarVisibility": "hidden",
+    "editor.minimap.autohide": true,
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.scale": 1,
+    "editor.minimap.showSlider": "mouseover",
+    "editor.minimap.side": "right",
+    "editor.hover.delay": 300,
+    "workbench.hover.delay": 1
+}
