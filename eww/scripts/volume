@@ -11,11 +11,11 @@ get_volume () {
     if [ "$muted" = "off" ]; then
         icon=""
     elif [ "$volume" -ge 50 ]; then
-        icon=""
+        icon=" "
     elif [ "$volume" -ge 0 ]; then
-        icon=""
+        icon=" "
     elif [ "$volume" -eq 0 ]; then
-        icon=""
+        icon=" "
     fi
 }
 

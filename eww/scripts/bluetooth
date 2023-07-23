@@ -1,5 +1,4 @@
 #!/bin/bash
-# Rofi interface for bluetooth
 
 green="#73daca"
 yellow="#E0AF68"

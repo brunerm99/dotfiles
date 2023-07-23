@@ -9,26 +9,26 @@ yellow="#E0AF68"
 red="#F7768E"
 
 if [ "$pct" -ge "90" ]; then
-    icon=""
+    icon=" "
     color="$green"
 elif [ "$pct" -ge "70" ]; then
-    icon=""
+    icon=" "
     color="$green"
 elif [ "$pct" -ge "40" ]; then
-    icon=""
+    icon=" "
     color="$yellow"
 elif [ "$pct" -ge "15" ]; then
-    icon=""
+    icon=" "
     color="$red"
 else
-    icon=""
+    icon=" "
     color="$red"
 fi
 
 if [ "$charging" = "Discharging" ]; then
     charging_icon=""
 else
-    charging_icon=""
+    charging_icon=" "
     color="$green"
 fi
 

@@ -4,7 +4,7 @@ network_name=$(nmcli device show wlp61s0 | grep "GENERAL.CONNECTION" | awk '{ pr
 ip=$(nmcli device show wlp61s0 | grep "IP4.ADDRESS" | awk '{ print $2 }') 
 
 if [ "$network_name" != "" ]; then
-    icon=""
+    icon=" "
 fi
 
 case $1 in
