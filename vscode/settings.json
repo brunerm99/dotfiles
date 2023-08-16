@@ -12,6 +12,8 @@
     "editor.lineNumbers": "relative",
     "jupyter.askForKernelRestart": false,
     "editor.fontFamily": "FiraCode Nerd Font",
+    "markdown.preview.fontFamily": "FiraCode Nerd Font",
+    "notebook.output.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
     "notebook.lineNumbers": "on",
     "workbench.iconTheme": "material-icon-theme",

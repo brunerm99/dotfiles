@@ -1,10 +1,5 @@
 # ZSH config
 
-# Powerlevel10k prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # oh-my-zsh 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -105,7 +100,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Prompt
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
+eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
