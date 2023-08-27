@@ -189,3 +189,6 @@ exec_always --no-startup-id nitrogen --restore
 
 # temporary while developing
 bindsym $mod+t exec --no-startup-id /home/marchall/.local/bin/todo 
+
+# compositor
+exec_always picom --config $HOME/.config/picom/picom.conf
