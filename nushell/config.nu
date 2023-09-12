@@ -188,7 +188,7 @@ let-env config = {
   show_banner: false
   ls: {
     use_ls_colors: true # use the LS_COLORS environment variable to colorize output
-    clickable_links: true # enable or disable clickable links. Your terminal has to support links.
+    clickable_links: false # enable or disable clickable links. Your terminal has to support links.
   }
   rm: {
     always_trash: false # always act as if -t was given. Can be overridden with -p
@@ -593,6 +593,6 @@ alias vim = nvim
 alias ispeed = speedtest-cli --simple --bytes
 alias resolve = /opt/resolve/bin/resolve
 
-# Environment variables
-let-env EDITOR = nvim
-let-env XDG_CONFIG_HOME = $"($env.HOME)/.config"
+if ((which "nu_conda activate" | length) == 0) { 
+  print "nu_conda not sourced, sourcing..." 
+}

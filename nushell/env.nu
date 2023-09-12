@@ -72,16 +72,23 @@ let-env ENV_CONVERSIONS = {
 # Directories to search for scripts when calling source or use
 #
 # By default, <nushell-config-dir>/scripts is added
-let-env NU_LIB_DIRS = [
+$env.NU_LIB_DIRS = [
     ($nu.default-config-dir | path join 'scripts')
 ]
 
 # Directories to search for plugin binaries when calling register
 #
 # By default, <nushell-config-dir>/plugins is added
-let-env NU_PLUGIN_DIRS = [
+$env.NU_PLUGIN_DIRS = [
     ($nu.default-config-dir | path join 'plugins')
 ]
 
-# To add entries to PATH (on Windows you might use Path), you can use the following pattern:
-# let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+# Custom
+$env.EDITOR = nvim
+$env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
+$env.PATH = ($env.PATH | append [
+  ".local/bin", 
+  $"($env.HOME)/.anaconda3/bin"
+])
+
+# use /home/marchall/.dotfiles/nushell/scripts/nu_conda.nu
