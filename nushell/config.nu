@@ -593,3 +593,5 @@ alias vim = nvim
 # Other
 alias ispeed = speedtest-cli --simple --bytes
 alias resolve = /opt/resolve/bin/resolve
+
+use bt.nu
