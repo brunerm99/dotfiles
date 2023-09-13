@@ -183,7 +183,7 @@ let light_theme = {
 
 
 # The default config record. This is where much of your global configuration is setup.
-let-env config = {
+$env.config = {
   # true or false to enable or disable the welcome banner at startup
   show_banner: false
   ls: {
@@ -268,7 +268,6 @@ let-env config = {
     max_size: 10000 # Session has to be reloaded for this to take effect
     sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
     file_format: "plaintext" # "sqlite" or "plaintext"
-    history_isolation: true # true enables history isolation, false disables it. true will allow the history to be isolated to the current session. false will allow the history to be shared across all sessions.
   }
   completions: {
     case_sensitive: false # set to true to enable case-sensitive completions
@@ -560,7 +559,9 @@ def cla [] {
     ls -la
 }
 
-alias df = duf
+def df [] {
+  /bin/df | from ssv -m 1
+}
 alias du = du -h
 alias clc = clear
 
@@ -592,7 +593,3 @@ alias vim = nvim
 # Other
 alias ispeed = speedtest-cli --simple --bytes
 alias resolve = /opt/resolve/bin/resolve
-
-if ((which "nu_conda activate" | length) == 0) { 
-  print "nu_conda not sourced, sourcing..." 
-}
