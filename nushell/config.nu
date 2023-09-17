@@ -598,7 +598,7 @@ alias resolve = /opt/resolve/bin/resolve
 def cpl [] {
   let command = (history | last | get command)
   print $"Copied '($command)' to clipboard"
-  $command | xclip
+  $command | xclip -selection clipboard
 }
 
 use bt.nu
