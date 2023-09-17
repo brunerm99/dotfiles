@@ -594,4 +594,11 @@ alias vim = nvim
 alias ispeed = speedtest-cli --simple --bytes
 alias resolve = /opt/resolve/bin/resolve
 
+# Copy last run command 
+def cpl [] {
+  let command = (history | last | get command)
+  print $"Copied '($command)' to clipboard"
+  $command | xclip
+}
+
 use bt.nu
