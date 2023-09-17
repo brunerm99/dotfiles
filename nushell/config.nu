@@ -602,3 +602,4 @@ def cpl [] {
 }
 
 use bt.nu
+use vid.nu
