@@ -595,10 +595,17 @@ alias ispeed = speedtest-cli --simple --bytes
 alias resolve = /opt/resolve/bin/resolve
 
 # Copy last run command 
-def cpl [] {
+alias c = xclip -selection clipboard
+alias v = xclip -selection clipboard -o
+def cpl [--select (-s)] {
   let command = (history | last | get command)
+  let command = if $select {
+    (history | get command | input list)
+  } else {
+    $command
+  }
   print $"Copied '($command)' to clipboard"
-  $command | xclip -selection clipboard
+  $command | c
 }
 
 use bt.nu
