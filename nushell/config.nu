@@ -559,8 +559,13 @@ def cla [] {
     ls -la
 }
 
+# def mkcd [name: string] {
+#   let path = (mkdir -v $name)
+#   cd $path
+# }
+
 def df [] {
-  /bin/df | from ssv -m 1
+  /bin/df -h | from ssv -m 1
 }
 alias du = du -h
 alias clc = clear
@@ -598,11 +603,10 @@ alias resolve = /opt/resolve/bin/resolve
 alias c = xclip -selection clipboard
 alias v = xclip -selection clipboard -o
 def cpl [--select (-s)] {
-  let command = (history | last | get command)
   let command = if $select {
-    (history | get command | input list)
+    (history | reverse | get command | input list)
   } else {
-    $command
+    (history | last | get command)
   }
   print $"Copied '($command)' to clipboard"
   $command | c
