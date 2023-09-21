@@ -612,5 +612,7 @@ def cpl [--select (-s)] {
   $command | c
 }
 
-use bt.nu
+use bt.nu *
 use vid.nu
+use wifi.nu *
+use vol.nu *
