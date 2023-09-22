@@ -612,6 +612,8 @@ def cpl [--select (-s)] {
   $command | c
 }
 
+alias whereami = http get -k $"http://api.ipstack.com/(http get https://icanhazip.com)?access_key=(pass show ipstack)"
+
 use bt.nu *
 use vid.nu
 use wifi.nu *
