@@ -88,5 +88,6 @@ $env.EDITOR = nvim
 $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 $env.PATH = ($env.PATH | append [
   ".local/bin", 
-  $"($env.HOME)/.anaconda3/bin"
+  $"($env.HOME)/.anaconda3/bin",
+  $"($env.HOME)/.cargo/bin"
 ])
