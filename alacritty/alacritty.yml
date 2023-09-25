@@ -3,8 +3,7 @@
 
 import:
  - $HOME/.config/alacritty/alacritty.yml
- - ~/.config/alacritty/themes/themes/argonaut.yaml
-
+ - ~/.config/alacritty/themes/rose-pine-moon.yml
 env:
   TERM: alacritty
 
