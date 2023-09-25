@@ -545,13 +545,18 @@ $env.config = {
 source ~/.cache/starship/init.nu
 
 # Aliases 
-
 # ls / clear
+
 # Clear screen and ls
 def cls [] {
     clear
     ls
 }
+
+# ls in grid form
+def lsg [] {
+  ls | grid -c
+} 
 
 # Clear screen and ls -la
 def cla [] {
@@ -559,15 +564,16 @@ def cla [] {
     ls -la
 }
 
-# def mkcd [name: string] {
-#   let path = (mkdir -v $name)
-#   cd $path
-# }
+# mkdir and cd into the dir
+def mkcd [name: string] {
+  mkdir $name    
+  cd $name
+}
 
+# nu-ify df -h
 def df [] {
   /bin/df -h | from ssv -m 1
 }
-alias du = du -h
 alias clc = clear
 
 # Parse git status
