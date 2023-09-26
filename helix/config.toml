@@ -1,3 +1,5 @@
+# Helix config
+
 theme = "rose_pine_moon"
 
 [editor]
@@ -6,3 +8,11 @@ mouse = false
 
 [editor.cursor-shape]
 insert = "bar"
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
+
+[keys.normal]
+"A-," = "goto_previous_buffer"
+"A-." = "goto_next_buffer"
+"A-w" = ":buffer-close"
