@@ -602,7 +602,6 @@ alias gch = git checkout (g branch -l | parse -r '(?x)([[:alnum:]_-]+)' | get ca
 alias vim = nvim
 
 # Other
-alias ispeed = speedtest-cli --simple --bytes
 alias resolve = /opt/resolve/bin/resolve
 
 # Copy last run command 
@@ -618,7 +617,18 @@ def cpl [--select (-s)] {
   $command | c
 }
 
+alias myip = http get https://icanhazip.com
 alias whereami = http get -k $"http://api.ipstack.com/(http get https://icanhazip.com)?access_key=(pass show ipstack)"
+
+# Internet speedtest into data (bits/s)
+def ispeed [] {
+  print "Running speed test..."
+  speedtest --csv-header | 
+    from csv -n | 
+    append (speedtest --csv | from csv -n) | 
+    headers | 
+    into record
+}
 
 use bt.nu *
 use vid.nu
