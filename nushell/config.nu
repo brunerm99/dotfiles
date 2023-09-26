@@ -601,8 +601,9 @@ alias gd = git diff
 alias gbv = git branch -v
 alias gch = git checkout (g branch -l | parse -r '(?x)([[:alnum:]_-]+)' | get capture0 | input list)
 
-# nvim
+# editors
 alias vim = nvim
+alias hx = helix
 
 # Copy / paste stuff
 alias c = xclip -selection clipboard
