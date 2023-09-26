@@ -574,6 +574,8 @@ def mkcd [name: string] {
 def df [] {
   /bin/df -h | from ssv -m 1
 }
+
+# Clear
 alias clc = clear
 
 # Parse git status
@@ -586,27 +588,63 @@ def gss [] {
 
 # Git
 alias g = git
+
+# Git add
 alias ga = git add
+
+# Git log
 alias gl = git log --graph --decorate --oneline 
+
+# Git status
 alias gs = git status
+
+# Git commit -m
 alias gc = git commit -m
+
+# Git stash
 alias gst = git stash
+
+# Git stash pop
 alias gsp = git stash pop
+
+# Git push
 alias gp = git push
+
+# Git pull
 alias gpull = git pull
+
+# Git checkout -b
 alias gcb = git checkout -b
+
+# Git checkout main
 alias gcm = git checkout main
+
+# Git commit --amend
 alias gca = git commit --amend
+
+# Git diff
 alias gd = git diff
+
+# Git branch -v
 alias gbv = git branch -v
+
+# Git branch selector
 alias gch = git checkout (g branch -l | parse -r '(?x)([[:alnum:]_-]+)' | get capture0 | input list)
 
 # editors
+
+# vim -> nvim
 alias vim = nvim
+
+# helix
 alias hx = helix
 
 # Copy / paste stuff
+
+# Copy
 alias c = xclip -selection clipboard
+
+# Paste
 alias v = xclip -selection clipboard -o
 
 # Copy last run command 
@@ -620,7 +658,10 @@ def cpl [--select (-s)] {
   $command | c
 }
 
+# Get static IP
 alias myip = http get https://icanhazip.com
+
+# Get location information
 alias whereami = http get -k $"http://api.ipstack.com/(http get https://icanhazip.com)?access_key=(pass show ipstack)"
 
 # Internet speedtest into data (bits/s)
