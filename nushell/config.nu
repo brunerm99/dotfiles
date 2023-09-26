@@ -578,7 +578,10 @@ alias clc = clear
 
 # Parse git status
 def gss [] {
-    git status -s | parse -r '(?x)[\s\n]?(?P<status>[[:alnum:]\?]+)\s(?P<name>[[:alpha:]/\._]+)[\s]?'
+    git status -s | 
+      from ssv -m 1 -n | 
+      sort-by column1 -r | 
+      rename status file
 }
 
 # Git
@@ -601,12 +604,11 @@ alias gch = git checkout (g branch -l | parse -r '(?x)([[:alnum:]_-]+)' | get ca
 # nvim
 alias vim = nvim
 
-# Other
-alias resolve = /opt/resolve/bin/resolve
-
-# Copy last run command 
+# Copy / paste stuff
 alias c = xclip -selection clipboard
 alias v = xclip -selection clipboard -o
+
+# Copy last run command 
 def cpl [--select (-s)] {
   let command = if $select {
     (history | reverse | get command | input list)
