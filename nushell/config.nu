@@ -678,3 +678,4 @@ use bt.nu *
 use vid.nu
 use wifi.nu *
 use vol.nu *
+use battery.nu *
