@@ -4,6 +4,8 @@ theme = "rose_pine_moon"
 
 [editor]
 line-number = "relative"
+bufferline = "multiple"
+
 mouse = false
 
 [editor.cursor-shape]

@@ -667,11 +667,14 @@ alias whereami = http get -k $"http://api.ipstack.com/(http get https://icanhazi
 # Internet speedtest into data (bits/s)
 def ispeed [] {
   print "Running speed test..."
+  let to_mbps = { $in / 1e6 }
   speedtest --csv-header | 
     from csv -n | 
     append (speedtest --csv | from csv -n) | 
     headers | 
-    into record
+    into record |
+    update Download $to_mbps | 
+    update Upload $to_mbps
 }
 
 use bt.nu *

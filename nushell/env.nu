@@ -84,7 +84,7 @@ $env.NU_PLUGIN_DIRS = [
 ]
 
 # Custom
-$env.EDITOR = nvim
+$env.EDITOR = helix
 $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 $env.PATH = ($env.PATH | append [
   ".local/bin", 
