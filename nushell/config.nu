@@ -682,3 +682,5 @@ use vid.nu
 use wifi.nu *
 use vol.nu *
 use battery.nu *
+use gither.nu *
+use venumerate.nu
