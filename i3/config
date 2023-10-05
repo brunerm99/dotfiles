@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # Font
-font pango:JetBrains Mono 8
+font pango:FiraCode NerdFont 8
 
 exec --no-startup-id dex --autostart --environment i3
 
@@ -167,12 +167,6 @@ smart_gaps on
 bindsym $mod+Shift+n move workspace to output left
 bindsym $mod+Shift+m move workspace to output right
 
-# betterlockscreen
-bindsym $mod+o exec --no-startup-id betterlockscreen -l
-
-# sleep
-bindsym $mod+p exec systemctl suspend
-
 # flameshot
 bindsym $mod+i exec --no-startup-id flameshot gui
 
@@ -181,14 +175,8 @@ bindsym $mod+plus exec --no-startup-id amixer set Master 10%+
 bindsym $mod+minus exec --no-startup-id amixer set Master 10%-
 # bindsym $mod+m exec --no-startup-id amixer set Master unmute
 
-# polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # background using nitrogen
 exec_always --no-startup-id nitrogen --restore
-
-# temporary while developing
-bindsym $mod+t exec --no-startup-id /home/marchall/.local/bin/todo 
 
 # compositor
 exec_always picom --config $HOME/.config/picom/picom.conf
