@@ -18,3 +18,4 @@ left = ["mode", "spinner", "version-control", "file-name"]
 "A-," = "goto_previous_buffer"
 "A-." = "goto_next_buffer"
 "A-w" = ":buffer-close"
+esc = ["collapse_selection", "keep_primary_selection"]
