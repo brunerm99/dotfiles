@@ -539,6 +539,7 @@ $env.config = {
       mode: [emacs, vi_normal, vi_insert]
       event: { send: menu name: commands_with_description }
     }
+
   ]
 }
 
@@ -682,5 +683,5 @@ use vid.nu
 use wifi.nu *
 use vol.nu *
 use battery.nu *
-use gither.nu *
-use venumerate.nu
+use gelp.nu *
+use utils.nu *
