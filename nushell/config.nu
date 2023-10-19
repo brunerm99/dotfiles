@@ -194,7 +194,6 @@ $env.config = {
     always_trash: false # always act as if -t was given. Can be overridden with -p
   }
   cd: {
-    abbreviations: false # allows `cd s/o/f` to expand to `cd some/other/folder`
   }
   table: {
     mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
@@ -267,7 +266,8 @@ $env.config = {
   history: {
     max_size: 10000 # Session has to be reloaded for this to take effect
     sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
-    file_format: "plaintext" # "sqlite" or "plaintext"
+    file_format: "sqlite" # "sqlite" or "plaintext"
+    isolation: true
   }
   completions: {
     case_sensitive: false # set to true to enable case-sensitive completions
@@ -680,8 +680,8 @@ def ispeed [] {
 
 use bt.nu *
 use vid.nu
-use wifi.nu *
+use wifi.nu 
 use vol.nu *
 use battery.nu *
-use gelp.nu *
 use utils.nu *
+use gelp.nu

@@ -91,3 +91,6 @@ $env.PATH = ($env.PATH | append [
   $"($env.HOME)/.anaconda3/bin",
   $"($env.HOME)/.cargo/bin"
 ])
+
+# Gelp - git helper
+$env.gelp_dir = ($env.HOME | path join ".local/share/gelp")
