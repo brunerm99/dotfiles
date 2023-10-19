@@ -1,3 +1,16 @@
 [[languages]]
 name = "python"
 formatter = { command = "black" }
+
+# [language-server.nuls]
+# command = "/home/marchall/.cargo/bin/nuls"
+
+[[language]]
+name = "nu"
+auto-format = false
+comment-token = "#"
+file-types = [ "nu" ]
+language-server = { command = "/home/marchall/.cargo/bin/nuls" }
+roots = []
+scope = "source.nu"
+shebangs = ["nu"]

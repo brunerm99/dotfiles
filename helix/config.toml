@@ -12,7 +12,10 @@ mouse = false
 insert = "bar"
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control", "file-name"]
+left = ["mode", "spinner", "spacer", "version-control", "file-name"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [keys.normal]
 "A-," = "goto_previous_buffer"
