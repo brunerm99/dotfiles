@@ -545,8 +545,7 @@ $env.config = {
 
 source ~/.cache/starship/init.nu
 
-# Aliases 
-# ls / clear
+### Aliases 
 
 # Clear screen and ls
 def cls [] {
@@ -574,6 +573,9 @@ def mkcd [name: string] {
   cd $name
 }
 
+# Go back (cd -)
+alias back = cd -
+
 # nu-ify df -h
 def df [] {
   /bin/df -h | from ssv -m 1
@@ -582,12 +584,20 @@ def df [] {
 # Clear
 alias clc = clear
 
-# Parse git status
-def gss [] {
+# Git status
+def gs [] {
     git status -s | 
       from ssv -m 1 -n | 
       sort-by column1 -r | 
-      rename status file
+      rename status file |
+      update status {
+        match $in {
+          "M" => $"(ansi green)modified(ansi reset)",
+          "D" => $"(ansi red)deleted(ansi reset)"
+          "??" => $"(ansi yellow)new(ansi reset)",
+          _ => "other",
+        }
+    }
 }
 
 # Git
@@ -598,9 +608,6 @@ alias ga = git add
 
 # Git log
 alias gl = git log --graph --decorate --oneline 
-
-# Git status
-alias gs = git status
 
 # Git commit -m
 alias gc = git commit -m
