@@ -559,6 +559,9 @@ def lsg [] {
   ls | grid -c
 } 
 
+# ls -a
+alias la = ls -a
+
 # Clear screen and ls -la
 def cla [] {
     clear
