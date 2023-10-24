@@ -589,7 +589,7 @@ def gs [] {
     git status -s | 
       from ssv -m 1 -n | 
       sort-by column1 -r | 
-      rename status file |
+      rename status name |
       update status {
         match $in {
           "M" => $"(ansi green)modified(ansi reset)",
@@ -695,3 +695,4 @@ use vol.nu *
 use battery.nu *
 use utils.nu *
 use gelp.nu
+use history-utils.nu *
