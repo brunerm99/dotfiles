@@ -578,7 +578,7 @@ alias back = cd -
 
 # nu-ify df -h
 def df [] {
-  /bin/df -h | from ssv -m 1
+  (sys).disks
 }
 
 # Clear
