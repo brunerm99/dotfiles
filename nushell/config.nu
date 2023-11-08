@@ -675,6 +675,14 @@ alias myip = http get https://icanhazip.com
 # Get location information
 alias whereami = http get -k $"http://api.ipstack.com/(http get https://icanhazip.com)?access_key=(pass show ipstack)"
 
+# Parse /etc/passwd
+def "users show" [
+  --full (-f) # Full output
+] {
+  let users_info = (open /etc/passwd | from csv --separator : --noheaders | rename username password uid gid full_name home login_shell)
+  if $full { $users_info } else { $users_info | select username full_name home }
+}
+
 # Internet speedtest into data (bits/s)
 def ispeed [] {
   print "Running speed test..."
