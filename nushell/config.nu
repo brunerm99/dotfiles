@@ -696,6 +696,11 @@ def ispeed [] {
     update Upload $to_mbps
 }
 
+# Print date back home in Colorado
+def "date home" [] {
+  date now | date to-timezone 'America/Denver'
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
