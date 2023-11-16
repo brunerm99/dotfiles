@@ -701,6 +701,19 @@ def "date home" [] {
   date now | date to-timezone 'America/Denver'
 }
 
+def "copy-unicode" [] {
+  open ~/downloads/unicode/UnicodeData.csv --raw | 
+    from csv --separator ';' --noheaders | 
+    select column1 column2 | 
+    insert letter {try {$"(char -u ($in.column1 | str trim)) - ($in.column2)"} catch {null}} | 
+    where letter != null | 
+    get letter | 
+    input list -f | 
+    parse '{selection} - {_}' | 
+    get selection.0 | 
+    c
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
