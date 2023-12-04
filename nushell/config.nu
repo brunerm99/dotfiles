@@ -714,6 +714,11 @@ def "copy-unicode" [] {
     c
 }
 
+# Format list as markdown check boxes
+def "into md-check-boxes" [] {
+  $'- [ ] ($in | str join "\n- [ ] ")'
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
