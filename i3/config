@@ -180,3 +180,5 @@ exec_always --no-startup-id nitrogen --restore
 
 # compositor
 exec_always picom --config $HOME/.config/picom/picom.conf
+
+exec_always bash $HOME/.config/polybar/launch.sh
