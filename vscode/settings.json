@@ -6,7 +6,8 @@
     },
     "[javascript]": {
         "editor.maxTokenizationLineLength": 2500,
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "vim.useSystemClipboard": true,
     "editor.lineNumbers": "relative",
@@ -26,10 +27,9 @@
     "gitlens.mode.active": "zen",
     "notebook.consolidatedRunButton": true,
     "notebook.formatOnSave.enabled": false,
-    "workbench.colorTheme": "One Dark Pro Flat",
+    "workbench.colorTheme": "Rosé Pine Moon (no italics)",
     "window.commandCenter": true,
     "zenMode.fullScreen": true,
-    "window.menuBarVisibility": "hidden",
     "editor.minimap.autohide": true,
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
@@ -37,5 +37,12 @@
     "editor.minimap.showSlider": "mouseover",
     "editor.minimap.side": "right",
     "editor.hover.delay": 300,
-    "workbench.hover.delay": 1
+    "workbench.hover.delay": 1,
+    "workbench.startupEditor": "none",
+    "window.menuBarVisibility": "toggle",
+    "workbench.sideBar.location": "right",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    }
 }
