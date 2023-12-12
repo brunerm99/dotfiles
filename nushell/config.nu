@@ -724,7 +724,7 @@ def "into md-check-boxes" [] {
 # Change and persist $env.EDITOR
 def --env change-editor [] {
   let editor = ($env.POSSIBLE_EDITORS | input list)
-  $env.EDITOR = editor
+  $env.EDITOR = $editor
   $editor | save -f ($env.PERSIST_ENV | path join 'editor')
 }
 
