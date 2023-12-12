@@ -163,6 +163,8 @@ gaps outer -5
 gaps inner 10
 smart_gaps on
 
+bindsym $mod+c exec rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'
+
 # move workspace to other screen
 bindsym $mod+Shift+n move workspace to output left
 bindsym $mod+Shift+m move workspace to output right

@@ -33,3 +33,6 @@ fi
 
 #exec qtile start
 exec i3
+
+pueued -d 
+pueue add greenclip daemon
