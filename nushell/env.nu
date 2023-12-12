@@ -84,7 +84,6 @@ $env.NU_PLUGIN_DIRS = [
 ]
 
 # Custom
-$env.EDITOR = helix
 $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 $env.PATH = ($env.PATH | append [
   ".local/bin", 
@@ -94,3 +93,8 @@ $env.PATH = ($env.PATH | append [
 
 # Gelp - git helper
 $env.gelp_dir = ($env.HOME | path join ".local/share/gelp")
+
+$env.PERSIST_ENV = ($nu.default-config-dir | path join 'persist_env')
+
+$env.EDITOR = if ($env.PERSIST_ENV | path join 'editor' | path exists) { open ($env.PERSIST_ENV | path join 'editor') } else { 'nvim' }
+$env.POSSIBLE_EDITORS = [nvim, helix, code]

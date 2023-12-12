@@ -567,6 +567,8 @@ def cla [] {
     ls -la
 }
 
+alias s = shells
+
 # mkdir and cd into the dir
 def mkcd [name: string] {
   mkdir $name    
@@ -717,6 +719,13 @@ def "copy-unicode" [] {
 # Format list as markdown check boxes
 def "into md-check-boxes" [] {
   $'- [ ] ($in | str join "\n- [ ] ")'
+}
+
+# Change and persist $env.EDITOR
+def --env change-editor [] {
+  let editor = ($env.POSSIBLE_EDITORS | input list)
+  $env.EDITOR = editor
+  $editor | save -f ($env.PERSIST_ENV | path join 'editor')
 }
 
 use bt.nu *
