@@ -728,10 +728,15 @@ def --env change-editor [] {
   $editor | save -f ($env.PERSIST_ENV | path join 'editor')
 }
 
+# Source .env file
+def --env source-dot-env [] { 
+  open .env | lines -s | split column '=' | transpose --header-row | into record | load-env 
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
-use vol.nu *
+use vol.nu
 use battery.nu *
 use utils.nu *
 use gelp.nu
