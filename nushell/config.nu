@@ -741,3 +741,4 @@ use battery.nu *
 use utils.nu *
 use gelp.nu
 use history-utils.nu *
+use equations.nu *
