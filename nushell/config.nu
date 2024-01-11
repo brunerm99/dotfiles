@@ -733,6 +733,18 @@ def --env source-dot-env [] {
   open .env | lines -s | split column '=' | transpose --header-row | into record | load-env 
 }
 
+# Get sizes of installed packages
+def pacman-sizes [] { 
+  $env.LC_ALL = C
+  pacman -Qi | 
+    awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | 
+    ^sort -h | 
+    from ssv -m 1 --noheaders | 
+    rename size name | 
+    update size { || into filesize } | 
+    sort-by size
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
