@@ -13,7 +13,7 @@ return {
           g = { ":Telescope git_files<Cr>", "Find git files" },
           k = { ":Telescope keymaps<Cr>", "Find Keymap" },
           h = { ":Telescope help_tags<Cr>", "Find Help" },
-          v = { ":Ex<Cr>", "Project explore" },
+          -- v = { ":Ex<Cr>", "Project explore" },
         },
         u = { ":Telescope undo<Cr>", "Undo tree" },
       }, { prefix = "<leader>" })

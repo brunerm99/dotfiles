@@ -38,7 +38,6 @@ return {
         -- TODO: choose your lsp servers here, these are what I have
         ensure_installed = {
             'html',
-            'jsonnet_ls',
             'pyright',
             'rust_analyzer',
             'sqlls',
