@@ -4,7 +4,7 @@ return {
   keys = {
     {
       mode = 'n',
-      'gg',
+      'gp',
       ':LazyGit<Cr>',
       desc = 'Lazy git'
     },

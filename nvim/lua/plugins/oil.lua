@@ -31,7 +31,7 @@ return {
     },
     {
       mode = 'n',
-      '<C-k>',
+      '<leader>pv',
       function()
         require('oil').open()
       end,
