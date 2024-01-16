@@ -24,12 +24,15 @@ return {
         }
       }
 
-      vim.keymap.set('n', '<leader>pb', ':Telescope buffers<Cr>');
-      vim.keymap.set('n', '<leader>pf', ':Telescope find_files<Cr>');
-      vim.keymap.set('n', '<leader>ps', ':Telescope live_grep<Cr>');
-      vim.keymap.set('n', '<leader>pk', ':Telescope keymaps<Cr>');
-      vim.keymap.set('n', '<leader>ph', ':Telescope help_tags<Cr>');
-      vim.keymap.set('n', '<leader>u', ':Telescope undo<Cr>');
+      local builtin = require('telescope.builtin')
+      local utils = require('telescope.utils')
+      vim.keymap.set('n', '<leader>pb', function() builtin.buffers() end );
+      vim.keymap.set('n', '<leader>pf', function() builtin.find_files() end);
+      vim.keymap.set('n', '<leader>p.', function() builtin.find_files({cwd = utils.buffer_dir()}) end);
+      vim.keymap.set('n', '<leader>ps', function() builtin.live_grep() end);
+      vim.keymap.set('n', '<leader>pk', function() builtin.keymaps() end);
+      vim.keymap.set('n', '<leader>ph', function() builtin.help_tags() end);
+      vim.keymap.set('n', '<leader>u', function() builtin.help() end);
     end
-  }
+  },
 }
