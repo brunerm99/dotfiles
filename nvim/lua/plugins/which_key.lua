@@ -28,6 +28,11 @@ return {
         --   { "<leader>4", function() require("harpoon"):list():select(4) end, desc = "harpoon to file 4", },
         --   { "<leader>5", function() require("harpoon"):list():select(5) end, desc = "harpoon to file 5", },
         -- }
+        w = {
+          name = "Window",
+          v = { ":vsplit<Cr>", "Vertical split current" },
+          c = { ":close<Cr>", "Close current window" },
+        }
       }, { prefix = "<leader>" })
     end
   },

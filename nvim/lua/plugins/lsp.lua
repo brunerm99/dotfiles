@@ -80,7 +80,8 @@ return {
                     diagnosticMode = "workspace",
                     useLibraryCodeForTypes = true,
                     logLevel = "Error",
-                    typeCheckingMode = "strict"
+                    typeCheckingMode = "none",
+                    disableOrganizeImports = false,
                   }
                 }
             }})
@@ -96,6 +97,12 @@ return {
     keys = {
       { mode = "n", "]d", function() vim.diagnostic.goto_next() end, "Goto next diagnostic" },
       { mode = "n", "[d", function() vim.diagnostic.goto_prev() end, "Goto previous diagnostic" },
+      { mode = "n", "gd", function() vim.diagnostic.goto_prev() end, "Goto definition" },
+      { mode = "n", "gd", function() vim.lsp.buf.definition() end, "Goto definition" },
+      { mode = "n", "gy", function() vim.lsp.buf.type_definition() end, "Goto type definition" },
+      { mode = "n", "gD", function() vim.lsp.buf.declaration() end, "Goto declaration" },
+      { mode = "n", "ga", function() vim.lsp.buf.code_action() end, "Show code action" },
+      { mode = "n", "gr", function() vim.lsp.buf.references() end, "Show references" },
     }
   }
 }
