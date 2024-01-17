@@ -1,7 +1,7 @@
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'dev-v3',
+    branch = 'v3.x',
     lazy = true,
     config = false,
     init = function()
@@ -10,15 +10,13 @@ return {
       vim.g.lsp_zero_extend_lspconfig = 0
     end,
   },
-
-  -- LSP manager
   {
     'williamboman/mason.nvim',
     lazy = false,
-    config = true
+    config = true,
   },
 
-  -- Completion
+  -- Autocompletion
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -53,55 +51,40 @@ return {
     cmd = {'LspInfo', 'LspInstall', 'LspStart'},
     event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
-      {'hrsh7th/nvim-cmp'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'williamboman/mason-lspconfig.nvim'},
     },
     config = function()
+      -- This is where all the LSP shenanigans will live
       local lsp_zero = require('lsp-zero')
       lsp_zero.extend_lspconfig()
 
+      --- if you want to know more about lsp-zero and mason.nvim
+      --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
       lsp_zero.on_attach(function(client, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-        -- lsp_zero.default_keymaps({buffer = bufnr, preserve_mappings = false })
-        local opts = {buffer = bufnr, remap = false}
+        lsp_zero.default_keymaps({buffer = bufnr})
       end)
 
-      lsp_zero.format_on_save({
-        servers = {
-          ['rust_analyzer'] = {'rust'},
-          ['black'] = {'python'},
-        }
-      })
-
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-          pattern = { "*.py" },
-          desc = "Auto-format Python files after saving",
-          callback = function()
-              local fileName = vim.api.nvim_buf_get_name(0)
-              vim.cmd(":silent !black" .. fileName)
-          end,
-          -- group = autocmd_group,
-      })
-
       require('mason-lspconfig').setup({
-        ensure_installed = {
-            'html',
-            'pyright',
-            'rust_analyzer',
-            'sqlls',
-            'stylelint_lsp',
-            sumneko_lua = {
-              Lua = {
-                diagnostics = { globals = { 'vim' } },
-                workspace = { checkThirdParty = false },
-                telemetry = { enable = false },
-              },
-            },
-        },
+        ensure_installed = {'pyright'},
         handlers = {
           lsp_zero.default_setup,
+          pyright = function() 
+            require('lspconfig').pyright.setup({
+              settings = {
+                python = {
+                  analysis = {
+                    autoSearchPaths = true,
+                    diagnosticMode = "workspace",
+                    useLibraryCodeForTypes = true,
+                    logLevel = "Error",
+                    typeCheckingMode = "strict"
+                  }
+                }
+            }})
+          end,
           lua_ls = function()
             -- (Optional) Configure lua language server for neovim
             local lua_opts = lsp_zero.nvim_lua_ls()
@@ -109,6 +92,10 @@ return {
           end,
         }
       })
-    end
-  },
+    end,
+    keys = {
+      { mode = "n", "]d", function() vim.diagnostic.goto_next() end, "Goto next diagnostic" },
+      { mode = "n", "[d", function() vim.diagnostic.goto_prev() end, "Goto previous diagnostic" },
+    }
+  }
 }
