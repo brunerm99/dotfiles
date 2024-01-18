@@ -103,6 +103,7 @@ return {
       { mode = "n", "gD", function() vim.lsp.buf.declaration() end, "Goto declaration" },
       { mode = "n", "ga", function() vim.lsp.buf.code_action() end, "Show code action" },
       { mode = "n", "gr", function() vim.lsp.buf.references() end, "Show references" },
+      { mode = "n", "lo", ":PyrightOrganizeImports<Cr>", "Python organize imports" },
     }
   }
 }

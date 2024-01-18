@@ -19,6 +19,9 @@ return {
         l = {
           name = "LSP",
           r = { function() vim.lsp.buf.rename() end, "Rename symbol" },
+          o = { ":PyrightOrganizeImports<Cr>", "Python organize imports" },
+          d = { function() require('telescope.builtin').diagnostics({opts = {bufnr = 0}}) end, "Show current buffer diagnostics" },
+          D = { function() require('telescope.builtin').diagnostics() end, "Show all diagnostics" },
         },
         -- h = {
         --   name = "harpoon",
