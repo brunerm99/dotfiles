@@ -751,10 +751,16 @@ def touchpad-settings [] {
 }
 
 # Toggle touchpad. Outputs touchpad enabled state.
-def toggle-touchpad [] -> bool {
+def toggle-touchpad [
+  --notify (-n) # Notify of change
+] -> bool {
   let new_val = ((touchpad-settings | get TouchpadOff | into int) bit-xor 1)
   synclient $"TouchPadOff=($new_val)"
-  return (not ($new_val | into bool))
+  let state = (not ($new_val | into bool))
+  if $notify {
+    notify-send $"Touchpad (if $state {'on'} else {'off'})" -r 987
+  }
+  return $state
 }
 
 use bt.nu *
