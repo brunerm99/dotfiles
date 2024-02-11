@@ -745,6 +745,16 @@ def pacman-sizes [] {
     sort-by size
 }
 
+# Get record of touchpad settings
+def touchpad-settings [] { 
+  synclient | lines | skip 1 | parse "{key} = {value}" | each {str trim} | transpose --header-row | into record 
+}
+
+# Toggle touchpad
+def toggle-touchpad [] {
+  synclient $"TouchPadOff=((touchpad-settings | get TouchpadOff | into int) bit-xor 1)"
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
