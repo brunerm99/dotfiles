@@ -750,9 +750,11 @@ def touchpad-settings [] {
   synclient | lines | skip 1 | parse "{key} = {value}" | each {str trim} | transpose --header-row | into record 
 }
 
-# Toggle touchpad
-def toggle-touchpad [] {
-  synclient $"TouchPadOff=((touchpad-settings | get TouchpadOff | into int) bit-xor 1)"
+# Toggle touchpad. Outputs touchpad enabled state.
+def toggle-touchpad [] -> bool {
+  let new_val = ((touchpad-settings | get TouchpadOff | into int) bit-xor 1)
+  synclient $"TouchPadOff=($new_val)"
+  return (not ($new_val | into bool))
 }
 
 use bt.nu *
