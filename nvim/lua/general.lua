@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd(
         group = "AutoFormat",
         callback = function()
             vim.cmd("silent !black --quiet %")
-            vim.cmd("edit")
         end,
     }
 )
