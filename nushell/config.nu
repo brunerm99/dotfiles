@@ -763,6 +763,17 @@ def toggle-touchpad [
   return $state
 }
 
+# Parse .env files. Input is `open .env --raw`
+def "from env" []: string -> record {
+  lines 
+    | split column '#' 
+    | get column1 
+    | filter {($in | str length) > 0} 
+    | parse "{key}={value}"
+    | update value {str trim -c '"'}
+    | transpose -r -d
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
