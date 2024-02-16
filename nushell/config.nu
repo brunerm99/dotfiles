@@ -774,6 +774,11 @@ def "from env" []: string -> record {
     | transpose -r -d
 }
 
+# Select and attach to a zellij session
+def zat [] {
+  zellij attach $"(zellij ls | from ssv -m 1 --noheaders | get column1 | input list | ansi strip)"
+}
+
 use bt.nu *
 use vid.nu
 use wifi.nu 
