@@ -193,8 +193,6 @@ $env.config = {
   rm: {
     always_trash: false # always act as if -t was given. Can be overridden with -p
   }
-  cd: {
-  }
   table: {
     mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
     index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
@@ -579,8 +577,11 @@ def mkcd [name: string] {
 alias back = cd -
 
 # nu-ify df -h
-def df [] {
-  (sys).disks
+def df [
+  --long (-l) # Long output
+] {
+  let info = ((sys).disks)
+  if $long { $info } else { $info | select mount total free }
 }
 
 # Clear
@@ -785,6 +786,6 @@ use wifi.nu
 use vol.nu
 use battery.nu *
 use utils.nu *
-use gelp.nu
+# use gelp.nu
 use history-utils.nu *
-use equations.nu *
+# use equations.nu *
