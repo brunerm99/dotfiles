@@ -580,7 +580,7 @@ alias back = cd -
 def df [
   --long (-l) # Long output
 ] {
-  let info = ((sys).disks)
+  let info = ((sys).disks | insert percent {|row| $row.free / $row.total | into percent --precision 2 })
   if $long { $info } else { $info | select mount total free }
 }
 
@@ -773,6 +773,12 @@ def "from env" []: string -> record {
     | parse "{key}={value}"
     | update value {str trim -c '"'}
     | transpose -r -d
+}
+
+def "into percent" [
+  --precision (-p): int # Rounding precision
+] {
+  $"(($in | into float | math round --precision $precision) * 100)%"
 }
 
 # Select and attach to a zellij session
