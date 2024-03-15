@@ -1,0 +1,17 @@
+layout {
+  tab name="tech" cwd="~/documents/spanish-chat-tech" {
+    pane command="/bin/env" {
+      args "nu" "-c" "'overlay use .venv/bin/activate.nu'"
+    }
+  }
+  tab name="cli" cwd="~/documents/spanish-chat-cli" {
+    pane command="/bin/env" {
+      args "nu" "-c" "'overlay use .venv/bin/activate.nu'"
+    }
+  }
+  tab name="cli" cwd="~/documents/spanish-chat-sdk" {
+    pane command="/bin/env" {
+      args "nu" "-c" "'overlay use .venv/bin/activate.nu'"
+    }
+  }
+}

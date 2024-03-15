@@ -1,0 +1,109 @@
+// auth-needed = true
+
+layout {
+  tab name="tech" cwd="~/documents/spanish-chat-tech" focus=true hide_floating_panes=true {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane {
+      focus true
+      name "editor"
+      cwd "~/documents/spanish-chat-tech"
+      close_on_exit true
+      command "nu"
+      args "-e" "overlay use .venv/bin/activate.nu; vim ." 
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+    floating_panes {
+      pane {
+        name "server"
+        cwd "~/documents/spanish-chat-tech"
+        close_on_exit true
+        width "90%"
+        height "80%"
+        x "5%"
+        y "4%"
+        command "nu"
+        args "-e" "overlay use .venv/bin/activate.nu; use toolkit.nu; pass show odell-marchall-sudo | sudo -Sv; toolkit restart" 
+      }
+      pane {
+        name "database"
+        cwd "~/documents/spanish-chat-tech"
+        close_on_exit true
+        width "90%"
+        height "80%"
+        x "5%"
+        y "6%"
+        command "nu"
+        args "-e" "overlay use .venv/bin/activate.nu; $env.PGPASSWORD = (open .env | get POSTGRES_PASSWORD); psql -h 0.0.0.0 -p 15432 -U postgres" 
+      }
+      pane {
+        name "terminal"
+        cwd "~/documents/spanish-chat-tech"
+        close_on_exit true
+        width "90%"
+        height "80%"
+        x "5%"
+        y "8%"
+        command "nu"
+        args "-e" "overlay use .venv/bin/activate.nu" 
+      }
+    }
+  }
+  tab name="cli" cwd="~/documents/spanish-chat-cli" hide_floating_panes=true {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane {
+      name "editor"
+      close_on_exit true
+      command "nu"
+      args "-e" "overlay use .venv/bin/activate.nu; vim ." 
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+    floating_panes {
+      pane {
+        name "terminal"
+        cwd "~/documents/spanish-chat-cli"
+        close_on_exit true
+        width "90%"
+        height "80%"
+        x "5%"
+        y "4%"
+        command "nu"
+        args "-e" "overlay use .venv/bin/activate.nu" 
+      }
+    }
+  }
+  tab name="sdk" cwd="~/documents/spanish-chat-sdk" hide_floating_panes=true {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane {
+      name "editor"
+      close_on_exit true
+      command "nu"
+      args "-e" "overlay use .venv/bin/activate.nu; vim ." 
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+    floating_panes {
+      pane {
+        name "terminal"
+        cwd "~/documents/spanish-chat-sdk"
+        close_on_exit true
+        width "90%"
+        height "80%"
+        x "5%"
+        y "4%"
+        command "nu"
+        args "-e" "overlay use .venv/bin/activate.nu" 
+      }
+    }
+  }
+}
