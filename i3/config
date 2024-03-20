@@ -25,7 +25,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec /bin/nu '/home/marchall/documents/zelp/kif.nu'
 
 # kill focused window
 bindsym $mod+Shift+q kill
