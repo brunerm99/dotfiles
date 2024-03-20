@@ -98,3 +98,5 @@ $env.PERSIST_ENV = ($nu.default-config-dir | path join 'persist_env')
 
 $env.EDITOR = if ($env.PERSIST_ENV | path join 'editor' | path exists) { open ($env.PERSIST_ENV | path join 'editor') } else { 'nvim' }
 $env.POSSIBLE_EDITORS = [nvim, helix, code]
+
+overlay use ($nu.config-path | path dirname | path join 'env_secret.nu')
