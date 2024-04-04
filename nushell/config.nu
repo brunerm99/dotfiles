@@ -666,7 +666,7 @@ def cpl [--select (-s)] {
   let command = if $select {
     (history | reverse | get command | input list)
   } else {
-    (history | last | get command)
+    (history | last 2 | first | get command)
   }
   print $"Copied '($command)' to clipboard"
   $command | c
@@ -786,13 +786,12 @@ def zat [] {
   zellij attach $"(zellij ls | from ssv -m 1 --noheaders | get column1 | input list | ansi strip)"
 }
 
-use bt.nu *
+use bt.nu
 use vid.nu
 use wifi.nu 
 use vol.nu
-use battery.nu *
+use battery.nu
 use utils.nu *
-# use gelp.nu
 use history-utils.nu *
 # use equations.nu *
 use zelp.nu 
