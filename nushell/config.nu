@@ -796,3 +796,4 @@ use history-utils.nu *
 # use equations.nu *
 use zelp.nu 
 use stopwatch.nu
+use disp.nu
