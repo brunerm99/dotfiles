@@ -43,10 +43,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -182,6 +182,11 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+bindsym $mod+Left resize shrink width 50 px or 50 ppt
+bindsym $mod+Down resize grow height 50 px or 50 ppt
+bindsym $mod+Up resize shrink height 50 px or 50 ppt
+bindsym $mod+Right resize grow width 50 px or 50 ppt
 
 ######## My stuff ######## 
 
