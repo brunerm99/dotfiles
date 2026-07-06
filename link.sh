@@ -24,17 +24,23 @@ link_file() {
   fi
 
   local tmp_link
-  tmp_link="$(mktemp -u "$target.tmp.XXXXXX")"
+  tmp_link="$(mktemp -u "$(dirname "$target")/.$(basename "$target").tmp.XXXXXX")"
   ln -s "$source" "$tmp_link"
 
   if [[ -e "$target" || -L "$target" ]]; then
+    if [[ -d "$target" && ! -L "$target" ]]; then
+      rm -f "$tmp_link"
+      printf 'refusing to replace directory target: %s\n' "$target" >&2
+      exit 1
+    fi
+
     if cmp -s "$source" "$target"; then
       mv -Tf "$tmp_link" "$target"
       printf 'linked  %s -> %s\n' "$target_rel" "$source_rel"
       return
     else
       mkdir -p "$backup_root/$(dirname "$target_rel")"
-      mv "$target" "$backup_root/$target_rel"
+      cp -a "$target" "$backup_root/$target_rel"
       backup_used=1
     fi
   fi
@@ -43,58 +49,16 @@ link_file() {
   printf 'linked  %s -> %s\n' "$target_rel" "$source_rel"
 }
 
-link_file "home/.bashrc" ".bashrc"
-link_file "home/.gitconfig" ".gitconfig"
-link_file "home/.profile" ".profile"
-link_file "home/.vimrc" ".vimrc"
-
-link_file "config/Code/User/keybindings.json" ".config/Code/User/keybindings.json"
-link_file "config/Code/User/settings.json" ".config/Code/User/settings.json"
-
-link_file "config/fish/config.fish" ".config/fish/config.fish"
-link_file "config/fish/completions/bun.fish" ".config/fish/completions/bun.fish"
-link_file "config/fish/completions/obsidian-cli.fish" ".config/fish/completions/obsidian-cli.fish"
-link_file "config/fish/conf.d/fish_frozen_key_bindings.fish" ".config/fish/conf.d/fish_frozen_key_bindings.fish"
-link_file "config/fish/conf.d/fish_frozen_theme.fish" ".config/fish/conf.d/fish_frozen_theme.fish"
-link_file "config/fish/conf.d/rustup.fish" ".config/fish/conf.d/rustup.fish"
-link_file "config/fish/functions/blender.fish" ".config/fish/functions/blender.fish"
-link_file "config/fish/functions/cls.fish" ".config/fish/functions/cls.fish"
-link_file "config/fish/functions/cplast.fish" ".config/fish/functions/cplast.fish"
-link_file "config/fish/functions/g.fish" ".config/fish/functions/g.fish"
-link_file "config/fish/functions/ga.fish" ".config/fish/functions/ga.fish"
-link_file "config/fish/functions/gc.fish" ".config/fish/functions/gc.fish"
-link_file "config/fish/functions/gca.fish" ".config/fish/functions/gca.fish"
-link_file "config/fish/functions/gd.fish" ".config/fish/functions/gd.fish"
-link_file "config/fish/functions/gl.fish" ".config/fish/functions/gl.fish"
-link_file "config/fish/functions/gll.fish" ".config/fish/functions/gll.fish"
-link_file "config/fish/functions/gp.fish" ".config/fish/functions/gp.fish"
-link_file "config/fish/functions/gpl.fish" ".config/fish/functions/gpl.fish"
-link_file "config/fish/functions/gs.fish" ".config/fish/functions/gs.fish"
-link_file "config/fish/functions/gsp.fish" ".config/fish/functions/gsp.fish"
-link_file "config/fish/functions/gst.fish" ".config/fish/functions/gst.fish"
-link_file "config/fish/functions/ls.fish" ".config/fish/functions/ls.fish"
-link_file "config/fish/functions/tree.fish" ".config/fish/functions/tree.fish"
-link_file "config/fish/functions/unp.fish" ".config/fish/functions/unp.fish"
-link_file "config/fish/functions/z.fish" ".config/fish/functions/z.fish"
-
-link_file "config/ghostty/config" ".config/ghostty/config"
-
-link_file "config/hypr/hyprland.conf" ".config/hypr/hyprland.conf"
-link_file "config/hypr/hyprland.lua" ".config/hypr/hyprland.lua"
-link_file "config/hypr/hyprlock.conf" ".config/hypr/hyprlock.conf"
-link_file "config/hypr/hyprpaper.conf" ".config/hypr/hyprpaper.conf"
-link_file "config/hypr/scripts/toggle-workspace-layout" ".config/hypr/scripts/toggle-workspace-layout"
-
-link_file "config/hypremoji/config.json" ".config/hypremoji/config.json"
-link_file "config/hypremoji/hypremoji.conf" ".config/hypremoji/hypremoji.conf"
-
-link_file "config/waybar/config.jsonc" ".config/waybar/config.jsonc"
-link_file "config/waybar/style.css" ".config/waybar/style.css"
-link_file "config/waybar/scripts/workspace-button.py" ".config/waybar/scripts/workspace-button.py"
-link_file "config/waybar/scripts/workspace-watch.py" ".config/waybar/scripts/workspace-watch.py"
-
-link_file "config/zellij/config.kdl" ".config/zellij/config.kdl"
-link_file "config/zellij/layouts/viewshed.kdl" ".config/zellij/layouts/viewshed.kdl"
+while IFS= read -r -d '' source_rel; do
+  case "$source_rel" in
+    home/*)
+      link_file "$source_rel" "${source_rel#home/}"
+      ;;
+    config/*)
+      link_file "$source_rel" ".config/${source_rel#config/}"
+      ;;
+  esac
+done < <(git -C "$repo" ls-files -z)
 
 if [[ "$backup_used" -eq 1 ]]; then
   printf 'backups written to %s\n' "$backup_root"
