@@ -1,3 +1,11 @@
-tags
-history.txt
-env_secret.nu
+*.bak
+*.old
+*.pyc
+*~
+.DS_Store
+__pycache__/
+config/fish/fish_variables
+config/hypr/group-stacks/
+config/waybar/scripts/__pycache__/
+state/
+backups/

@@ -1,0 +1,320 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "spacing": 0,
+  "modules-left": [
+    "custom/ws-1",
+    "custom/ws-2",
+    "custom/ws-3",
+    "custom/ws-4",
+    "custom/ws-5",
+    "custom/ws-6",
+    "custom/ws-7",
+    "custom/ws-8",
+    "custom/ws-9",
+    "custom/ws-10",
+    "custom/ws-11",
+    "custom/ws-12",
+    "custom/ws-13",
+    "custom/ws-14",
+    "custom/ws-15",
+    "custom/ws-16",
+    "custom/ws-17",
+    "custom/ws-18",
+    "custom/ws-19",
+    "custom/ws-20",
+    "tray"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "custom/brightness",
+    "cpu",
+    "memory",
+    "bluetooth",
+    "network"
+  ],
+  "custom/ws-1": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 1",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'"
+  },
+  "custom/ws-2": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 2",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })'"
+  },
+  "custom/ws-3": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 3",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })'"
+  },
+  "custom/ws-4": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 4",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })'"
+  },
+  "custom/ws-5": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 5",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
+  },
+  "custom/ws-6": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 6",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 6 })'"
+  },
+  "custom/ws-7": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 7",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 7 })'"
+  },
+  "custom/ws-8": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 8",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 8 })'"
+  },
+  "custom/ws-9": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 9",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 9 })'"
+  },
+  "custom/ws-10": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 10",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 10 })'"
+  },
+  "custom/ws-11": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 11",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 11 })'"
+  },
+  "custom/ws-12": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 12",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 12 })'"
+  },
+  "custom/ws-13": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 13",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 13 })'"
+  },
+  "custom/ws-14": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 14",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 14 })'"
+  },
+  "custom/ws-15": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 15",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 15 })'"
+  },
+  "custom/ws-16": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 16",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 16 })'"
+  },
+  "custom/ws-17": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 17",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 17 })'"
+  },
+  "custom/ws-18": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 18",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 18 })'"
+  },
+  "custom/ws-19": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 19",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 19 })'"
+  },
+  "custom/ws-20": {
+    "exec": "/home/marchall/.config/waybar/scripts/workspace-button.py 20",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 20 })'"
+  },
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<b>{}</b>"
+      }
+    },
+    "actions": {
+      "on-click-right": "shift_down",
+      "on-click": "shift_up"
+    }
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname}",
+    "on-click": "ghostty --class=org.marchall.nmtui --title=nmtui -e nmtui"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂯",
+    "format-connected-battery": "󰂯",
+    "format-alt": "{device_alias} 󰂯",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+    "on-click": "gsettings set org.blueberry tray-enabled false; blueberry"
+  },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄 ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󰁻",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "transition-to-left": true,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/expand",
+      "pulseaudio",
+      "custom/brightness",
+      "cpu",
+      "memory",
+      "custom/endpoint"
+    ]
+  },
+  "custom/expand": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/endpoint": {
+    "format": "|",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "on-click-right": "pavucontrol -t 3",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "custom/brightness": {
+    "format": "{icon}",
+    "format-icons": " ",
+    "on-scroll-up": "/home/marchall/.local/share/bin/brightness-hypr inc 10",
+    "on-scroll-down": "/home/marchall/.local/share/bin/brightness-hypr dec 10",
+    "on-click": "/home/marchall/.local/share/bin/brightness-hypr night"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰻠",
+    "on-click": "env -u NO_COLOR ghostty --class=org.marchall.btm --title=btm -e btm"
+  },
+  "memory": {
+    "format": "",
+    "tooltip-format": "RAM: {used:0.1f} / {total:0.1f} GiB\nSwap: {swapUsed:0.1f} / {swapTotal:0.1f} GiB"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": ""
+  }
+}

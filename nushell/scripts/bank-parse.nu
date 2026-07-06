@@ -1,1 +1,0 @@
-/home/marchall/documents/small-scripts/bank-parse.nu

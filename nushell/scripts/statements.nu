@@ -1,1 +1,0 @@
-/home/marchall/documents/statements/statements.nu

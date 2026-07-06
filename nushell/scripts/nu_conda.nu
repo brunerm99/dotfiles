@@ -1,1 +1,0 @@
-/home/marchall/.gitclones/nu_scripts/modules/virtual_environments/nu_conda/nu_conda.nu
