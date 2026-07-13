@@ -316,6 +316,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    name  = "flameshot-isolate-from-groups",
+    match = { class = "^(flameshot)$" },
+    float = true,
+    group = "deny",
+})
+
+hl.window_rule({
     name  = "flameshot-pin-float",
     match = {
         class = "^(flameshot)$",

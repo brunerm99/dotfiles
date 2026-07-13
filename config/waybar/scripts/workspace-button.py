@@ -103,7 +103,7 @@ def main():
     active = state.get("active")
 
     if workspace not in workspaces and workspace not in dirty:
-        emit({"text": "", "class": ["workspace-button", "empty"], "tooltip": ""})
+        emit({"text": "", "class": ["workspace-button", "empty"]})
         return 0
 
     classes = ["workspace-button"]
@@ -119,7 +119,6 @@ def main():
         {
             "text": text,
             "class": classes,
-            "tooltip": f"Workspace {workspace}",
         }
     )
     return 0

@@ -24,7 +24,9 @@
     "custom/ws-18",
     "custom/ws-19",
     "custom/ws-20",
-    "tray"
+    "tray",
+    "custom/group-next",
+    "custom/group-prev"
   ],
   "modules-center": [
     "clock"
@@ -214,6 +216,24 @@
   "tray": {
     "icon-size": 14,
     "spacing": 10
+  },
+  "custom/group-next": {
+    "exec": "/home/marchall/.config/waybar/scripts/group-button.py next",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "tooltip": false,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.group.next()'"
+  },
+  "custom/group-prev": {
+    "exec": "/home/marchall/.config/waybar/scripts/group-button.py prev",
+    "return-type": "json",
+    "signal": 9,
+    "hide-empty-text": true,
+    "tooltip": false,
+    "format": "{text}",
+    "on-click": "hyprctl dispatch 'hl.dsp.group.prev()'"
   },
   "network": {
     "format-wifi": "",

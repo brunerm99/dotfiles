@@ -188,6 +188,9 @@ def main():
                                 dirty.discard(active)
                             changed = True
 
+                        elif event in {"activewindow", "activewindowv2"}:
+                            changed = True
+
                         elif event in {"openwindow", "movewindow"}:
                             parts = payload.split(",", 3)
                             if len(parts) >= 2:
