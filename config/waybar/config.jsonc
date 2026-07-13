@@ -35,7 +35,6 @@
     "pulseaudio",
     "custom/brightness",
     "cpu",
-    "memory",
     "bluetooth",
     "network"
   ],
@@ -327,7 +326,7 @@
   "cpu": {
     "interval": 5,
     "format": "󰻠",
-    "on-click": "env -u NO_COLOR ghostty --class=org.marchall.btm --title=btm -e btm"
+    "on-click": "env -u NO_COLOR ghostty --class=org.marchall.systui --title=systui -e /home/marchall/documents/systui/target/release/systui --plots=cpu,ram,gpu,temp"
   },
   "memory": {
     "format": "",

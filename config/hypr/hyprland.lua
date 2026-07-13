@@ -361,13 +361,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name  = "btm-float",
+    name  = "systui-float",
     match = {
-        class = "^(org.marchall.btm)$",
-        title = "^(btm)$",
+        class = "^(org.marchall.systui)$",
+        title = "^(systui)$",
     },
     float = true,
-    size  = { 1000, 700 },
+    size  = { "1600", "900" },
+	center = true,
 })
 
 hl.window_rule({
