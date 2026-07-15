@@ -143,6 +143,19 @@ def parse_workspace_name(value):
         return None
 
 
+def normalize_window_address(value):
+    if not value:
+        return None
+    return str(value).strip().lower().removeprefix("0x") or None
+
+
+def active_window_address():
+    try:
+        return normalize_window_address(hypr_json("activewindow").get("address"))
+    except Exception:
+        return None
+
+
 def socket_path():
     runtime = os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}")
     instance = instance_signature()
@@ -159,6 +172,7 @@ def main():
     dirty = load_dirty()
     clients = clients_by_address()
     active = active_workspace_id()
+    active_address = active_window_address()
     workspaces = workspace_ids()
     write_state(active, workspaces, dirty)
     signal_waybar()
@@ -188,7 +202,15 @@ def main():
                                 dirty.discard(active)
                             changed = True
 
-                        elif event in {"activewindow", "activewindowv2"}:
+                        elif event == "activewindowv2":
+                            # Hyprland can emit active-window events for title-only
+                            # updates. Only refresh when keyboard focus actually moves.
+                            address = normalize_window_address(payload)
+                            if address != active_address:
+                                active_address = address
+                                changed = True
+
+                        elif event in {"togglegroup", "moveintogroup", "moveoutofgroup"}:
                             changed = True
 
                         elif event in {"openwindow", "movewindow"}:
