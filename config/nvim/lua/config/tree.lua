@@ -1,4 +1,5 @@
 local api = require("nvim-tree.api")
+local open_media = require("config.picker").open_media
 
 local function window_config()
   local width = math.max(20, math.min(52, vim.o.columns - 4))
@@ -26,7 +27,20 @@ local function on_attach(buffer)
     }
   end
 
-  vim.keymap.set("n", "l", api.node.open.edit, options("open or expand"))
+  local function open_node()
+    local node = api.tree.get_node_under_cursor()
+    if node and node.type == "file" and open_media(node.absolute_path) then
+      api.tree.close()
+      return
+    end
+
+    api.node.open.edit()
+  end
+
+  vim.keymap.set("n", "<CR>", open_node, options("open or expand"))
+  vim.keymap.set("n", "o", open_node, options("open or expand"))
+  vim.keymap.set("n", "l", open_node, options("open or expand"))
+  vim.keymap.set("n", "<2-LeftMouse>", open_node, options("open or expand"))
   vim.keymap.set("n", "h", api.node.navigate.parent_close, options("collapse folder"))
 end
 

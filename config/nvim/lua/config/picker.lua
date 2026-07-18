@@ -45,6 +45,20 @@ local function media_program(file)
   return extension and media_programs[extension] or nil
 end
 
+local function open_media(file)
+  local program = media_program(file)
+  if not program then
+    return false
+  end
+
+  local job = vim.fn.jobstart({ program, file }, { detach = true })
+  if job <= 0 then
+    vim.notify(("Could not open %s with %s"):format(file, program), vim.log.levels.ERROR)
+  end
+
+  return true
+end
+
 local function open_picker_file(selected, options)
   if #selected ~= 1 then
     require("fzf-lua.actions").file_edit_or_qf(selected, options)
@@ -54,21 +68,16 @@ local function open_picker_file(selected, options)
   local path = require("fzf-lua.path")
   local entry = path.entry_to_file(selected[1], options)
   local file = entry.bufname or entry.path
-  local program = file and media_program(file)
-
-  if not program then
-    require("fzf-lua.actions").file_edit(selected, options)
-    return
-  end
 
   if not path.is_absolute(file) then
     file = vim.fs.joinpath(options.cwd or vim.uv.cwd(), file)
   end
 
-  local job = vim.fn.jobstart({ program, file }, { detach = true })
-  if job <= 0 then
-    vim.notify(("Could not open %s with %s"):format(file, program), vim.log.levels.ERROR)
+  if open_media(file) then
+    return
   end
+
+  require("fzf-lua.actions").file_edit(selected, options)
 end
 
 vim.keymap.set("n", "<leader>f", function()
@@ -97,5 +106,6 @@ end, { desc = "Show keybindings" })
 
 return {
   media_program = media_program,
+  open_media = open_media,
   project_root = project_root,
 }
