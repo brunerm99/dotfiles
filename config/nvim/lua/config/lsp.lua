@@ -26,6 +26,10 @@ require("mason-lspconfig").setup({
   automatic_enable = false,
 })
 
+vim.lsp.config("*", {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
+
 -- Pyright provides richer Python hover documentation. Ruff remains attached
 -- for diagnostics, code actions, and formatting.
 vim.lsp.config("ruff", {
