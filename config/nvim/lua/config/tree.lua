@@ -32,7 +32,7 @@ end
 
 require("nvim-tree").setup({
   on_attach = on_attach,
-  disable_netrw = false,
+  disable_netrw = true,
   hijack_netrw = false,
   hijack_directories = {
     enable = false,
@@ -90,6 +90,26 @@ require("nvim-tree").setup({
       quit_on_open = true,
     },
   },
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  group = vim.api.nvim_create_augroup("directory_landing_page", { clear = true }),
+  once = true,
+  callback = function()
+    local argument = vim.fn.argv(0)
+    if vim.fn.argc() ~= 1 or vim.fn.isdirectory(argument) ~= 1 then
+      return
+    end
+
+    local directory = vim.fs.normalize(vim.fn.fnamemodify(argument, ":p"))
+    vim.schedule(function()
+      vim.api.nvim_set_current_dir(directory)
+      api.tree.open({
+        path = directory,
+        focus = true,
+      })
+    end)
+  end,
 })
 
 vim.keymap.set("n", "<leader>e", function()
