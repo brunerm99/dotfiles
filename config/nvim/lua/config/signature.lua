@@ -19,6 +19,9 @@ end
 local function show_signature()
   vim.lsp.buf.signature_help({
     border = "rounded",
+    close_events = { "BufHidden", "BufLeave", "InsertLeave" },
+    focus = false,
+    focusable = false,
     max_height = 15,
     max_width = 90,
     silent = true,
