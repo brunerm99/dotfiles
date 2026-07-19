@@ -1,4 +1,4 @@
-function ls --wraps='exa --group-directories-first -l' --wraps='exa --group-directories-first -l --git' --description 'alias ls=exa --group-directories-first -l --git'
-  exa --group-directories-first -l --git $argv
-        
+function ls --wraps='eza -l --git --group-directories-first' --wraps='eza -l --group-directories-first' --wraps='eza -l --group-directories-first --git' --description 'alias ls=eza -l --group-directories-first --git'
+  eza -l --group-directories-first --git $argv
+
 end

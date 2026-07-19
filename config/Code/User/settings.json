@@ -1,60 +1,117 @@
 {
-  "workbench.colorTheme": "Sourcegraph Dark",
-  "editor.fontFamily": "'Maple Mono CN'",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports.ruff": "always",
-    "source.organizeImports": "always",
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
   },
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
-  "jupyter.askForKernelRestart": false,
-  "editor.minimap.autohide": "mouseover",
-  "editor.lineNumbers": "relative",
-  "ruff.lint.enable": false,
   "ruff.organizeImports": true,
-  "notebook.formatOnCellExecution": true,
-  "vim.useSystemClipboard": true,
-  "explorer.confirmDelete": false,
-  "window.commandCenter": false,
-  "window.menuBarVisibility": "compact",
-  "workbench.layoutControl.enabled": false,
-  "chat.commandCenter.enabled": false,
-  "notebook.lineNumbers": "on",
-  "lit-html.format.enabled": true,
-  "explorer.confirmDragAndDrop": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "ruff.lint.enable": false,
+  "[typst]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "myriad-dreamin.tinymist"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "mohd-akram.vscode-html-format"
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "aeschli.vscode-css-formatter"
   },
-  "git.blame.editorDecoration.enabled": false,
-  "go.toolsManagement.autoUpdate": true,
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+  "[javascript]": {
+    "editor.maxTokenizationLineLength": 2500,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "security.workspace.trust.untrustedFiles": "open",
-  "python.languageServer": "None",
-  "ruff.exclude": ["pyproject.toml"],
-  "claudeCode.preferredLocation": "panel",
-  "notebook.output.textLineLimit": 60,
-  "notebook.output.scrolling": true,
-  "git.openRepositoryInParentFolders": "always",
-  "notebook.defaultFormatter": "charliermarsh.ruff",
-  "ruff.path": ["/home/marchall/.venvs/dsp/bin/ruff"],
-  "ruff.interpreter": ["/home/marchall/.venvs/dsp/bin/python"],
-  "notebook.confirmDeleteRunningCell": false,
+  "vim.useSystemClipboard": true,
+  "editor.lineNumbers": "relative",
+  "jupyter.askForKernelRestart": false,
+  "editor.fontFamily": "Maple Mono NF CN",
+  "markdown.preview.fontFamily": "Maple Mono NF CN",
+  "notebook.output.fontFamily": "Maple Mono NF CN",
+  "editor.fontLigatures": true,
+  "notebook.lineNumbers": "on",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.stickyScroll.enabled": true,
+  "terminal.integrated.inheritEnv": false,
+  "notebook.output.textLineLimit": 80,
+  "explorer.confirmDragAndDrop": false,
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "notebook.formatOnCellExecution": true,
+  "gitlens.mode.active": "zen",
+  "notebook.consolidatedRunButton": true,
+  "notebook.formatOnSave.enabled": true,
+  "workbench.colorTheme": "Sourcegraph Dark",
+  "window.commandCenter": true,
+  "zenMode.fullScreen": true,
+  "editor.minimap.autohide": "mouseover",
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.scale": 1,
+  "editor.minimap.showSlider": "mouseover",
+  "editor.minimap.side": "right",
+  "editor.hover.delay": 300,
+  "workbench.hover.delay": 1,
+  "workbench.startupEditor": "none",
+  "window.menuBarVisibility": "toggle",
+  "ty.inlayHints.callArgumentNames": false,
+  "workbench.sideBar.location": "right",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.inlayHints.functionReturnTypes": false,
+  "python.analysis.inlayHints.variableTypes": false,
+  "python.analysis.typeCheckingMode": "off",
+  "[shellscript]": {
+    "editor.defaultFormatter": "shakram02.bash-beautify"
+  },
+  "explorer.confirmDelete": false,
   "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "julia.symbolCacheDownload": true,
-  "julia.enableCrashReporter": false,
-  "ty.inlayHints.variableTypes": false,
-  "ty.inlayHints.callArgumentNames": false,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false,
+  "julia.enableTelemetry": false,
+  "[julia]": {
+    "editor.defaultFormatter": "julialang.language-julia"
   },
-  "notebook.codeActionsOnSave": {},
+  "julia.usePlotPane": true,
+  "editor.formatOnSave": true,
+  "todohighlight.include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.php",
+    "**/*.css",
+    "**/*.scss",
+    "**/*.go",
+    "**/*.py",
+    "**/*.md"
+  ],
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "editor.fontSize": 17,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.ruff": "always"
+},
+"notebook.markup.fontFamily": "Maple Mono NF CN",
+"[toml]": {
+  "editor.defaultFormatter": "tamasfe.even-better-toml"
+},
+"workbench.secondarySideBar.defaultVisibility": "hidden",
+"terminal.integrated.fontSize": 16,
+"[json]": {
+  "editor.defaultFormatter": "vscode.json-language-features"
+},
+"claudeCode.preferredLocation": "panel",
+"workbench.editorAssociations": {
+  "*.mmd": "default"
+},
+"go.toolsManagement.autoUpdate": true,
+"editor.suggest.showTypeParameters": false,
+"editor.formatOnType": true,
+"editor.inlayHints.enabled": "off"
 }

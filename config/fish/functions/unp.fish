@@ -1,11 +1,19 @@
 function unp
     for f in $argv
-        set dir (string replace -r '\.\w+$' '' (basename $f))
-        mkdir -p $dir
-        cp $f $dir/
-        pushd $dir
-        command unp (basename $f)
-        rm (basename $f)
-        popd
+        set base (basename "$f")
+        set dir (string replace -r '\.[^.]+$' '' "$base")
+
+        mkdir -p "$dir"
+        cp "$f" "$dir/"
+
+        pushd "$dir" > /dev/null
+
+        if unzip -q "$base"
+            rm "$base"
+        else
+            echo "Failed to unzip: $f"
+        end
+
+        popd > /dev/null
     end
 end

@@ -1,79 +1,31 @@
 // Place your key bindings in this file to override the defaults
 [
-  {
-    "key": "f4",
-    "command": "editor.action.showHover",
-    "when": "editorTextFocus",
-  },
-  {
-    "key": "ctrl+k ctrl+i",
-    "command": "-editor.action.showHover",
-    "when": "editorTextFocus",
-  },
-  {
-    "key": "f3",
-    "command": "editor.action.hideHover",
-  },
-  {
-    "key": "ctrl+=",
-    "command": "editor.action.fontZoomIn",
-  },
-  {
-    "key": "ctrl+-",
-    "command": "editor.action.fontZoomOut",
-  },
-  {
-    "key": "ctrl+=",
-    "command": "-workbench.action.zoomIn",
-  },
-  {
-    "key": "ctrl+-",
-    "command": "-workbench.action.zoomOut",
-  },
-  {
-    "key": "alt+r",
-    "command": "-toggleSearchEditorRegex",
-    "when": "inSearchEditor && searchInputBoxFocus",
-  },
-  {
-    "key": "alt+r",
-    "command": "-workbench.action.terminal.toggleFindRegex",
-    "when": "terminalFindVisible && terminalHasBeenCreated || terminalFindVisible && terminalProcessSupported",
-  },
-  {
-    "key": "alt+r",
-    "command": "-toggleFindRegex",
-    "when": "editorFocus",
-  },
-  {
-    "key": "alt+r",
-    "command": "-toggleSearchRegex",
-    "when": "searchViewletFocus",
-  },
-  {
-    "key": "alt+r",
-    "command": "workbench.action.openRecent",
-  },
-  {
-    "key": "ctrl+r",
-    "command": "-workbench.action.openRecent",
-  },
-  {
-    "key": "ctrl+shift+l",
-    "command": "workbench.view.extension.codexViewContainer",
-  },
-  {
-    "key": "ctrl+shift+i",
-    "command": "workbench.action.focusActiveEditorGroup",
-  },
-  {
-    "key": "ctrl+shift+e",
-    "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
-    "when": "inFilesPicker && inQuickOpen"
-  },
-  {
-    "key": "ctrl+shift+e",
-    "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
-    "when": "inFilesPicker && inQuickOpen"
-  },
+    {
+        "key": "cmd+-",
+        "command": "editor.action.fontZoomOut"
+    },
+    {
+        "key": "cmd+-",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "cmd+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    {
+        "key": "cmd+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "cmd+numpad_subtract",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "alt+r",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    }
 ]

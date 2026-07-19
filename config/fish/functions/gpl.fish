@@ -1,4 +1,4 @@
-function gpl --wraps='git pull' --description 'alias gpl=git pull'
-  git pull $argv
-        
+function gpl --wraps='g pull' --description 'alias gpl=g pull'
+  g pull $argv
+
 end

@@ -1,6 +1,5 @@
 # style
-
-font-family = "Maple Mono CN"
+font-family = "Maple Mono"
 
 palette = 0=#15161e
 palette = 1=#f7768e
@@ -39,11 +38,14 @@ keybind = alt+n=new_split:auto
 keybind = alt+o=new_split:right
 keybind = alt+e=new_split:down
 keybind = alt+f=toggle_split_zoom
-keybind = alt+t=new_tab
 keybind = alt+f4=unbind
+keybind = alt+t=new_tab
 
 keybind = alt+,=jump_to_prompt:-1
 keybind = alt+.=jump_to_prompt:1
 
 keybind = alt+/=toggle_tab_overview
 keybind = alt+i=toggle_quick_terminal
+
+# ssh: copy TERM fallback + auto-install xterm-ghostty terminfo on remotes
+shell-integration-features = ssh-env,ssh-terminfo
