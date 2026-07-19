@@ -3,14 +3,14 @@
 local palette = {
   foreground = "#DDE4FF",
   comment = "#8290A8",
-  blue = "#56B4E9",
-  cyan = "#00D7FF",
-  green = "#00D6A3",
-  yellow = "#F0E442",
-  orange = "#FFB000",
-  vermillion = "#FF6B3D",
-  magenta = "#E78AC3",
-  punctuation = "#AAB6D3",
+  blue = "#6DAFD1",
+  cyan = "#56BDC8",
+  green = "#57B99B",
+  yellow = "#D5C95E",
+  orange = "#C99B62",
+  vermillion = "#D37B67",
+  magenta = "#C68DB5",
+  punctuation = "#98A5C2",
 }
 
 require("tokyonight").setup({

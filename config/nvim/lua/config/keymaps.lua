@@ -50,6 +50,33 @@ end, {
   desc = "Scroll up with acceleration",
 })
 
+vim.keymap.set("n", "<leader>/", function()
+  local previous = vim.fn.bufnr("#")
+  local has_previous_file = previous >= 0
+    and vim.api.nvim_buf_is_valid(previous)
+    and vim.bo[previous].buftype == ""
+    and vim.api.nvim_buf_get_name(previous) ~= ""
+
+  if not has_previous_file then
+    vim.notify("No recent file")
+    return
+  end
+
+  vim.cmd.buffer(previous)
+end, { desc = "Open most recent file" })
+
+-- Ctrl+/ may arrive as Ctrl+_ in terminals without extended keyboard support.
+for _, key in ipairs({ "<C-/>", "<C-_>" }) do
+  vim.keymap.set("n", key, "gcc", {
+    remap = true,
+    desc = "Toggle comment on current line",
+  })
+  vim.keymap.set("x", key, "gc", {
+    remap = true,
+    desc = "Toggle comment on selected lines",
+  })
+end
+
 return {
   scroll_amount = scroll_amount,
 }

@@ -8,6 +8,8 @@ vim.pack.add({
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/windwp/nvim-autopairs",
-})
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
+}, { confirm = false })
 
 require("mason").setup()

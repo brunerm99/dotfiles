@@ -32,6 +32,19 @@ vim.lsp.config("*", {
 
 -- Pyright provides richer Python hover documentation. Ruff remains attached
 -- for diagnostics, code actions, and formatting.
+vim.lsp.config("pyright", {
+  settings = {
+    python = {
+      analysis = {
+        -- Large projects can contain several virtual environments. Resolve
+        -- imports from the configured environment without indexing all of
+        -- their third-party packages at startup.
+        indexing = false,
+      },
+    },
+  },
+})
+
 vim.lsp.config("ruff", {
   init_options = {
     settings = {
@@ -51,16 +64,18 @@ vim.lsp.enable(vim.tbl_keys(servers))
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
-    local map = function(keys, action, description)
-      vim.keymap.set("n", keys, action, {
+    local map = function(keys, action, description, options)
+      vim.keymap.set("n", keys, action, vim.tbl_extend("force", {
         buffer = event.buf,
         desc = "LSP: " .. description,
-      })
+      }, options or {}))
     end
 
     map("gd", vim.lsp.buf.definition, "go to definition")
     map("gi", vim.lsp.buf.implementation, "go to implementation")
-    map("gr", vim.lsp.buf.references, "show references")
+    map("gr", function()
+      require("fzf-lua").lsp_references()
+    end, "show references", { nowait = true })
     map("<leader>rn", vim.lsp.buf.rename, "rename symbol")
     map("<leader>ca", vim.lsp.buf.code_action, "code action")
     map("K", function()

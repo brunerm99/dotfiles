@@ -97,6 +97,26 @@ vim.keymap.set("n", "<leader>g", function()
   require("fzf-lua").live_grep({ cwd = project_root() })
 end, { desc = "Search project text" })
 
+vim.keymap.set("n", "<leader>n", function()
+  local top_level_only = false
+
+  require("fzf-lua").lsp_document_symbols({
+    symbol_style = 3,
+    regex_filter = function(symbol)
+      return not top_level_only or not symbol.text:match("^%s")
+    end,
+    actions = {
+      ["ctrl-o"] = {
+        fn = function()
+          top_level_only = not top_level_only
+        end,
+        reload = true,
+        header = "toggle top level",
+      },
+    },
+  })
+end, { desc = "Outline current file" })
+
 vim.keymap.set("n", "<leader>?", function()
   require("fzf-lua").keymaps({
     modes = { "n", "v", "i" },
