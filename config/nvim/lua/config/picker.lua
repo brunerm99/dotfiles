@@ -36,13 +36,16 @@ local media_programs = {
   webm = "mpv",
 }
 
+local is_macos = vim.uv.os_uname().sysname == "Darwin"
+
 local function project_root()
   return vim.fs.root(0, project_markers) or vim.uv.cwd()
 end
 
 local function media_program(file)
   local extension = file:lower():match("%.([^./]+)$")
-  return extension and media_programs[extension] or nil
+  local program = extension and media_programs[extension] or nil
+  return program and (is_macos and "open" or program) or nil
 end
 
 local function open_media(file)
