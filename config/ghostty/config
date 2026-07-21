@@ -1,7 +1,7 @@
 # style
 font-family = "Maple Mono"
 
-theme = light:TokyoNight Day,dark:TokyoNight
+theme = light:KrakenLight,dark:KrakenDark
 
 # keyboard
 
