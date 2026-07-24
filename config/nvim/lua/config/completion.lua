@@ -14,7 +14,10 @@ cmp.setup({
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
+    ["<C-e>"] = cmp.mapping(function()
+      cmp.abort()
+      require("config.signature").close_signature(nil, true)
+    end, { "i", "s" }),
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   },
   sources = {
