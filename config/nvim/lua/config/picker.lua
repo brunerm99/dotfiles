@@ -106,7 +106,8 @@ vim.keymap.set("n", "<leader>n", function()
   require("fzf-lua").lsp_document_symbols({
     symbol_style = 3,
     regex_filter = function(symbol)
-      return not top_level_only or not symbol.text:match("^%s")
+      return symbol.kind ~= "Variable"
+          and (not top_level_only or not symbol.text:match("^%s"))
     end,
     actions = {
       ["ctrl-o"] = {
