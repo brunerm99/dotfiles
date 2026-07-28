@@ -23,6 +23,11 @@ link_file() {
     return
   fi
 
+  if [[ -e "$target" && "$source" -ef "$target" ]]; then
+    printf 'ok      %s\n' "$target_rel"
+    return
+  fi
+
   local tmp_link
   tmp_link="$(mktemp -u "$(dirname "$target")/.$(basename "$target").tmp.XXXXXX")"
   ln -s "$source" "$tmp_link"

@@ -2,6 +2,7 @@
 *.old
 *.pyc
 *~
+.*.tmp.??????
 .DS_Store
 __pycache__/
 config/fish/fish_variables
