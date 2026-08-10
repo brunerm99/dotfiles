@@ -77,6 +77,31 @@ for _, key in ipairs({ "<C-/>", "<C-_>" }) do
   })
 end
 
+vim.api.nvim_create_user_command("Grip", function()
+  local file = vim.api.nvim_buf_get_name(0)
+  if vim.bo.filetype ~= "markdown" or file == "" then
+    vim.notify("Grip requires a saved Markdown file", vim.log.levels.WARN)
+    return
+  end
+
+  local go_grip = vim.fn.expand("~/go/bin/go-grip")
+  if vim.fn.executable(go_grip) ~= 1 then
+    vim.notify("go-grip is not executable: " .. go_grip, vim.log.levels.ERROR)
+    return
+  end
+
+  local saved, save_error = pcall(vim.cmd.update)
+  if not saved then
+    vim.notify("Could not save Markdown file: " .. save_error, vim.log.levels.ERROR)
+    return
+  end
+
+  local job = vim.fn.jobstart({ go_grip, file })
+  if job <= 0 then
+    vim.notify("Could not start go-grip", vim.log.levels.ERROR)
+  end
+end, { desc = "Preview current Markdown file with go-grip" })
+
 return {
   scroll_amount = scroll_amount,
 }
