@@ -8,12 +8,12 @@ Default interface: **IBM Plex Serif**. Terminal, code, and numeric readouts: **I
 | --- | --- | --- |
 | Background | `#e8e0d8` | `#1e2c31` |
 | Surface | `#ffffff` | `#283a40` |
-| Text | `#2d3e44` | `#d4d0cc` |
-| Muted | `#5a6f76` | `#8fa3ab` |
+| Text | `#243239` | `#d4d0cc` |
+| Muted | `#46585e` | `#8fa3ab` |
 | Border | `#c1c0bc` | `#3d5058` |
 | Accent | `#f07828` | `#f07828` |
 
-The main tokens are preserved. Light ANSI text colors are darker adaptations of the source accents, each meeting 4.5:1 contrast on the paper background. Bright ANSI accents intentionally reuse those readable values. `palette-source.json` records the unmodified input palette.
+The light theme pairs warm paper and orange accents with darker text: body text has 10.1:1 contrast, muted text 5.7:1, and syntax colors at least 5.3:1 on the paper background. Bright ANSI accents reuse the readable normal colors. `palette-source.json` records the surface and accent tokens; each theme’s `colors.toml` defines its terminal text palette.
 
 Open `preview.html` in a browser to compare the two modes. The preview loads IBM Plex fonts from Google Fonts and requires an internet connection for those fonts.
 

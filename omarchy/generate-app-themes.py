@@ -29,7 +29,7 @@ for mode in ('light', 'dark'):
     theme_dir = f'workbench-{mode}'
     c = tomllib.loads((ROOT / theme_dir / 'colors.toml').read_text())
     p = dict(SOURCE[mode], **c)
-    p['orange_text'] = '#a74e15' if mode == 'light' else '#f09050'
+    p['orange_text'] = '#914312' if mode == 'light' else '#f09050'
     PALETTES[mode] = p
     bg, fg, surface, alt, muted, border, accent = [p[k] for k in ('background', 'foreground', 'surface', 'alt', 'muted', 'border', 'accent')]
     red, green, yellow, blue, purple, cyan = [c[f'color{i}'] for i in range(1, 7)]

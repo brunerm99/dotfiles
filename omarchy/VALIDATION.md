@@ -17,3 +17,9 @@ All checks ran in the isolated `omarchy` Git worktree or temporary directories. 
 Limits: no live visual review of the native applications was performed. The VS Code check confirms extension discovery and theme JSON structure, not a rendered workbench. Mako and an Omarchy installation were unavailable on Kraken; their integration follows the inspected Omarchy theme format. The LazyVim adapter and Omarchy-wide switching need a full Omarchy session to validate end to end. Obsidian's snippet still needs enabling in a vault. GTK overlays apply only to GTK 3 and are manually selected; they do not theme Qt or GTK 4/libadwaita.
 
 The Workbench rename was rechecked with deterministic regeneration, an isolated asset install, Ghostty named-theme/font parsing, VS Code extension discovery, Fish function execution, and Neovim dark/light/dark switching. A case-insensitive scan of tracked file contents and paths found no previous brand references.
+
+## Light contrast adjustment — 2026-09-10
+
+Body text now measures 10.11:1, muted text 5.71:1, and syntax/ANSI text at least 5.33:1 against the unchanged paper background. The dark palette and dark-only assets are unchanged; combined Neovim and Obsidian assets retain identical dark sections. Regeneration is deterministic, and the preview uses the same revised light text colors.
+
+On macOS, Ghostty 1.3.1 accepted the installed configuration. Neovim 0.12.4 passed dark → light → dark checks with the existing user configuration, and the running editor was refreshed and queried to confirm the new light foreground and comment colors. Ghostty requires a configuration reload to show its new palette; Fish follows its ANSI colors automatically. These checks confirm configuration and highlight values, without a new native-app screenshot review.
