@@ -41,6 +41,8 @@ custom-shader-animation = false
 
 The outline color stays consistent even when an application changes its cursor color. This preserves text brightness in inactive panes. The outline also appears around a focused terminal with no splits; Ghostty exposes focus to shaders but does not expose the split count. Animation is disabled because the outline only needs to update with terminal redraws. On macOS, reload with **⌘⇧,**. To remove the outline, remove its `custom-shader` line. See the [Ghostty shader reference](https://ghostty.org/docs/config/reference#custom-shader).
 
+The Ghostty snippet also selects a steady block cursor, with dark copper (`#914312`) and white cursor text in light mode, and bright orange (`#f09050`) with charcoal text in dark mode. It increases bar/outline thickness by 2 px for applications that request those shapes. Merge `no-cursor` into any existing `shell-integration-features` list so shell integration does not switch prompts back to a thin bar. Existing shells retain their loaded integration handlers; open a new tab after reloading Ghostty to pick up that behavior.
+
 ## Neovim
 
 `apps/config/nvim/colors/workbench.lua` is a standalone colorscheme with UI, Treesitter, semantic tokens, diagnostics, diffs, GitSigns, picker groups, and terminal colors. It follows `background` and requires no theme plugin.
@@ -49,10 +51,11 @@ In Kraken's `init.lua`, **replace** `require("config.theme")` with:
 
 ```lua
 vim.opt.termguicolors = true
+vim.opt.guicursor = "a:block-blinkon0-Cursor"
 vim.cmd.colorscheme("workbench")
 ```
 
-Restart Neovim afterward. Kraken's existing `config.theme` registers Tokyo Night callbacks that would otherwise reclaim the colorscheme; do not load both initializers. Use `:set background=light` or `:set background=dark` to switch; Neovim reloads the colorscheme. Supported terminals can also report their background preference.
+The cursor setting uses a steady block in every mode and explicitly selects the theme’s cursor highlight. Restart Neovim afterward. Kraken's existing `config.theme` registers Tokyo Night callbacks that would otherwise reclaim the colorscheme; do not load both initializers. Use `:set background=light` or `:set background=dark` to switch; Neovim reloads the colorscheme. Supported terminals can also report their background preference.
 
 The Omarchy theme directories contain a `neovim.lua` LazyVim adapter and a bundled copy of the same colorscheme. Standard Omarchy Neovim loads that adapter during theme changes; restart Neovim if the current session has not picked up the new theme.
 

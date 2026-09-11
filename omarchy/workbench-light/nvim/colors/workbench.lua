@@ -14,7 +14,7 @@ local palettes = {
     blue = "#2d8fbf",
     purple = "#8b5cc4",
     cyan = "#3a9ab5",
-    cursor = "#f07828",
+    cursor = "#914312",
     selection_foreground = "#243239",
     selection_background = "#c1c0bc",
     color0 = "#243239",
@@ -34,6 +34,7 @@ local palettes = {
     color14 = "#205b6c",
     color15 = "#243239",
     orange_text = "#914312",
+    cursor_text = "#ffffff",
   },
   dark = {
     background = "#1e2c31",
@@ -49,7 +50,7 @@ local palettes = {
     blue = "#58c4dd",
     purple = "#a87edb",
     cyan = "#50dbc8",
-    cursor = "#f07828",
+    cursor = "#f09050",
     selection_foreground = "#d4d0cc",
     selection_background = "#283a40",
     color0 = "#2d3e44",
@@ -69,6 +70,7 @@ local palettes = {
     color14 = "#50dbc8",
     color15 = "#d4d0cc",
     orange_text = "#f09050",
+    cursor_text = "#1e2c31",
   },
 }
 vim.cmd.highlight('clear')
@@ -90,8 +92,8 @@ hi('LineNr', p.muted, p.background)
 hi('CursorLineNr', p.orange_text, p.alt)
 hi('CursorLine', nil, p.alt)
 hi('CursorColumn', nil, p.alt)
-hi('Cursor', '#1e2c31', p.accent)
-hi('TermCursor', '#1e2c31', p.accent)
+hi('Cursor', p.cursor_text, p.cursor)
+hi('TermCursor', p.cursor_text, p.cursor)
 hi('Visual', p.selection_foreground, p.selection_background)
 hi('Search', '#1e2c31', p.accent)
 hi('IncSearch', '#1e2c31', p.accent)

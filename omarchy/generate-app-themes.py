@@ -30,14 +30,15 @@ for mode in ('light', 'dark'):
     c = tomllib.loads((ROOT / theme_dir / 'colors.toml').read_text())
     p = dict(SOURCE[mode], **c)
     p['orange_text'] = '#914312' if mode == 'light' else '#f09050'
+    p['cursor_text'] = '#ffffff' if mode == 'light' else '#1e2c31'
     PALETTES[mode] = p
     bg, fg, surface, alt, muted, border, accent = [p[k] for k in ('background', 'foreground', 'surface', 'alt', 'muted', 'border', 'accent')]
     red, green, yellow, blue, purple, cyan = [c[f'color{i}'] for i in range(1, 7)]
     selected = c['selection_background']
     title = 'Workbench ' + mode.title()
     ghostty = '\n'.join(f'{key} = {value}' for key, value in {
-        'background': bg, 'foreground': fg, 'cursor-color': accent,
-        'cursor-text': '#1e2c31', 'selection-background': selected,
+        'background': bg, 'foreground': fg, 'cursor-color': p['cursor'],
+        'cursor-text': p['cursor_text'], 'selection-background': selected,
         'selection-foreground': fg,
     }.items()) + '\n' + ''.join(f'palette = {i}={c[f"color{i}"]}\n' for i in range(16))
     write(f'apps/config/ghostty/themes/Workbench{mode.title()}', ghostty)
@@ -170,8 +171,8 @@ hi('LineNr', p.muted, p.background)
 hi('CursorLineNr', p.orange_text, p.alt)
 hi('CursorLine', nil, p.alt)
 hi('CursorColumn', nil, p.alt)
-hi('Cursor', '#1e2c31', p.accent)
-hi('TermCursor', '#1e2c31', p.accent)
+hi('Cursor', p.cursor_text, p.cursor)
+hi('TermCursor', p.cursor_text, p.cursor)
 hi('Visual', p.selection_foreground, p.selection_background)
 hi('Search', '#1e2c31', p.accent)
 hi('IncSearch', '#1e2c31', p.accent)
@@ -244,6 +245,7 @@ return {
     init = function()
       vim.opt.rtp:prepend(vim.fn.expand('~/.config/omarchy/current/theme/nvim'))
       vim.o.background = MODE
+      vim.opt.guicursor = 'a:block-blinkon0-Cursor'
     end,
     opts = { colorscheme = 'workbench' },
   },
@@ -268,6 +270,13 @@ write('apps/config/fish/functions/workbench.fish', fish)
 write('apps/snippets/ghostty.conf', '''font-family = ""
 font-family = "IBM Plex Mono"
 theme = light:WorkbenchLight,dark:WorkbenchDark
+
+# Keep the cursor solid and prevent shell integration from making it a thin bar.
+cursor-style = block
+cursor-style-blink = false
+cursor-opacity = 1
+adjust-cursor-thickness = 2
+shell-integration-features = no-cursor
 
 # Ghostty 1.3+: mark the active pane while keeping all split text readable.
 unfocused-split-opacity = 1

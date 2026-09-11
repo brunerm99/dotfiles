@@ -1,6 +1,6 @@
 # Workbench palette. Light ANSI colors darkened for readability.
 accent = "#f07828"
-cursor = "#f07828"
+cursor = "#f09050"
 foreground = "#d4d0cc"
 background = "#1e2c31"
 selection_foreground = "#d4d0cc"
