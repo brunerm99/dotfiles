@@ -3,6 +3,12 @@ font-family = "Maple Mono"
 
 theme = light:WorkbenchLight,dark:WorkbenchDark
 
+# A steady block is easier to find; thicken bars requested by other apps too.
+cursor-style = block
+cursor-style-blink = false
+cursor-opacity = 1
+adjust-cursor-thickness = 2
+
 # Keep text readable in every split, including inactive panes.
 unfocused-split-opacity = 1
 
@@ -34,4 +40,4 @@ keybind = alt+/=toggle_tab_overview
 keybind = alt+i=toggle_quick_terminal
 
 # ssh: copy TERM fallback + auto-install xterm-ghostty terminfo on remotes
-shell-integration-features = ssh-env,ssh-terminfo
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo
