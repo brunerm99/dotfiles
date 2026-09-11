@@ -1,7 +1,14 @@
 # style
 font-family = "Maple Mono"
 
-theme = light:KrakenLight,dark:KrakenDark
+theme = light:WorkbenchLight,dark:WorkbenchDark
+
+# Keep text readable in every split, including inactive panes.
+unfocused-split-opacity = 1
+
+# Outline the active pane with the theme's orange accent (Ghostty 1.3+).
+custom-shader = ~/.config/ghostty/shaders/workbench-focus.glsl
+custom-shader-animation = false
 
 # keyboard
 
