@@ -1,7 +1,7 @@
 {
-  "name": "rimeworks-themes",
-  "displayName": "Rimeworks Themes",
-  "publisher": "rimeworks",
+  "name": "workbench-themes",
+  "displayName": "Workbench Themes",
+  "publisher": "workbench",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.80.0"
@@ -9,16 +9,16 @@
   "categories": [
     "Themes"
   ],
-  "description": "Rimeworks light and dark palettes with readable terminal and syntax colors.",
+  "description": "Workbench light and dark palettes with readable terminal and syntax colors.",
   "contributes": {
     "themes": [
       {
-        "label": "Rimeworks Light",
+        "label": "Workbench Light",
         "uiTheme": "vs",
         "path": "./themes/light-color-theme.json"
       },
       {
-        "label": "Rimeworks Dark",
+        "label": "Workbench Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-color-theme.json"
       }

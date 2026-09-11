@@ -5,6 +5,6 @@ return {
       vim.opt.rtp:prepend(vim.fn.expand('~/.config/omarchy/current/theme/nvim'))
       vim.o.background = 'dark'
     end,
-    opts = { colorscheme = 'rimeworks' },
+    opts = { colorscheme = 'workbench' },
   },
 }

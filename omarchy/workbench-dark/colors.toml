@@ -1,4 +1,4 @@
-# Rimeworks style guide v3 (2026-08-28). Light ANSI colors darkened for readability.
+# Workbench palette. Light ANSI colors darkened for readability.
 accent = "#f07828"
 cursor = "#f07828"
 foreground = "#d4d0cc"

@@ -17,7 +17,7 @@ def main():
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     mappings = [
         (root / 'apps/config', args.config_dir),
-        (root / 'apps/vscode/rimeworks-themes', args.extensions_dir / 'rimeworks.rimeworks-themes-0.1.0'),
+        (root / 'apps/vscode/workbench-themes', args.extensions_dir / 'workbench.workbench-themes-0.1.0'),
     ]
     for source_root, destination_root in mappings:
         for source in sorted(source_root.rglob('*')):

@@ -1,8 +1,8 @@
-# Rimeworks for Omarchy
+# Workbench for Omarchy
 
-Light and dark themes based on the light/dark app tokens in Rimeworks style guide v3 (2026-08-28), read from `kraken:~/documents/rimeworks/style-guide.html`.
+Light and dark themes with warm paper, blue-charcoal surfaces, orange accents, and IBM Plex typography.
 
-Default interface: **IBM Plex Serif**. Terminal, code, and numeric readouts: **IBM Plex Mono**. The guide explicitly uses Serif as the product body face.
+Default interface: **IBM Plex Serif**. Terminal, code, and numeric readouts: **IBM Plex Mono**.
 
 | Role | Light | Dark |
 | --- | --- | --- |
@@ -13,7 +13,7 @@ Default interface: **IBM Plex Serif**. Terminal, code, and numeric readouts: **I
 | Border | `#c1c0bc` | `#3d5058` |
 | Accent | `#f07828` | `#f07828` |
 
-The main tokens are preserved. Light ANSI text colors are darker adaptations of the guide's accents, each meeting 4.5:1 contrast on the paper background. Bright ANSI accents intentionally reuse those readable values. `palette-source.json` records the unmodified input palette.
+The main tokens are preserved. Light ANSI text colors are darker adaptations of the source accents, each meeting 4.5:1 contrast on the paper background. Bright ANSI accents intentionally reuse those readable values. `palette-source.json` records the unmodified input palette.
 
 Open `preview.html` in a browser to compare the two modes. The preview loads IBM Plex fonts from Google Fonts and requires an internet connection for those fonts.
 
@@ -30,11 +30,11 @@ These commands are examples to run on the target Linux machine, from the `omarch
 ```bash
 sudo pacman -S --needed ttf-ibm-plex
 mkdir -p ~/.config/omarchy/themes
-cp -R rimeworks-light rimeworks-dark ~/.config/omarchy/themes/
+cp -R workbench-light workbench-dark ~/.config/omarchy/themes/
 
-omarchy-theme-set rimeworks-dark
+omarchy-theme-set workbench-dark
 # Or:
-omarchy-theme-set rimeworks-light
+omarchy-theme-set workbench-light
 ```
 
 Each theme includes `colors.toml`, explicit Ghostty colors, a bundled Neovim colorscheme with a LazyVim adapter, VS Code theme selection, Obsidian CSS, Mako colors and Plex Serif typography, a Hyprland orange focus border with 5px corners, Waybar typography, and Walker colors/typography. The light theme includes `light.mode`. Omarchy generates its other supported app configurations from `colors.toml`.
@@ -46,7 +46,7 @@ Font settings are separate from the color palette. On Omarchy, set the terminal 
 ```bash
 omarchy-font-set "IBM Plex Mono"
 mkdir -p ~/.config/fontconfig/conf.d
-cp fonts/99-rimeworks.conf ~/.config/fontconfig/conf.d/
+cp fonts/99-workbench.conf ~/.config/fontconfig/conf.d/
 fc-cache -f
 gsettings set org.gnome.desktop.interface font-name 'IBM Plex Serif 11'
 gsettings set org.gnome.desktop.interface document-font-name 'IBM Plex Serif 11'
@@ -54,7 +54,7 @@ gsettings set org.gnome.desktop.interface monospace-font-name 'IBM Plex Mono 11'
 omarchy-restart-waybar
 ```
 
-`99-rimeworks.conf` maps both generic UI families (serif and sans-serif) to IBM Plex Serif, and monospace to IBM Plex Mono. Explicit app font choices may still override these defaults. The theme's Waybar selectors keep labels in Serif and readouts in Mono. Existing Nerd Font support is used as an icon fallback; IBM Plex Mono itself is unpatched. Restart affected applications to load changed fonts.
+`99-workbench.conf` maps both generic UI families (serif and sans-serif) to IBM Plex Serif, and monospace to IBM Plex Mono. Explicit app font choices may still override these defaults. The theme's Waybar selectors keep labels in Serif and readouts in Mono. Existing Nerd Font support is used as an icon fallback; IBM Plex Mono itself is unpatched. Restart affected applications to load changed fonts.
 
 ## Scope and verification
 

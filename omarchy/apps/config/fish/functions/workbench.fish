@@ -1,4 +1,4 @@
-function rimeworks --description 'Use the Rimeworks terminal palette for Fish'
+function workbench --description 'Use the Workbench terminal palette for Fish'
     set --global fish_color_normal normal
     set --global fish_color_command blue
     set --global fish_color_param normal

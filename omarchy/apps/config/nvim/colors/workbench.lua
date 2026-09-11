@@ -73,7 +73,7 @@ local palettes = {
 }
 vim.cmd.highlight('clear')
 if vim.fn.exists('syntax_on') == 1 then vim.cmd.syntax('reset') end
-vim.g.colors_name = 'rimeworks'
+vim.g.colors_name = 'workbench'
 local p = palettes[vim.o.background]
 local function hi(name, fg, bg, extra)
   local value = extra or {}
