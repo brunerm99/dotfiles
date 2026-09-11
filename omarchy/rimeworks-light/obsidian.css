@@ -1,0 +1,29 @@
+body.theme-light, body.theme-dark {
+  --background-primary: #e8e0d8;
+  --background-primary-alt: #f0ebe6;
+  --background-secondary: #ffffff;
+  --background-secondary-alt: #f0ebe6;
+  --background-modifier-border: #c1c0bc;
+  --text-normal: #2d3e44;
+  --text-muted: #5a6f76;
+  --text-faint: #5a6f76;
+  --text-accent: #a74e15;
+  --text-accent-hover: #a74e15;
+  --text-on-accent: #1e2c31;
+  --text-selection: #c1c0bc;
+  --interactive-accent: #f07828;
+  --interactive-accent-hover: #f07828;
+  --text-error: #b23a34;
+  --text-success: #1b733c;
+  --link-color: #1e698d;
+  --link-color-hover: #24697d;
+  --code-normal: #24697d;
+  --code-background: #f0ebe6;
+  --graph-line: #c1c0bc;
+  --graph-node: #f07828;
+  --h1-color: #a74e15;
+  --h2-color: #a74e15;
+  --font-interface-theme: "IBM Plex Serif";
+  --font-text-theme: "IBM Plex Serif";
+  --font-monospace-theme: "IBM Plex Mono";
+}

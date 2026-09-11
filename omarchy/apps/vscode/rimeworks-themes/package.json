@@ -1,0 +1,27 @@
+{
+  "name": "rimeworks-themes",
+  "displayName": "Rimeworks Themes",
+  "publisher": "rimeworks",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "description": "Rimeworks light and dark palettes with readable terminal and syntax colors.",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Rimeworks Light",
+        "uiTheme": "vs",
+        "path": "./themes/light-color-theme.json"
+      },
+      {
+        "label": "Rimeworks Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-color-theme.json"
+      }
+    ]
+  }
+}

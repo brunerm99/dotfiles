@@ -1,0 +1,20 @@
+/* Optional GTK 3 overlay for Nemo and other GTK 3 apps. */
+@define-color theme_bg_color #e8e0d8;
+@define-color theme_fg_color #2d3e44;
+@define-color theme_base_color #ffffff;
+@define-color theme_text_color #2d3e44;
+@define-color theme_selected_bg_color #f07828;
+@define-color theme_selected_fg_color #1e2c31;
+@define-color insensitive_fg_color #5a6f76;
+@define-color borders #c1c0bc;
+window { background-color: #e8e0d8; color: #2d3e44; font-family: "IBM Plex Serif"; }
+headerbar, toolbar, statusbar { background-image: none; background-color: #f0ebe6; color: #2d3e44; border-color: #c1c0bc; }
+entry, textview text, treeview, .view { background-color: #ffffff; color: #2d3e44; }
+button { background-image: none; background-color: #ffffff; color: #2d3e44; border-color: #c1c0bc; }
+button:hover { background-color: #f0ebe6; }
+button:checked, button.suggested-action { background-color: #f07828; color: #1e2c31; }
+*:selected, selection { background-color: #f07828; color: #1e2c31; }
+.sidebar, .sidebar .view { background-color: #f0ebe6; color: #2d3e44; }
+menu, menuitem, popover { background-color: #ffffff; color: #2d3e44; }
+menuitem:hover { background-color: #f0ebe6; }
+tooltip { background-color: #ffffff; color: #2d3e44; border-color: #c1c0bc; }

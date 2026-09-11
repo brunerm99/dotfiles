@@ -1,6 +1,6 @@
-# Rimeworks for Omarchy — example
+# Rimeworks for Omarchy
 
-Two starter themes based on the light/dark app tokens in Rimeworks style guide v3 (2026-08-28), read from `kraken:~/documents/rimeworks/style-guide.html`.
+Light and dark themes based on the light/dark app tokens in Rimeworks style guide v3 (2026-08-28), read from `kraken:~/documents/rimeworks/style-guide.html`.
 
 Default interface: **IBM Plex Serif**. Terminal, code, and numeric readouts: **IBM Plex Mono**. The guide explicitly uses Serif as the product body face.
 
@@ -17,6 +17,12 @@ The main tokens are preserved. Light ANSI text colors are darker adaptations of 
 
 Open `preview.html` in a browser to compare the two modes. The preview loads IBM Plex fonts from Google Fonts and requires an internet connection for those fonts.
 
+## App coverage
+
+Native app themes and activation instructions are in [APPS.md](APPS.md): Ghostty, Neovim, Fish, VS Code, Obsidian, and Nemo/GTK 3. Omarchy integration includes Mako notifications, Waybar, Walker, and Hyprland.
+
+Install the app assets first with `python3 install-app-themes.py` (or preview with `--dry-run`). This registers the local VS Code theme extension before Omarchy tries to select it. The installer does not activate themes or rewrite app settings.
+
 ## Try on an Omarchy 3 installation
 
 These commands are examples to run on the target Linux machine, from the `omarchy/` directory in this repository (`cd omarchy`). They have not been run on your computers. If either destination theme already exists, rename or back it up before copying.
@@ -31,7 +37,7 @@ omarchy-theme-set rimeworks-dark
 omarchy-theme-set rimeworks-light
 ```
 
-Each theme includes `colors.toml`, a Hyprland orange focus border with 5px corners, Waybar typography, and Walker colors/typography. The light theme includes `light.mode`. Omarchy generates the remaining app color configurations from `colors.toml`.
+Each theme includes `colors.toml`, explicit Ghostty colors, a bundled Neovim colorscheme with a LazyVim adapter, VS Code theme selection, Obsidian CSS, Mako colors and Plex Serif typography, a Hyprland orange focus border with 5px corners, Waybar typography, and Walker colors/typography. The light theme includes `light.mode`. Omarchy generates its other supported app configurations from `colors.toml`.
 
 ## Font defaults
 
@@ -52,8 +58,10 @@ omarchy-restart-waybar
 
 ## Scope and verification
 
-This is an example palette/theme package, not a full GTK widget theme or a custom Neovim theme. The desktop preview illustrates the design; it is not a screenshot of a running Omarchy session. File-manager surfaces may differ under the target GTK theme. No wallpaper is bundled.
+The desktop preview illustrates the design; it is not a screenshot of a running Omarchy session. GTK styling is an optional GTK 3 overlay; file-manager surfaces can differ with the base GTK theme. No wallpaper is bundled.
 
-Validated palette structure, hexadecimal values, text contrast, fontconfig XML, and the preview's light/dark interaction. Linux/Hyprland runtime testing is still needed. Built against Omarchy's `master` theme format inspected on 2026-09-10; later versions may use different paths or components.
+Validated on Kraken with Ghostty 1.3.1, Neovim 0.12.4, Fish 4.8.1, the native GTK 3 CSS parser, and VS Code's extension scanner. The installer was tested entirely in temporary directories, including dry run, repeat runs, and backups. See [VALIDATION.md](VALIDATION.md). No themes were activated on Kraken, and a complete Omarchy session was not available for end-to-end testing.
+
+Built against Omarchy's `master` theme format inspected on 2026-09-10; later versions may use different paths or components. Regenerate the native app assets with `python3 generate-app-themes.py` after changing the palettes.
 
 Sources: [Omarchy theme manual](https://learn.omacom.io/2/the-omarchy-manual/92/making-your-own-theme), [template generator](https://github.com/omacom/omarchy/blob/master/bin/omarchy-theme-set-templates), [font command](https://github.com/omacom/omarchy/blob/master/bin/omarchy-font-set), [Arch IBM Plex package](https://archlinux.org/packages/extra/any/ttf-ibm-plex/).
