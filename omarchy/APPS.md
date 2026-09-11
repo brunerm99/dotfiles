@@ -31,6 +31,16 @@ The empty font entry clears earlier font families so Plex becomes the primary fo
 
 On Omarchy, the theme directories also contain explicit `ghostty.conf` files. Retain Omarchy's existing include for `~/.config/omarchy/current/theme/ghostty.conf` and set the font separately; do not also add the named-theme selector in that setup. This lets `omarchy-theme-set` remain the color source. Restart Ghostty after changing the font.
 
+For Ghostty 1.3 or newer, the installed focus shader draws a 3 px outline around the active pane, using the theme's orange cursor color in either mode. Add these settings to your main Ghostty config (also included in the standalone snippet):
+
+```ini
+unfocused-split-opacity = 1
+custom-shader = ~/.config/ghostty/shaders/workbench-focus.glsl
+custom-shader-animation = false
+```
+
+This preserves text brightness in inactive panes. The outline also appears around a focused terminal with no splits; Ghostty exposes focus to shaders but does not expose the split count. Animation is disabled because the outline only needs to update with terminal redraws. On macOS, reload with **⌘⇧,**. To remove the outline, remove its `custom-shader` line. See the [Ghostty shader reference](https://ghostty.org/docs/config/reference#custom-shader).
+
 ## Neovim
 
 `apps/config/nvim/colors/workbench.lua` is a standalone colorscheme with UI, Treesitter, semantic tokens, diagnostics, diffs, GitSigns, picker groups, and terminal colors. It follows `background` and requires no theme plugin.

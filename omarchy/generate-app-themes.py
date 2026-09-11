@@ -265,7 +265,15 @@ for key,value in {'prefix':'blue --bold','completion':'normal','description':'br
     fish += f'    set --global fish_pager_color_{key} {value}\n'
 fish += 'end\n'
 write('apps/config/fish/functions/workbench.fish', fish)
-write('apps/snippets/ghostty.conf', 'font-family = ""\nfont-family = "IBM Plex Mono"\ntheme = light:WorkbenchLight,dark:WorkbenchDark\n')
+write('apps/snippets/ghostty.conf', '''font-family = ""
+font-family = "IBM Plex Mono"
+theme = light:WorkbenchLight,dark:WorkbenchDark
+
+# Ghostty 1.3+: mark the active pane while keeping all split text readable.
+unfocused-split-opacity = 1
+custom-shader = ~/.config/ghostty/shaders/workbench-focus.glsl
+custom-shader-animation = false
+''')
 write_json('apps/snippets/vscode-settings.json', {
     'workbench.colorTheme':'Workbench Dark','window.autoDetectColorScheme':True,
     'workbench.preferredDarkColorTheme':'Workbench Dark','workbench.preferredLightColorTheme':'Workbench Light',

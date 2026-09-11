@@ -23,3 +23,7 @@ The Workbench rename was rechecked with deterministic regeneration, an isolated 
 Body text now measures 10.11:1, muted text 5.71:1, and syntax/ANSI text at least 5.33:1 against the unchanged paper background. The dark palette and dark-only assets are unchanged; combined Neovim and Obsidian assets retain identical dark sections. Regeneration is deterministic, and the preview uses the same revised light text colors.
 
 On macOS, Ghostty 1.3.1 accepted the installed configuration. Neovim 0.12.4 passed dark → light → dark checks with the existing user configuration, and the running editor was refreshed and queried to confirm the new light foreground and comment colors. Ghostty requires a configuration reload to show its new palette; Fish follows its ANSI colors automatically. These checks confirm configuration and highlight values, without a new native-app screenshot review.
+
+## Ghostty active-pane outline — 2026-09-10
+
+The focus shader compiled with `glslangValidator` using the documented Ghostty uniforms. An isolated asset install included the shader, and regeneration preserved the shader settings in the Ghostty snippet. On macOS, Ghostty 1.3.1 accepted the installed configuration and resolved the shader path with animation disabled and inactive split opacity set to 1. The outline uses the theme cursor color and changes only the outer 3 px of a focused surface. Live Metal rendering and focus transitions still need checking after the user reloads Ghostty; configuration validation alone does not compile Ghostty's runtime shader.
