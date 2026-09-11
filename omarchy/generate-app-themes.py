@@ -245,7 +245,7 @@ return {
     init = function()
       vim.opt.rtp:prepend(vim.fn.expand('~/.config/omarchy/current/theme/nvim'))
       vim.o.background = MODE
-      vim.opt.guicursor = 'a:block-blinkon0-Cursor'
+      vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block,a:blinkon0-Cursor'
     end,
     opts = { colorscheme = 'workbench' },
   },

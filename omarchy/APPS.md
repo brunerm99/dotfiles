@@ -51,11 +51,11 @@ In Kraken's `init.lua`, **replace** `require("config.theme")` with:
 
 ```lua
 vim.opt.termguicolors = true
-vim.opt.guicursor = "a:block-blinkon0-Cursor"
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block,a:blinkon0-Cursor"
 vim.cmd.colorscheme("workbench")
 ```
 
-The cursor setting uses a steady block in every mode and explicitly selects the theme’s cursor highlight. Restart Neovim afterward. Kraken's existing `config.theme` registers Tokyo Night callbacks that would otherwise reclaim the colorscheme; do not load both initializers. Use `:set background=light` or `:set background=dark` to switch; Neovim reloads the colorscheme. Supported terminals can also report their background preference.
+The cursor setting keeps a block in normal mode, a vertical line in insert mode, and an underline in replace mode. All shapes remain steady and explicitly use the theme’s high-contrast cursor highlight. Restart Neovim afterward. Kraken's existing `config.theme` registers Tokyo Night callbacks that would otherwise reclaim the colorscheme; do not load both initializers. Use `:set background=light` or `:set background=dark` to switch; Neovim reloads the colorscheme. Supported terminals can also report their background preference.
 
 The Omarchy theme directories contain a `neovim.lua` LazyVim adapter and a bundled copy of the same colorscheme. Standard Omarchy Neovim loads that adapter during theme changes; restart Neovim if the current session has not picked up the new theme.
 
