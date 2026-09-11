@@ -7,3 +7,10 @@
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
 - Terminal multiplexer: [zellij](https://zellij.dev/)
 - Other: [small scripts](https://github.com/brunerm99/small-scripts)
+
+## Rimeworks Omarchy themes
+
+The [`omarchy/`](omarchy/README.md) directory contains Rimeworks Light and Dark
+starter themes, IBM Plex Serif/Mono font defaults, and installation instructions.
+Open [`omarchy/preview.html`](omarchy/preview.html) in a browser to compare them.
+The themes are installed separately; the existing `link.sh` does not apply them.

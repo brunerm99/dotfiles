@@ -1,0 +1,14 @@
+@define-color foreground #2d3e44;
+@define-color background #e8e0d8;
+
+window#waybar * {
+  font-family: "IBM Plex Serif", "Symbols Nerd Font";
+}
+window#waybar #clock, window#waybar #cpu, window#waybar #memory,
+window#waybar #battery, window#waybar #workspaces button {
+  font-family: "IBM Plex Mono", "Symbols Nerd Font";
+}
+window#waybar #workspaces button.active {
+  color: #f07828;
+  border-bottom: 2px solid #f07828;
+}

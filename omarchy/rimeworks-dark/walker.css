@@ -1,0 +1,8 @@
+@define-color selected-text #f07828;
+@define-color text #d4d0cc;
+@define-color base #1e2c31;
+@define-color border #3d5058;
+@define-color foreground #d4d0cc;
+@define-color background #1e2c31;
+
+window * { font-family: "IBM Plex Serif", "Symbols Nerd Font"; }
