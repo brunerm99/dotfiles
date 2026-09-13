@@ -21,6 +21,7 @@ cmp.setup({
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
   },
   sources = {
+    { name = "path", option = { trailing_slash = true } },
     { name = "nvim_lsp" },
   },
   window = {
