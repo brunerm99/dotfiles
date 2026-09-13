@@ -33,6 +33,33 @@ vim.lsp.config("*", {
 -- Pyright provides richer Python hover documentation. Ruff remains attached
 -- for diagnostics, code actions, and formatting.
 vim.lsp.config("pyright", {
+  before_init = function(_, config)
+    local python = config.settings.python
+    if python.pythonPath then
+      return
+    end
+
+    local environments = {}
+    for _, variable in ipairs({ "VIRTUAL_ENV", "CONDA_PREFIX" }) do
+      if vim.env[variable] then
+        table.insert(environments, vim.env[variable])
+      end
+    end
+    if config.root_dir then
+      -- These projects also keep a separate Manim Community .venv.
+      for _, name in ipairs({ ".manimgl-local", ".manimgl", ".venv", "venv" }) do
+        table.insert(environments, vim.fs.joinpath(config.root_dir, name))
+      end
+    end
+
+    for _, environment in ipairs(environments) do
+      local executable = vim.fs.joinpath(environment, "bin", "python")
+      if vim.fn.executable(executable) == 1 then
+        python.pythonPath = executable
+        return
+      end
+    end
+  end,
   settings = {
     python = {
       analysis = {
