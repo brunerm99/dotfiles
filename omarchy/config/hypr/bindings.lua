@@ -54,3 +54,10 @@ hl.unbind("SUPER + SHIFT + G") -- Signal
 
 -- Flameshot screenshot selection.
 o.bind("SUPER + I", "Screenshot (Flameshot)", "env QT_QPA_PLATFORM=wayland flameshot gui")
+
+-- Additional workspaces 11–22 on the function-key row.
+for i = 1, 12 do
+  local workspace = tostring(10 + i)
+  o.bind("SUPER + F" .. i, "Switch to workspace " .. workspace, hl.dsp.focus({ workspace = workspace }))
+  o.bind("SUPER + SHIFT + F" .. i, "Move window to workspace " .. workspace, hl.dsp.window.move({ workspace = workspace }))
+end
