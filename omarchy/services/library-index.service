@@ -1,0 +1,17 @@
+[Unit]
+Description=Library Indexer (Docker Compose)
+Requires=docker.service
+After=docker.service
+
+[Service]
+# Replace with the path to your Library checkout. Build the image once while
+# online before enabling this unit; normal startup never builds or downloads.
+WorkingDirectory=/home/marchall/documents/library
+Type=oneshot
+ExecStart=/usr/bin/env docker compose up --no-build -d
+ExecStop=/usr/bin/env docker compose down
+RemainAfterExit=yes
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target

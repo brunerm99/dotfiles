@@ -54,6 +54,7 @@ hl.unbind("SUPER + SHIFT + G") -- Signal
 
 -- Flameshot screenshot selection.
 o.bind("SUPER + I", "Screenshot (Flameshot)", "env QT_QPA_PLATFORM=wayland flameshot gui")
+o.bind("SUPER + U", "Power menu", "omarchy-menu toggle system")
 
 -- Additional workspaces 11–22 on the function-key row.
 for i = 1, 12 do

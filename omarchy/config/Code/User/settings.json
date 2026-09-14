@@ -1,0 +1,8 @@
+{
+  "workbench.colorTheme": "Workbench Dark",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Workbench Dark",
+  "workbench.preferredLightColorTheme": "Workbench Light",
+  "editor.fontFamily": "'IBM Plex Mono', monospace",
+  "terminal.integrated.fontFamily": "IBM Plex Mono"
+}

@@ -1,0 +1,9 @@
+[tools]
+claude = "latest"
+codex = "latest"
+gh = "latest"
+node = "26.8.1"
+pnpm = "10.32.1"
+
+[settings.upgrade]
+auto_prune = false

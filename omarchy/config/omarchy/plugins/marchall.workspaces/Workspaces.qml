@@ -23,7 +23,8 @@ BarWidget {
 
     for (var i = 0; i < values.length; i++) {
       var id = values[i].id
-      if (id > 0 && values[i].toplevels.values.length > 0 && ids.indexOf(id) === -1) ids.push(id)
+      var focused = Hyprland.focusedWorkspace !== null && Hyprland.focusedWorkspace.id === id
+      if (id > 0 && (values[i].toplevels.values.length > 0 || focused) && ids.indexOf(id) === -1) ids.push(id)
     }
 
     ids.sort(function(left, right) { return left - right })
