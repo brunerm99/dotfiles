@@ -13,6 +13,10 @@ theme-set hook keeps the custom GTK 3 overlay on the matching Workbench mode.
 The calendar's W key opens a day view; Google
 event synchronization is not implemented yet and requires OAuth setup.
 
+`user-dirs.dirs` keeps the standard user directories lowercase, including
+`~/documents`. `codex-desktop/settings.toml` records the matching Codex
+projectless-task root; merge its `[desktop]` key into `~/.codex/config.toml`.
+
 The menu clone falls back to the installed AppLibrary QML component when the
 shell injects a null application library. This preserves app discovery, hidden
 entry filtering, icons, and launching. It requires the installed Omarchy shell.

@@ -21,3 +21,11 @@ restore an individual variant through the UI.
 Running `install-app-themes.py` places a copy of the tracked snippet at
 `~/.config/codex-desktop/workbench-theme.toml`. This is a managed reference;
 ChatGPT Desktop reads the merged values from `~/.codex/config.toml`.
+
+General Codex Desktop settings are tracked separately in
+`config/codex-desktop/settings.toml` and copied to
+`~/.config/codex-desktop/settings.toml`. Merge those keys into the existing
+`[desktop]` table in `~/.codex/config.toml`. In particular,
+`projectlessWorkspaceRoot` points projectless tasks at
+`/home/marchall/documents/codex`; without that override, Codex Desktop uses its
+hard-coded `~/Documents/Codex` default instead of the XDG Documents directory.

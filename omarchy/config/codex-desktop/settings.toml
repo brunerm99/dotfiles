@@ -1,0 +1,3 @@
+# Merge these settings into the existing [desktop] table in ~/.codex/config.toml.
+[desktop]
+projectlessWorkspaceRoot = "/home/marchall/documents/codex"
