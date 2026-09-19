@@ -4,7 +4,7 @@
   "name": "Workbench appearance",
   "version": "1.0.0",
   "author": "marchall",
-  "description": "Toggle the system between Workbench Light and Workbench Dark",
+  "description": "Toggle Workbench Light and Workbench Dark without changing the wallpaper",
   "kinds": [
     "bar-widget"
   ],
@@ -13,7 +13,7 @@
   },
   "barWidget": {
     "displayName": "Workbench appearance",
-    "description": "Toggle Workbench Light and Workbench Dark",
+    "description": "Toggle Workbench Light and Workbench Dark without changing the wallpaper",
     "category": "System",
     "allowMultiple": false,
     "defaultSection": "right"

@@ -18,7 +18,9 @@ BarWidget {
 
   function toggleTheme() {
     if (themeProcess.running) return
-    themeProcess.command = ["omarchy", "theme", "set", targetTheme]
+    // The Workbench palettes intentionally ship without wallpapers. Keep the
+    // user's current background instead of asking Omarchy to find one here.
+    themeProcess.command = ["env", "OMARCHY_THEME_SKIP_BACKGROUND=1", "omarchy", "theme", "set", targetTheme]
     themeProcess.running = true
   }
 
