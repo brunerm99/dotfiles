@@ -7,6 +7,7 @@ import tomllib
 ROOT = Path(__file__).resolve().parent
 SOURCE = json.loads((ROOT / 'palette-source.json').read_text())
 PALETTES = {}
+CHATGPT_THEMES = {}
 ANSI_NAMES = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
 
 
@@ -18,6 +19,40 @@ def write(path, text):
 
 def write_json(path, value):
     write(path, json.dumps(value, indent=2) + '\n')
+
+
+def toml_inline(value):
+    if isinstance(value, str):
+        return json.dumps(value)
+    if isinstance(value, bool):
+        return 'true' if value else 'false'
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, dict):
+        fields = ', '.join(f'{key} = {toml_inline(item)}' for key, item in value.items())
+        return f'{{ {fields} }}'
+    raise TypeError(f'Unsupported TOML value: {value!r}')
+
+
+def chatgpt_chrome_theme(palette):
+    return {
+        'accent': palette['accent'],
+        'accentSource': 'custom',
+        'contrast': 50,
+        'fonts': {
+            'code': 'IBM Plex Mono',
+            'content': 'IBM Plex Serif',
+            'ui': 'IBM Plex Serif',
+        },
+        'ink': palette['foreground'],
+        'opaqueWindows': True,
+        'semanticColors': {
+            'diffAdded': palette['color2'],
+            'diffRemoved': palette['color1'],
+            'skill': palette['color5'],
+        },
+        'surface': palette['background'],
+    }
 
 
 def blend(a, b, fraction):
@@ -32,6 +67,7 @@ for mode in ('light', 'dark'):
     p['orange_text'] = '#914312' if mode == 'light' else '#f09050'
     p['cursor_text'] = '#ffffff' if mode == 'light' else '#1e2c31'
     PALETTES[mode] = p
+    CHATGPT_THEMES[mode] = chatgpt_chrome_theme(p)
     bg, fg, surface, alt, muted, border, accent = [p[k] for k in ('background', 'foreground', 'surface', 'alt', 'muted', 'border', 'accent')]
     red, green, yellow, blue, purple, cyan = [c[f'color{i}'] for i in range(1, 7)]
     selected = c['selection_background']
@@ -125,6 +161,15 @@ tooltip {{ background-color: {surface}; color: {fg}; border-color: {border}; }}
         'tokenColors': [{'scope':scope,'settings':{'foreground':color}} for scope,color in syntax],
     })
     write_json(f'{theme_dir}/vscode.json', {'name':title,'extension':'workbench.workbench-themes'})
+    chatgpt_import = {
+        'codeThemeId': 'vscode-plus',
+        'theme': CHATGPT_THEMES[mode],
+        'variant': mode,
+    }
+    write(
+        f'{theme_dir}/chatgpt-desktop.theme',
+        'codex-theme-v1:' + json.dumps(chatgpt_import, separators=(',', ':')) + '\n',
+    )
 
     obs = { 'background-primary':bg,'background-primary-alt':alt,'background-secondary':surface,
             'background-secondary-alt':alt,'background-modifier-border':border,'text-normal':fg,'text-muted':muted,
@@ -137,6 +182,20 @@ tooltip {{ background-color: {surface}; color: {fg}; border-color: {border}; }}
     obs_css = f'body.theme-{mode} {{\n'+''.join(f'  --{key}: {value};\n' for key,value in obs.items())+'}\n'
     obsidian.append(obs_css)
     write(f'{theme_dir}/obsidian.css', obs_css.replace(f'body.theme-{mode}', 'body.theme-light, body.theme-dark'))
+
+desktop_settings = {
+    'appearanceTheme': 'system',
+    'appearanceLightChromeTheme': CHATGPT_THEMES['light'],
+    'appearanceDarkChromeTheme': CHATGPT_THEMES['dark'],
+    'appearanceLightCodeThemeId': 'vscode-plus',
+    'appearanceDarkCodeThemeId': 'vscode-plus',
+}
+write(
+    'apps/config/codex-desktop/workbench-theme.toml',
+    '# Merge these settings into the existing [desktop] table in ~/.codex/config.toml.\n'
+    '[desktop]\n'
+    + ''.join(f'{key} = {toml_inline(value)}\n' for key, value in desktop_settings.items()),
+)
 
 write_json('apps/vscode/workbench-themes/package.json', {
     'name':'workbench-themes','displayName':'Workbench Themes','publisher':'workbench',
@@ -288,4 +347,4 @@ write_json('apps/snippets/vscode-settings.json', {
     'workbench.preferredDarkColorTheme':'Workbench Dark','workbench.preferredLightColorTheme':'Workbench Light',
     'editor.fontFamily':"'IBM Plex Mono', monospace",'terminal.integrated.fontFamily':'IBM Plex Mono',
 })
-print('Generated Ghostty, Neovim, Fish, VS Code, GTK 3, Obsidian, and Mako themes.')
+print('Generated Ghostty, Neovim, Fish, VS Code, ChatGPT Desktop, GTK 3, Obsidian, and Mako themes.')

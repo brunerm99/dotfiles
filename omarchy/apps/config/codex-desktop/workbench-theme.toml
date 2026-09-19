@@ -1,0 +1,7 @@
+# Merge these settings into the existing [desktop] table in ~/.codex/config.toml.
+[desktop]
+appearanceTheme = "system"
+appearanceLightChromeTheme = { accent = "#f07828", accentSource = "custom", contrast = 50, fonts = { code = "IBM Plex Mono", content = "IBM Plex Serif", ui = "IBM Plex Serif" }, ink = "#243239", opaqueWindows = true, semanticColors = { diffAdded = "#176032", diffRemoved = "#9f332e", skill = "#694497" }, surface = "#e8e0d8" }
+appearanceDarkChromeTheme = { accent = "#f07828", accentSource = "custom", contrast = 50, fonts = { code = "IBM Plex Mono", content = "IBM Plex Serif", ui = "IBM Plex Serif" }, ink = "#d4d0cc", opaqueWindows = true, semanticColors = { diffAdded = "#44d47a", diffRemoved = "#fc6255", skill = "#a87edb" }, surface = "#1e2c31" }
+appearanceLightCodeThemeId = "vscode-plus"
+appearanceDarkCodeThemeId = "vscode-plus"
