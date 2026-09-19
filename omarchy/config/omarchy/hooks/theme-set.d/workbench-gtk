@@ -26,3 +26,10 @@ if ! cmp -s "$tmp" "$gtk_css"; then
   chmod --reference="$gtk_css" "$tmp" 2>/dev/null || chmod 644 "$tmp"
   mv "$tmp" "$gtk_css"
 fi
+
+# The GTK portal keeps gtk.css in memory for native file choosers. Reload only
+# the GTK backend so dialogs pick up the new overlay without disturbing screen
+# sharing and other Hyprland portal services.
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl --user try-restart xdg-desktop-portal-gtk.service >/dev/null 2>&1 || true
+fi
