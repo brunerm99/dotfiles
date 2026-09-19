@@ -25,7 +25,8 @@ intentionally absent. Optional app wrappers need their corresponding apps.
 
 Super+U opens the power menu. Super+F1–F12 selects workspaces 11–22; adding Shift
 moves the current window there. The bar shows occupied workspaces and the active
-workspace even when it is empty.
+workspace even when it is empty. When the active workspace uses stacked mode,
+up/down controls appear beside the workspace selector for mouse navigation.
 
 Obsidian uses XWayland with a 1.25 device scale: native Wayland on this machine's
 1.6 monitor scale renders into only part of the window. Its vault has not been
