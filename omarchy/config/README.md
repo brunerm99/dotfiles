@@ -5,8 +5,11 @@ Copy individual files to the matching locations when applying them elsewhere;
 the touchpad name and plugin IDs are machine-specific.
 
 Includes Ghostty tabs and bindings, Hyprland shortcuts and input preferences,
-Fish functions, Workbench app settings, and customized clock, menu, and workspace
-plugins. The calendar's W key opens a day view; Google
+Fish functions, Workbench app settings, and customized appearance, clock, menu,
+and workspace plugins. The appearance button at the right of the bar switches
+the whole Omarchy session between Workbench Light and Workbench Dark. The
+theme-set hook keeps the custom GTK 3 overlay on the matching Workbench mode.
+The calendar's W key opens a day view; Google
 event synchronization is not implemented yet and requires OAuth setup.
 
 The menu clone falls back to the installed AppLibrary QML component when the

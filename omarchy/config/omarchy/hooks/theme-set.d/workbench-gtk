@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -euo pipefail
+
+case "${1:-}" in
+  workbench-light) mode=light ;;
+  workbench-dark) mode=dark ;;
+  *) exit 0 ;;
+esac
+
+gtk_css="$HOME/.config/gtk-3.0/gtk.css"
+import_line="@import url(\"workbench/$mode.css\");"
+mkdir -p "$(dirname "$gtk_css")"
+
+tmp=$(mktemp "${gtk_css}.XXXXXX")
+trap 'rm -f "$tmp"' EXIT
+
+if [[ -f $gtk_css ]] && grep -qE '^@import url\("workbench/(light|dark)\.css"\);$' "$gtk_css"; then
+  sed -E "s#^@import url\(\"workbench/(light|dark)\\.css\"\);\$#$import_line#" "$gtk_css" >"$tmp"
+else
+  printf '%s\n' "$import_line" >"$tmp"
+  [[ ! -f $gtk_css ]] || cat "$gtk_css" >>"$tmp"
+fi
+
+if ! cmp -s "$tmp" "$gtk_css"; then
+  chmod --reference="$gtk_css" "$tmp" 2>/dev/null || chmod 644 "$tmp"
+  mv "$tmp" "$gtk_css"
+fi

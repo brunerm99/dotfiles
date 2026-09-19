@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "marchall.appearance",
+  "name": "Workbench appearance",
+  "version": "1.0.0",
+  "author": "marchall",
+  "description": "Toggle the system between Workbench Light and Workbench Dark",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Workbench appearance",
+    "description": "Toggle Workbench Light and Workbench Dark",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}

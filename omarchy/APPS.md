@@ -93,7 +93,7 @@ The installer places optional overlays under `~/.config/gtk-3.0/workbench/`. Wit
 @import url("workbench/dark.css");
 ```
 
-Use `light.css` for light mode, then restart the application. Do not replace unrelated custom GTK rules. These overlays style common windows, headers, file views, sidebars, entries, buttons, menus, and selections. They are not a complete GTK theme and do not cover Qt/KDE applications or GTK 4/libadwaita. This optional overlay is manually selected and is not automatically switched by Omarchy.
+Use `light.css` for light mode, then restart the application. Do not replace unrelated custom GTK rules. These overlays style common windows, headers, file views, sidebars, entries, buttons, menus, and selections. They are not a complete GTK theme and do not cover Qt/KDE applications or GTK 4/libadwaita. On the configured Omarchy machine, the tracked `workbench-gtk` theme-set hook updates this import automatically when switching between Workbench Light and Workbench Dark.
 
 ## Mako notifications
 
