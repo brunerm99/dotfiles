@@ -1,9 +1,14 @@
 add_newline = false
-format = '$hostname$git_branch$python$conda$env_var$character'
+format = '$hostname$directory$git_branch$python$conda$env_var$character'
 
 [hostname]
 ssh_only = false
 format = '[$hostname](bold blue)'
+
+[directory]
+format = ' [$path](bold cyan)'
+truncation_length = 1
+truncate_to_repo = false
 
 [git_branch]
 symbol = ''
