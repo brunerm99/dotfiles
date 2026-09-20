@@ -5,10 +5,12 @@ Copy individual files to the matching locations when applying them elsewhere;
 the touchpad name and plugin IDs are machine-specific.
 
 Includes Ghostty tabs and bindings, Hyprland shortcuts and input preferences,
-Fish functions, the personal Neovim setup, Workbench app settings, and
-customized appearance, clock, menu, and workspace plugins. The appearance
-button at the right of the bar switches the whole Omarchy session between
-Workbench Light and Workbench Dark while preserving the current wallpaper. The
+Fish functions, the native-package Neovim setup from the Kraken machine,
+Workbench app settings, and customized appearance, clock, menu, and workspace
+plugins. Neovim loads the active Workbench palette and follows live Light/Dark
+theme changes. The appearance button at the right of the bar switches the whole
+Omarchy session between Workbench Light and Workbench Dark while preserving the
+current wallpaper. The
 theme-set hook keeps the custom GTK 3 overlay on the matching Workbench mode.
 The calendar's W key opens a day view; Google
 event synchronization is not implemented yet and requires OAuth setup.
