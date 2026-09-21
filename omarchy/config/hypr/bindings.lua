@@ -42,6 +42,38 @@ local function workspace_selector(workspace)
   return "name:" .. tostring(workspace.name)
 end
 
+local function workspace_key(workspace)
+  return tostring(workspace.id) .. ":" .. tostring(workspace.name)
+end
+
+local workspace_layouts_dir = require("default.hypr.paths").state_home .. "/omarchy/workspace-layouts"
+
+local function persist_workspace_layout(workspace, layout, pre_stack_layout)
+  os.execute("mkdir -p -- " .. string.format("%q", workspace_layouts_dir))
+
+  local layout_file, open_error = io.open(workspace_layouts_dir .. "/" .. tostring(workspace.id) .. ".lua", "w")
+  if not layout_file then
+    print("Could not persist workspace layout: " .. tostring(open_error))
+    return
+  end
+
+  layout_file:write(string.format(
+    "hl.workspace_rule({ workspace = %q, layout = %q })\n",
+    workspace_selector(workspace),
+    layout
+  ))
+
+  if pre_stack_layout then
+    layout_file:write(string.format(
+      "o.pre_stack_layouts[%q] = %q\n",
+      workspace_key(workspace),
+      pre_stack_layout
+    ))
+  end
+
+  layout_file:close()
+end
+
 o.pre_stack_layouts = o.pre_stack_layouts or {}
 
 function o.toggle_workspace_stack()
@@ -50,16 +82,22 @@ function o.toggle_workspace_stack()
     return
   end
 
-  local workspace_key = tostring(workspace.id) .. ":" .. tostring(workspace.name)
+  local key = workspace_key(workspace)
   local next_layout
+  local pre_stack_layout
 
   if workspace.tiled_layout == "monocle" then
-    next_layout = o.pre_stack_layouts[workspace_key] or "dwindle"
-    o.pre_stack_layouts[workspace_key] = nil
+    next_layout = o.pre_stack_layouts[key] or "dwindle"
+    o.pre_stack_layouts[key] = nil
   else
-    o.pre_stack_layouts[workspace_key] = workspace.tiled_layout
+    pre_stack_layout = workspace.tiled_layout
+    o.pre_stack_layouts[key] = pre_stack_layout
     next_layout = "monocle"
   end
+
+  -- Hyprland reloads its config during every theme change. Store the dynamic
+  -- workspace rule where Omarchy reloads saved layouts so the mode survives.
+  persist_workspace_layout(workspace, next_layout, pre_stack_layout)
 
   hl.workspace_rule({
     workspace = workspace_selector(workspace),
