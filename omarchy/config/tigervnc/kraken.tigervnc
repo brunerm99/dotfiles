@@ -3,7 +3,6 @@ TigerVNC Configuration file Version 1.0
 ServerName=kraken
 X509CA=/home/marchall/.config/tigervnc/x509_ca.pem
 SecurityTypes=X509Plain
-RemoteResize=0
 Shared=1
 AcceptClipboard=1
 SendClipboard=1
