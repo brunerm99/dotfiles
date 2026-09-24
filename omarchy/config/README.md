@@ -46,6 +46,10 @@ machine. Credentials are not included here.
 Flameshot must be installed for Super+I. Discord and WhatsApp remain available
 without keybindings. X and YouTube launchers were removed from the live machine.
 
+TigerVNC is configured for encrypted access to Kraken over Tailscale. Run
+`vnc-kraken`, then authenticate as `marchall` with the Kraken Linux password.
+The checked-in certificate is public; private keys and credentials stay off-repo.
+
 The pointer size is also applied through GSettings:
 
 ```sh
