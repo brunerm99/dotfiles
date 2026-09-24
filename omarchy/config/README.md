@@ -49,6 +49,10 @@ without keybindings. X and YouTube launchers were removed from the live machine.
 TigerVNC is configured for encrypted access to Kraken over Tailscale. Run
 `vnc-kraken`, then authenticate as `marchall` with the Kraken Linux password.
 The checked-in certificate is public; private keys and credentials stay off-repo.
+Kraken's WayVNC service renders the remote cursor and restarts after each
+disconnect so stale remote input state cannot carry into a later session. Its
+virtual keyboard matches Odell's US Colemak layout without changing Kraken's
+physical keyboard layout.
 
 The pointer size is also applied through GSettings:
 

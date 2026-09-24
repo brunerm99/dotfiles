@@ -1,0 +1,13 @@
+[Unit]
+Description=WayVNC desktop access over Tailscale
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wayvnc --config=%h/.config/wayvnc/config --verbose --disable-resizing --render-cursor --exit-on-disconnect --name=Kraken
+Restart=always
+RestartSec=1
+UMask=0077
+
+[Install]
+WantedBy=default.target

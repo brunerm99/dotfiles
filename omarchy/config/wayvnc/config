@@ -1,0 +1,16 @@
+# Listen only on Kraken's Tailscale address.
+address=100.80.142.87
+port=5900
+enable_auth=true
+enable_pam=true
+
+# Require encrypted authentication with the certificate stored off-repo.
+relax_encryption=false
+allow_broken_crypto=false
+private_key_file=/home/marchall/.local/share/wayvnc/tls-key.pem
+certificate_file=/home/marchall/.local/share/wayvnc/tls-cert.pem
+
+# Match the keyboard layout used by the VNC client on Odell.
+xkb_layout=us
+xkb_variant=colemak
+xkb_options=caps:escape,shift:both_capslock_cancel
