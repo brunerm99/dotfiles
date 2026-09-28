@@ -51,7 +51,8 @@ opens the focused terminal's current directory in Omafiles. Kraken appears in
 the NETWORK sidebar through `omafiles/network.toml`; select it to mount its
 filesystem over SFTP using the existing SSH key. GVfs provides local paths for
 Omafiles to browse. Select a JPG or PNG on Kraken and press Space for a larger
-preview. Omafiles 0.0.9 does not preview HEIC images.
+preview. Omafiles 0.0.9 does not preview HEIC images; open them in imv from
+Omafiles instead.
 
 TigerVNC is configured for encrypted access to Kraken over Tailscale. Run
 `vnc-kraken`, then authenticate as `marchall` with the Kraken Linux password.
