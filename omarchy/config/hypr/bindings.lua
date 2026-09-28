@@ -168,6 +168,9 @@ hl.unbind("SUPER + SHIFT + G") -- Signal
 o.bind("SUPER + I", "Screenshot (Flameshot)", "env QT_QPA_PLATFORM=wayland flameshot gui")
 o.bind("SUPER + U", "Power menu", "omarchy-menu toggle system")
 
+-- Use Omafiles for Omarchy's file-manager shortcuts (previously Nautilus).
+dofile("/usr/share/omafiles/hypr-bindings.lua")
+
 -- Additional workspaces 11–22 on the function-key row.
 for i = 1, 12 do
   local workspace = tostring(10 + i)
