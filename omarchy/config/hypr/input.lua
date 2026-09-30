@@ -57,15 +57,29 @@
 -- hl.gesture({ fingers = 3, direction = "right", action = function() hl.dispatch(hl.dsp.focus({ direction = "r" })) end })
 
 -- Personal keyboard layout and touchpad scrolling.
-hl.device({ name = "elan-touchpad", sensitivity = 0.1 })
+-- Moderate pointer acceleration: precise small motions and quicker screen crossing.
+hl.device({
+  name = "elan-touchpad",
+  sensitivity = 0.25,
+  accel_profile = "adaptive",
+})
 
 hl.config({
   input = {
     kb_layout = "us",
     kb_variant = "colemak",
     kb_options = "caps:escape,shift:both_capslock_cancel",
+    -- Focus follows the pointer: moving the cursor over a window focuses it.
+    follow_mouse = 1,
     touchpad = {
       natural_scroll = true,
+      -- Keep the pointer responsive immediately after typing.
+      disable_while_typing = false,
+      -- Keep direct two-finger movement controlled; momentum is handled by each app.
+      scroll_factor = 0.4,
     },
   },
 })
+
+-- Three-finger horizontal swipes move between workspaces.
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
