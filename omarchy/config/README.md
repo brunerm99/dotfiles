@@ -18,7 +18,8 @@ event synchronization is not implemented yet and requires OAuth setup.
 `user-dirs.dirs` keeps the standard user directories lowercase, including
 `~/documents`. `codex-desktop/settings.toml` records the matching Codex
 projectless-task root; merge its `[desktop]` key into `~/.codex/config.toml`.
-`codex/hooks.json` opens local images in feh after Codex CLI calls `view_image`.
+`codex/hooks.json` prints a clickable link after Codex CLI calls `view_image`.
+In Ghostty, Ctrl+click that `file://` link to open it in the default image viewer.
 Copy the `codex` directory to `~/.config/codex`, link `~/.codex/hooks.json` to
 `~/.config/codex/hooks.json`, then review and trust the hook with `/hooks` in
 Codex CLI. Codex requires this trust step before running user hooks.

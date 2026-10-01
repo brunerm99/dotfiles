@@ -8,7 +8,7 @@
             "type": "command",
             "command": "python3 \"$HOME/.config/codex/hooks/open-viewed-image.py\"",
             "timeout": 5,
-            "statusMessage": "Opening viewed image"
+            "statusMessage": "Linking viewed image"
           }
         ]
       }

@@ -1,9 +1,7 @@
-"""Open images inspected by Codex CLI in feh."""
+"""Give Codex CLI a clickable file URL after it views a local image."""
 
 import json
-import os
 from pathlib import Path
-import subprocess
 import sys
 
 
@@ -16,22 +14,15 @@ def main():
         if isinstance(response, dict) and response.get("isError"):
             return
         path = event.get("tool_input", {}).get("path")
-        if not isinstance(path, str) or not path or not os.environ.get("DISPLAY"):
+        if not isinstance(path, str) or not path:
             return
         image = Path(path).expanduser()
         if not image.is_absolute():
             image = Path(event["cwd"]) / image
         if not image.is_file():
             return
-        subprocess.Popen(
-            ["feh", "--scale-down", "--", str(image)],
-            stdin=subprocess.DEVNULL,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            start_new_session=True,
-        )
+        print(json.dumps({"systemMessage": f"Open viewed image: {image.resolve().as_uri()}"}))
     except (KeyError, OSError, TypeError, ValueError):
-        # Image viewing in Codex should still succeed if feh is unavailable.
         return
 
 
