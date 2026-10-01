@@ -31,6 +31,8 @@ The empty font entry clears earlier font families so Plex becomes the primary fo
 
 On Omarchy, the theme directories also contain explicit `ghostty.conf` files. Retain Omarchy's existing include for `~/.config/omarchy/current/theme/ghostty.conf` and set the font separately; do not also add the named-theme selector in that setup. This lets `omarchy-theme-set` remain the color source. Restart Ghostty after changing the font.
 
+Set `minimum-contrast = 4.5` in the main Ghostty config (also included in the standalone snippet). Applications such as Codex can supply RGB colors directly, bypassing the theme's ANSI palette, or retain colors after a light/dark switch. Ghostty adjusts text against each cell's background to keep those combinations readable. Reload running terminals with `omarchy restart terminal` on Omarchy. See the [Ghostty contrast reference](https://ghostty.org/docs/config/reference#minimum-contrast).
+
 For Ghostty 1.3 or newer, the installed focus shader draws a 3 px outline around the active pane, using the fixed Workbench orange accent (`#f07828`) in either mode. Add these settings to your main Ghostty config (also included in the standalone snippet):
 
 ```ini

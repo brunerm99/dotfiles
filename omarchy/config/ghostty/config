@@ -44,6 +44,9 @@ async-backend = epoll
 # Terminal preferences from dotfiles/kitty.
 font-feature = -calt
 
+# Keep application-supplied colors readable in both light and dark themes.
+minimum-contrast = 4.5
+
 # Workbench cursor and focused-pane outline.
 cursor-opacity = 1
 adjust-cursor-thickness = 2

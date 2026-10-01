@@ -330,6 +330,9 @@ write('apps/snippets/ghostty.conf', '''font-family = ""
 font-family = "IBM Plex Mono"
 theme = light:WorkbenchLight,dark:WorkbenchDark
 
+# Keep application-supplied colors readable in both light and dark themes.
+minimum-contrast = 4.5
+
 # Keep the cursor solid and prevent shell integration from making it a thin bar.
 cursor-style = block
 cursor-style-blink = false
