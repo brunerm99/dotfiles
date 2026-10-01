@@ -153,6 +153,13 @@ o.bind("SUPER + L", "Focus on right window", hl.dsp.focus({ direction = "r" }))
 -- Keybindings menu, alongside Vim-style focus navigation.
 o.bind("SUPER + SHIFT + K", "Keybindings", "omarchy-menu-keybindings")
 
+-- Move the active workspace between monitors.
+-- These keys previously opened Music and the Editor.
+hl.unbind("SUPER + SHIFT + M")
+hl.unbind("SUPER + SHIFT + N")
+o.bind("SUPER + SHIFT + M", "Move workspace to next monitor", hl.dsp.workspace.move({ monitor = "+1" }))
+o.bind("SUPER + SHIFT + N", "Move workspace to previous monitor", hl.dsp.workspace.move({ monitor = "-1" }))
+
 -- Open the top-bar calendar instead of a calendar web app.
 hl.unbind("SUPER + SHIFT + C")
 o.bind("SUPER + SHIFT + C", "Calendar", "omarchy-shell marchall.clock toggle")
