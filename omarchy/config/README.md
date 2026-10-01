@@ -18,6 +18,10 @@ event synchronization is not implemented yet and requires OAuth setup.
 `user-dirs.dirs` keeps the standard user directories lowercase, including
 `~/documents`. `codex-desktop/settings.toml` records the matching Codex
 projectless-task root; merge its `[desktop]` key into `~/.codex/config.toml`.
+`codex/hooks.json` opens local images in feh after Codex CLI calls `view_image`.
+Copy the `codex` directory to `~/.config/codex`, link `~/.codex/hooks.json` to
+`~/.config/codex/hooks.json`, then review and trust the hook with `/hooks` in
+Codex CLI. Codex requires this trust step before running user hooks.
 
 The menu clone falls back to the installed AppLibrary QML component when the
 shell injects a null application library. This preserves app discovery, hidden
