@@ -1,9 +1,13 @@
 # Fan curve for the ThinkPad T480s (odell). Installed as /etc/thinkfan.yaml.
 #
-# The firmware curve takes about 10 s to react to a load spike and stops near
-# 5100 rpm. This keeps the firmware in charge while the CPU is cool, jumps to
-# the top regulated level as soon as it warms up, and lets the fan run
-# unregulated ("disengaged") under sustained load.
+# The firmware curve stops near 5100 rpm; unregulated ("disengaged") the fan
+# reaches about 6450 rpm. This leaves the firmware in charge while the CPU is
+# cool and hands sustained load to the faster levels.
+#
+# The package sensor swings 30 °C within a second on short bursts, so the
+# bands are wide and thinkfan runs with a negative bias (see the
+# thinkfan.service drop-in) to ignore spikes that are over before the
+# heatsink warms up.
 
 sensors:
   # CPU package temperature (coretemp temp1_input), found by driver name so the
@@ -19,6 +23,6 @@ levels:
   # [fan level, lower limit °C, upper limit °C]
   # A level is left for the next one above its upper limit and for the
   # previous one below its lower limit.
-  - ["level auto", 0, 70]
-  - [7, 64, 82]
+  - ["level auto", 0, 76]
+  - [7, 64, 86]
   - ["level disengaged", 76, 255]
