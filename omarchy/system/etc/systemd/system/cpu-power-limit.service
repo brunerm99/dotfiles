@@ -1,0 +1,14 @@
+[Unit]
+Description=Raise the firmware (MMIO) CPU power limit to match the MSR limit
+# The lower of the MSR and MMIO long-term limits wins. thermald's adaptive
+# mode drives the MMIO one down to 15 W; with thermald disabled this keeps it
+# at 44 W so the CPU is limited by temperature (97 °C) instead.
+After=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+ConditionPathExists=/sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo 44000000 > "/sys/class/powercap/intel-rapl-mmio:0/constraint_0_power_limit_uw"'
+
+[Install]
+WantedBy=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
