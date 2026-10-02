@@ -4,7 +4,7 @@ fish_add_path --append --path ~/.local/bin ~/.local/share/mise/shims ~/.cargo/bi
 
 if status is-interactive
     set -g fish_greeting
-    mise activate fish | source
+    # mise is activated by its packaged vendor_conf.d/mise-activate.fish.
     starship init fish | source
     workbench
     # Alt+S adds/removes sudo on the current command.
