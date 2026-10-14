@@ -1,0 +1,7 @@
+#!/bin/sh
+# Give Taildrop the current desktop environment after each Hyprland login.
+set -eu
+if systemctl --user is-enabled --quiet taildrop-receive.service; then
+    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+    systemctl --user restart taildrop-receive.service
+fi

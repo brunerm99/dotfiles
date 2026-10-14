@@ -1,0 +1,13 @@
+[Unit]
+Description=Receive Taildrop files and select them in Nemo
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/.config/workbench/taildrop-receive.py %h/downloads/Taildrop
+Restart=always
+RestartSec=5
+UMask=0077
+
+[Install]
+WantedBy=default.target

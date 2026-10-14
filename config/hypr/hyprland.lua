@@ -47,6 +47,7 @@ local sym         = "/home/marchall/documents/sym/symbol-picker.sh"
 -------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("/home/marchall/.config/workbench/taildrop-session-start")
     hl.exec_cmd("waybar & hyprpaper & hyprsunset")
     hl.exec_cmd("/home/marchall/.config/waybar/scripts/workspace-watch.py")
 end)
